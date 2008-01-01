@@ -34,7 +34,6 @@ background-repeat: no-repeat;
 position: relative;
 width: 800px;
 height: 600px;
-outline: 1px solid white;
 }
 
 #difficulty
@@ -46,6 +45,10 @@ height: 124px;
 position:absolute;
 left: 80px;
 top: 130px;
+color: white;
+padding-top: 50px;
+text-align: center;
+font-size: 30px;
 }
 
 #prompt_card
