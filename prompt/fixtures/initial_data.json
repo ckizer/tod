@@ -1,0 +1,32 @@
+[
+    {
+        "pk": 1, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "difficulty": 1, 
+            "is_complete": true, 
+            "name": "The Bunny Dare", 
+            "description": "Act like a bunny. Make bunny faces, hop around the room, and shake your little bunny tail."
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "difficulty": 3, 
+            "is_complete": true, 
+            "name": "Lap Dance Dare", 
+            "description": "Start playing a sexy song and give another player a lap dance for the entire song."
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "difficulty": 5, 
+            "is_complete": true, 
+            "name": "Striptease Dare", 
+            "description": "Start some sexy music and slowly strip down to your underwear in front of the other players."
+        }
+    }
+]

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<ul id="prompt_list">
+{% for object in object_list %}
+<li>
+  <form action="/prompt/{{object.id}}/delete/" method="post"><input type="image" src="/media/images/delete.png" alt="delete" /></form> 
+  {{ object.difficulty }}: {{object.name}}: {{object.description}} 
+</li>
+{% endfor%}
+</ul>
+<p><a href="/prompt/create/">Create a New Dare</a></p>
+<p><a href="/prompt/play/">Play Truth or Dare!</a></p>
+
+{% endblock %}
