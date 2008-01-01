@@ -13,7 +13,7 @@ CURRENT_PATH = os.path.dirname(os.path.realpath(__file__))
 PROJECT_NAME = "tod"
 
 DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = 'db_data'             # Or path to database file if using sqlite3.
+DATABASE_NAME = CURRENT_PATH + '/db_data'             # Or path to database file if using sqlite3.
 DATABASE_USER = ''             # Not used with sqlite3.
 DATABASE_PASSWORD = ''         # Not used with sqlite3.
 DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
@@ -48,7 +48,7 @@ MEDIA_URL = '/media/'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/admin_media/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '7vxqk_2xhn!!m=ns9qjs%w#8(az&@4@a3gz9d)y4p)iln*8420'

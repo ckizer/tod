@@ -57,6 +57,23 @@ text-align: center;
 padding: 20px;
 }
 
+#buttons
+{
+margin: auto;
+width:363px;
+}
+
+#complete
+{
+width: 40%;
+}
+
+#wimp_out
+{
+width: 40%;
+float: right;
+}
+
 #prompt_list li
 {
 color: white;

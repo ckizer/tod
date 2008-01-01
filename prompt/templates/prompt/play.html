@@ -6,7 +6,9 @@
 <p id="description">{{current_prompt.description}}</p>
 <p id="difficulty"> Difficulty: {{current_prompt.difficulty}}</p>
 </div>
-<p><form action="/prompt/{{current_prompt.id}}/complete/" method="post"><input type="image" src="/media/images/complete.png" alt="complete" /></form></p>
-<p><form action="/prompt/{{current_prompt.id}}/wimp_out/" method="post"><input type="image" src="/media/images/wimp_out.png" alt="wimp_out" /></form></p>
+<div id="buttons">
+<div id="wimp_out"><form action="/prompt/{{current_prompt.id}}/wimp_out/" method="post"><input type="image" src="/media/images/wimp_out.png" alt="wimp_out" /></form></div>
+<div id="complete"><form action="/prompt/{{current_prompt.id}}/complete/" method="post"><input type="image" src="/media/images/complete.png" alt="complete" /></form></div>
+</div>
 </div>
 {% endblock %}
