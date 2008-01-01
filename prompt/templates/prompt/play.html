@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 <div id="curtain">
+<div id="difficulty">{{ current_prompt.difficulty }}</div>
 <div id="prompt_card">
 <h2>{{current_prompt.name}}</h2>
-<p id="description">{{current_prompt.description}}</p>
-<p id="difficulty"> Difficulty: {{current_prompt.difficulty}}</p>
+<p id="description">{{ current_prompt.description }}</p>
 </div>
 <div id="buttons">
 <div id="wimp_out"><form action="/prompt/{{current_prompt.id}}/wimp_out/" method="post"><input type="image" src="/media/images/wimp_out.png" alt="wimp_out" /></form></div>

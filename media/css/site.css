@@ -9,7 +9,6 @@ body
 		background-color: black;
 		width: 800px;
 		margin: auto;
-		padding: 20px;
 }
 
 #header
@@ -32,15 +31,29 @@ left: -1000px;
 {
 background-image: url("/media/images/background.png");
 background-repeat: no-repeat;
-padding-top: 55px;
+position: relative;
 width: 800px;
 height: 600px;
+outline: 1px solid white;
+}
+
+#difficulty
+{
+background-image: url("/media/images/difficulty.png");
+background-repeat: no-repeat;
+width: 75px;
+height: 124px;
+position:absolute;
+left: 80px;
+top: 130px;
 }
 
 #prompt_card
 {
 background-image: url("/media/images/prompt_card.png");
 margin: auto;
+position: relative;
+top: 50px;
 width: 363px;
 height: 354px;
 color: white;
@@ -60,6 +73,8 @@ padding: 20px;
 #buttons
 {
 margin: auto;
+position: relative;
+bottom: 0px;
 width:363px;
 }
 
