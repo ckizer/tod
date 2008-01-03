@@ -82,4 +82,5 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'tod.prompt',
+    'tod.game',
 )

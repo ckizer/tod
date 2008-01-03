@@ -1,10 +1,16 @@
 from django.db import models
 
 class Game(models.Model):
-    name = models.Charfield(max_length=50)
+    name = models.CharField(max_length=5)
+
+    def __str__(self):
+        return self.name
 
 
 class Player(models.Model):
-    name = models.Charfield(max_length=50)
+    name = models.CharField(max_length=50)
     game = models.ForeignKey('Game')
-    score = models.IntegerField()
+    score = models.IntegerField(default=0, blank=True)
+    
+    def __str__(self):
+        return self.name
