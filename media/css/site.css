@@ -2,6 +2,7 @@ body
 {
 		background-color: black;
 		font-family: arial;
+		color: white;
 }
 
 #content
@@ -9,6 +10,7 @@ body
 		background-color: black;
 		width: 800px;
 		margin: auto;
+		color: white;
 }
 
 #header
@@ -19,6 +21,7 @@ width: 500px;
 height: 110px;
 margin: auto;
 margin-top: 20px;
+color: white;
 }
 
 #header h1
@@ -92,7 +95,7 @@ width: 40%;
 float: right;
 }
 
-#prompt_list li
+#prompt_list li, #game_list li
 {
 color: white;
 outline: 1px solid white;

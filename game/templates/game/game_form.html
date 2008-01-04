@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="create_game">
+  <form action="." method="post">
+	<p><label for="id_name">Name:</label> {{ form.name }}</p>
+	<input type="submit" name="create" value="create" />
+	</form>
+</div>
+{% endblock %}
