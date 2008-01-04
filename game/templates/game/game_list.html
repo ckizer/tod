@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
+<p>Create a <a href="/game/create/">New Game</a></p>
 <ul id="game_list">
 {% for object in object_list %}
 <li>
@@ -9,6 +10,5 @@
 </li>
 {% endfor%}
 </ul>
-<p><a href="/game/create/">Create a New Game</a></p>
 
 {% endblock %}

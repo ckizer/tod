@@ -13,6 +13,11 @@ body
 		color: white;
 }
 
+a
+{
+		color: white;	
+}
+
 #header
 {
 background-image: url("/media/images/title.png");
@@ -104,7 +109,7 @@ list-style-type: none;
 padding: 10px;
 }
 
-#prompt_list input
+#prompt_list input, #game_list input
 {
 float: right;
 }
