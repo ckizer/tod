@@ -100,7 +100,7 @@ width: 40%;
 float: right;
 }
 
-#prompt_list li, #game_list li
+.object_list li
 {
 color: white;
 outline: 1px solid white;
@@ -109,7 +109,7 @@ list-style-type: none;
 padding: 10px;
 }
 
-#prompt_list input, #game_list input
+.object_list input
 {
 float: right;
 }

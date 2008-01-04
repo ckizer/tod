@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<ul id="prompt_list">
+<ul id="prompt_list" class="object_list">
 {% for object in object_list %}
 <li>
   <form action="/prompt/{{object.id}}/delete/" method="post"><input type="image" src="/media/images/delete.png" alt="delete" /></form> 

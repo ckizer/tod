@@ -2,11 +2,12 @@
 {% block content %}
 
 <p>Create a <a href="/game/create/">New Game</a></p>
-<ul id="game_list">
+<ul id="game_list" class="object_list">
 {% for object in object_list %}
 <li>
   <form action="/game/{{object.id}}/delete/" method="post"><input type="image" src="/media/images/delete.png" alt="delete" /></form> 
   {{ object.name }}
+<a href="/player/{{ object.id }}/create/">Add Players</a>
 </li>
 {% endfor%}
 </ul>
