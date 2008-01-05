@@ -1,11 +1,7 @@
 from django.conf.urls.defaults import *
-
 from tod.prompt.models import Prompt
 urlpatterns = patterns('tod.prompt.views', 
     (r'^$', 'index'),
-    (r'^play/$', 'play'),
-    (r'^reset/$', 'reset'),
-    (r'^game_over/$', 'game_over'),
     (r'^(?P<prompt_id>\d+)/complete/$', 'complete'),
 )
 

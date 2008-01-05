@@ -16,3 +16,15 @@ def select_prompts(request, game_id):
     context = {"game": game, "rounds": rounds}
     return render_to_response(template, context, context_instance=RequestContext(request))
 
+def play(request):
+    template = "game/play.html"
+    active_prompts = Prompt.objects.filter(is_complete=False)
+    if not active_prompts:
+        return HttpResponseRedirect("/game/game_over/")
+    context = {"current_prompt":active_prompts[0]}
+    return render_to_response(template, context, context_instance=RequestContext(request))
+
+def game_over(request):
+    template = "game/over.html"
+    context = {}
+    return render_to_response(template, context, context_instance=RequestContext(request))

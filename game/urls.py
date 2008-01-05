@@ -3,6 +3,7 @@ from django.conf.urls.defaults import *
 from tod.game.models import Game
 urlpatterns = patterns('tod.game.views',
     (r'^play/$', 'play'),
+    (r'^game_over/$', 'game_over'),
     (r'^(?P<game_id>\d+)/select_prompts/$', 'select_prompts'),
 )
 

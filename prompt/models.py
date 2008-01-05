@@ -15,7 +15,3 @@ class Prompt(models.Model):
     def complete(self):
         self.is_complete=True
         self.save()
-
-    def reset(self):
-        self.is_complete=False
-        self.save()

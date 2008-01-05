@@ -1,0 +1,8 @@
+act_create_game.png
+act_play.png
+seq_create_game.png
+state_game.png
+tod_classes.png
+uc_create_game.png
+uc_general.png
+uc_play_game.png
