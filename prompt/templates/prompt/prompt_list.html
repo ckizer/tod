@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
+<p><a href="/prompt/create/">Create a New Dare</a></p>
 <ul id="prompt_list" class="object_list">
 {% for object in object_list %}
 <li>
@@ -9,7 +10,6 @@
 </li>
 {% endfor%}
 </ul>
-<p><a href="/prompt/create/">Create a New Dare</a></p>
-<p><a href="/prompt/play/">Play Truth or Dare!</a></p>
+<p><a href="/">Home</a></p>
 
 {% endblock %}
