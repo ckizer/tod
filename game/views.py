@@ -6,6 +6,19 @@ from django.newforms import form_for_model
 from tod.game.models import Game
 from tod.prompt.models import Prompt
 
+def detail(request, game_id):
+    game = get_object_or_404(Game, pk=game_id)
+    #define a dictionary of redirects depending on the status of the game
+    game_status = {
+        'created': "/player/%s/" % game_id,
+        'players_added': '/game/%s/select_prompts/' % game_id,
+        'prompts_selected': '/game/%s/begin_game/' % game_id,
+        'in_progress': '/game/%s/play/' % game_id,
+        'completed': '/game/%s/game_over/' % game_id,
+        }
+
+    return HttpResponseRedirect(game_status[game.status])
+
 def select_prompts(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
 
@@ -28,3 +41,8 @@ def game_over(request):
     template = "game/over.html"
     context = {}
     return render_to_response(template, context, context_instance=RequestContext(request))
+
+def players_added(request, game_id):
+    game = get_object_or_404(Game, pk=game_id)
+    game.players_added()
+    return HttpResponseRedirect(game.get_absolute_url())
