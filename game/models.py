@@ -1,4 +1,5 @@
 from django.db import models
+from tod.prompt.models import Prompt
 
 class Game(models.Model):
     STATUS_CHOICES = (
@@ -14,6 +15,14 @@ class Game(models.Model):
     def __str__(self):
         return self.name
 
+    def assign_prompts(self, prompts):
+        for prompt in prompts:
+            gp = GamePrompt(game = self, prompt = prompt)
+            gp.save()
+        self.status = "prompts_selected"
+        self.save()
+        return prompts
+
     def get_absolute_url(self):
         return "/game/%d/" % self.id
 
@@ -21,3 +30,12 @@ class Game(models.Model):
         self.status = "players_added"
         self.save()
         return self.status
+
+class GamePrompt(models.Model):
+    game = models.ForeignKey(Game, blank=True)
+    prompt = models.ForeignKey(Prompt, blank=True)
+    is_complete = models.BooleanField(default=False, blank=True)
+
+    def complete(self):
+        self.is_complete=True
+        self.save()
