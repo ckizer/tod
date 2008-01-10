@@ -39,6 +39,7 @@ left: -1000px;
 {
 background-image: url("/media/images/background.png");
 background-repeat: no-repeat;
+background-color: #d63d35;
 position: relative;
 width: 800px;
 height: 600px;
@@ -93,6 +94,7 @@ width:363px;
 #complete
 {
 width: 40%;
+float: left;
 }
 
 #wimp_out
