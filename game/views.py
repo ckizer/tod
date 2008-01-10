@@ -1,3 +1,4 @@
+
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
@@ -62,8 +63,16 @@ def play(request, game_id):
     if not current_prompt:
         game.game_over()
         return HttpResponseRedirect(game.get_absolute_url())
-    context = {"current_prompt": current_prompt.prompt, "current_game": game}
+    context = {"current_prompt": current_prompt.prompt, "current_game": game, "players": game.player_set.all(), "current_player": game.current_player()}
     return render_to_response(template, context, context_instance=RequestContext(request))
+
+def complete(request, game_id):
+    game = get_object_or_404(Game, pk=game_id)
+    current_prompt = game.current_prompt()
+    current_player = game.current_player()
+    score = current_prompt.complete()
+    current_player.update_score(score)
+    return HttpResponseRedirect(game.get_absolute_url())
 
 def game_over(request):
     template = "game/over.html"

@@ -41,6 +41,13 @@ class Game(models.Model):
         if prompts.count():
             return prompts[0]
         return False
+    
+    def current_player(self):
+        players = self.player_set.all()
+        player_count = players.count()
+        completed_prompt_count = self.gameprompt_set.filter(is_complete=True).count()
+        player=players[completed_prompt_count % player_count]
+        return player
 
 class GamePrompt(models.Model):
     game = models.ForeignKey(Game, blank=True)
@@ -50,3 +57,4 @@ class GamePrompt(models.Model):
     def complete(self):
         self.is_complete=True
         self.save()
+        return self.prompt.difficulty

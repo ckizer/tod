@@ -7,10 +7,3 @@ def index(request):
     template = "prompt/index.html"
     context = {'prompts':Prompt.objects.all()}
     return render_to_response(template, context, context_instance=RequestContext(request))
-
-def complete(request, prompt_id):
-    prompt = get_object_or_404(Prompt, pk=prompt_id)
-    prompt.complete()
-    return HttpResponseRedirect("/prompt/play/")
-
-

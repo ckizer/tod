@@ -60,6 +60,21 @@ text-align: center;
 font-size: 30px;
 }
 
+#score
+{
+background-image: url("/media/images/score.png");
+background-repeat: no-repeat;
+width: 75px;
+height: 124px;
+position:absolute;
+right: 80px;
+top: 130px;
+color: white;
+padding-top: 50px;
+text-align: center;
+font-size: 30px;
+}
+
 #prompt_card, #game_detail
 {
 background-image: url("/media/images/prompt_card.png");
@@ -93,7 +108,7 @@ width:363px;
 
 #complete
 {
-width: 40%;
+width: 35%;
 float: left;
 }
 

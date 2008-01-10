@@ -10,3 +10,6 @@ class Player(models.Model):
     def __str__(self):
         return self.name
 
+    def update_score(self, score):
+        self.score = self.score + score
+        self.save()
