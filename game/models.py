@@ -31,6 +31,17 @@ class Game(models.Model):
         self.save()
         return self.status
 
+    def in_progress(self):
+        self.status = "in_progress"
+        self.save()
+        return self.status
+    
+    def current_prompt(self):
+        prompts=self.gameprompt_set.filter(is_complete=False)
+        if prompts.count():
+            return prompts[0]
+        return False
+
 class GamePrompt(models.Model):
     game = models.ForeignKey(Game, blank=True)
     prompt = models.ForeignKey(Prompt, blank=True)

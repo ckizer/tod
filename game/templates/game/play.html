@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "game/stage.html" %}
 {% block content %}
 <div id="curtain">
 <div id="difficulty">{{ current_prompt.difficulty }}</div>
@@ -7,8 +7,8 @@
 <p id="description">{{ current_prompt.description }}</p>
 </div>
 <div id="buttons">
-<div id="wimp_out"><form action="/prompt/{{current_prompt.id}}/wimp_out/" method="post"><input type="image" src="/media/images/wimp_out.png" alt="wimp_out" /></form></div>
-<div id="complete"><form action="/prompt/{{current_prompt.id}}/complete/" method="post"><input type="image" src="/media/images/complete.png" alt="complete" /></form></div>
+<div id="wimp_out"><form action="/game/{{current_game.id}}/wimp_out/" method="post"><input type="image" src="/media/images/wimp_out.png" alt="wimp_out" /></form></div>
+<div id="complete"><form action="/game/{{current_game.id}}/complete/" method="post"><input type="image" src="/media/images/complete.png" alt="complete" /></form></div>
 </div>
 </div>
 {% endblock %}

@@ -46,12 +46,23 @@ def select_prompts(request, game_id):
                 context["error"] = "MAXIMUM_ROUNDS_EXCEEDED"
     return render_to_response(template, context, context_instance=RequestContext(request))
 
-def play(request):
+def begin_game(request, game_id):
+    game = get_object_or_404(Game, pk=game_id)
+    template = "game/begin_game.html"
+    context = {"game": game}
+    if request.method == "POST":
+        game.in_progress()
+        return HttpResponseRedirect(game.get_absolute_url())
+    return render_to_response(template, context, context_instance=RequestContext(request))
+
+def play(request, game_id):
+    game = get_object_or_404(Game, pk=game_id)
     template = "game/play.html"
-    active_prompts = Prompt.objects.filter(is_complete=False)
-    if not active_prompts:
-        return HttpResponseRedirect("/game/game_over/")
-    context = {"current_prompt":active_prompts[0]}
+    current_prompt = game.current_prompt()
+    if not current_prompt:
+        game.game_over()
+        return HttpResponseRedirect(game.get_absolute_url())
+    context = {"current_prompt": current_prompt.prompt, "current_game": game}
     return render_to_response(template, context, context_instance=RequestContext(request))
 
 def game_over(request):

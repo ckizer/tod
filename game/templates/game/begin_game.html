@@ -1,0 +1,10 @@
+{% extends "game/stage.html" %}
+{% block stage_detail %}
+<div id="game_detail">
+<h2>{{game}}</h2>
+<p id="rules">{{ rules }}</p>
+</div>
+<div id="buttons">
+<div id="begin"><form action="/game/{{game.id}}/begin_game/" method="post"><input type="image" src="/media/images/begin.png" alt="begin_game" /></form></div>
+</div>
+{% endblock %}
