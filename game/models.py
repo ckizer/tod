@@ -49,6 +49,11 @@ class Game(models.Model):
         player=players[completed_prompt_count % player_count]
         return player
 
+    def game_over(self):
+        self.status="completed"
+        self.save()
+        return self.status
+
 class GamePrompt(models.Model):
     game = models.ForeignKey(Game, blank=True)
     prompt = models.ForeignKey(Prompt, blank=True)

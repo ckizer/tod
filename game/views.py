@@ -66,6 +66,12 @@ def play(request, game_id):
     context = {"current_prompt": current_prompt.prompt, "current_game": game, "players": game.player_set.all(), "current_player": game.current_player()}
     return render_to_response(template, context, context_instance=RequestContext(request))
 
+def wimp_out(request, game_id):
+    game = get_object_or_404(Game, pk=game_id)
+    current_prompt = game.current_prompt()
+    current_prompt.complete()
+    return HttpResponseRedirect(game.get_absolute_url())
+
 def complete(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     current_prompt = game.current_prompt()
@@ -74,9 +80,10 @@ def complete(request, game_id):
     current_player.update_score(score)
     return HttpResponseRedirect(game.get_absolute_url())
 
-def game_over(request):
+def game_over(request, game_id):
+    game = get_object_or_404(Game, pk=game_id)
     template = "game/over.html"
-    context = {}
+    context = {"players": game.player_set.all(), "game": game}
     return render_to_response(template, context, context_instance=RequestContext(request))
 
 def players_added(request, game_id):

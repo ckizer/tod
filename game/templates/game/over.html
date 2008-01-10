@@ -3,7 +3,16 @@
 
 <p>Congratulations, you've finished this game of Truth or Dare!</p>
 
-<p><form action="/prompt/reset/" method="post"><input type="submit" value="Play a New Game" /></form></p>
+<div id="final_scores">
+<dl id="player_list">
+{% for player in players %}
+<dt class="players">{{ player }}</dt>
+<dd class="score">{{ player.score }}</dd>
+{% endfor %}
+</dl>
+</div>
+
+<p><form action="/game/create/" method="post"><input type="submit" value="Play a New Game" /></form></p>
 
 <p><a href="/prompt/list/">Go Back to the List of Dares</a></p>
 
