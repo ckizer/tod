@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="772.61536"
+   height="679.48822"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   version="1.0"
+   sodipodi:docbase="/home/peter/Documents/www/tod/doc"
+   sodipodi:docname="play.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/home/peter/Documents/www/tod/doc/play.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient8542">
+      <stop
+         style="stop-color:#ff1212;stop-opacity:1;"
+         offset="0"
+         id="stop8544" />
+      <stop
+         id="stop8550"
+         offset="0.5"
+         style="stop-color:#000000;stop-opacity:1;" />
+      <stop
+         style="stop-color:#7f0000;stop-opacity:1;"
+         offset="0.75"
+         id="stop8552" />
+      <stop
+         style="stop-color:#ff0000;stop-opacity:1;"
+         offset="1"
+         id="stop8546" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient8342">
+      <stop
+         style="stop-color:#ff1212;stop-opacity:1;"
+         offset="0"
+         id="stop8344" />
+      <stop
+         id="stop8350"
+         offset="0.5"
+         style="stop-color:#c30000;stop-opacity:1;" />
+      <stop
+         style="stop-color:#e11111;stop-opacity:1;"
+         offset="0.75"
+         id="stop8352" />
+      <stop
+         style="stop-color:#ff2323;stop-opacity:1"
+         offset="1"
+         id="stop8346" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient7337">
+      <stop
+         style="stop-color:#40b740;stop-opacity:1;"
+         offset="0"
+         id="stop7339" />
+      <stop
+         style="stop-color:#004400;stop-opacity:0.815"
+         offset="1"
+         id="stop7341" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3196">
+      <stop
+         id="stop5133"
+         offset="0"
+         style="stop-color:#40b740;stop-opacity:1;" />
+      <stop
+         id="stop3200"
+         offset="1"
+         style="stop-color:#004400;stop-opacity:1;" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7337"
+       id="radialGradient7335"
+       cx="227.36487"
+       cy="472.21274"
+       fx="227.36487"
+       fy="472.21274"
+       r="46.153847"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.5416667,2.9917601e-7,-3.1939061e-7,1.6458333,-125.52068,-309.87586)" />
+    <filter
+       inkscape:collect="always"
+       id="filter7363">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.7692308"
+         id="feGaussianBlur7365" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter8538">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.5412089"
+         id="feGaussianBlur8540" />
+    </filter>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8542"
+       id="radialGradient8548"
+       cx="229.61017"
+       cy="477.565"
+       fx="229.61017"
+       fy="477.565"
+       r="46.153847"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(3.3333333,0.7500001,-0.6722563,2.9878049,-218.35959,-1126.9632)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.04"
+     inkscape:cx="419.10381"
+     inkscape:cy="347.65136"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     width="800px"
+     height="700px"
+     inkscape:window-width="1280"
+     inkscape:window-height="949"
+     inkscape:window-x="0"
+     inkscape:window-y="26" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Background"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-20.653851,-14.742562)"
+     style="display:none">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2178"
+       style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Baveuse"
+       transform="matrix(1,0,0,1.5439636,0,-8.0194174)"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/title.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><flowRegion
+         id="flowRegion2180"><rect
+           id="rect2182"
+           width="466.34616"
+           height="54.807693"
+           x="164.42308"
+           y="15.384615"
+           style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Baveuse" /></flowRegion><flowPara
+         id="flowPara2184">Truth or Dare</flowPara></flowRoot>    <rect
+       style="opacity:0.62053576;fill:#ff0000;fill-opacity:1"
+       id="rect2186"
+       width="772.11536"
+       height="544.23077"
+       x="21.153847"
+       y="99.03846"
+       rx="5.634727"
+       ry="3.793777" />
+    <image
+       y="101.03845"
+       x="20.653851"
+       id="image2195"
+       height="542.15387"
+       width="772.15387"
+       sodipodi:absref="/home/peter/Documents/www/tod/media/images/background.png"
+       xlink:href="/home/peter/Documents/www/tod/media/images/background.png" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Stats"
+     transform="translate(-20.653851,-14.742562)"
+     style="display:inline">
+    <g
+       id="g2809"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/difficulty.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         ry="3.793777"
+         rx="5.634727"
+         y="246.15384"
+         x="111.53846"
+         height="112.5"
+         width="61.53846"
+         id="rect10534"
+         style="opacity:1;fill:#000000;fill-opacity:0.63999999" />
+      <flowRoot
+         transform="matrix(1.0350335,0,0,1.8899042,4.8807357,-222.91777)"
+         style="font-size:7.86494303px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
+         id="flowRoot10558"
+         xml:space="preserve"><flowRegion
+           id="flowRegion10560"><rect
+             style="font-size:7.86494303px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
+             y="249.03847"
+             x="106.73077"
+             height="35.576923"
+             width="94.230766"
+             id="rect10562" /></flowRegion><flowPara
+           style="font-size:7.86494303px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Baveuse"
+           id="flowPara10564">DIFFICULTY</flowPara></flowRoot>    </g>
+    <g
+       id="g2816"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/score.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         style="opacity:1;fill:#000000;fill-opacity:0.63999999"
+         id="rect10538"
+         width="61.53846"
+         height="112.5"
+         x="650.96149"
+         y="249.99998"
+         rx="5.634727"
+         ry="3.793777" />
+      <flowRoot
+         transform="matrix(1.0214669,0,0,1.2096226,-9.2360514,-53.479333)"
+         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
+         id="flowRoot10566"
+         xml:space="preserve"><flowRegion
+           id="flowRegion10568"><rect
+             style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
+             y="252.88461"
+             x="653.84613"
+             height="23.076923"
+             width="59.615383"
+             id="rect10570" /></flowRegion><flowPara
+           id="flowPara10572">SCORE</flowPara></flowRoot>    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Card"
+     transform="translate(-20.653851,-14.742562)"
+     style="display:inline">
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:0.63999999"
+       id="rect9562"
+       width="363.46155"
+       height="344.23077"
+       x="225.96153"
+       y="171.15384"
+       ry="28.846153"
+       rx="28.846153"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/prompt_card.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Buttons"
+     transform="translate(-20.653851,-14.742562)"
+     style="display:inline">
+    <g
+       id="g3832"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         ry="0"
+         rx="0"
+         y="649.03845"
+         x="353.84616"
+         height="45.192307"
+         width="96.153847"
+         id="rect8554"
+         style="fill:#ffffff;fill-opacity:1" />
+      <flowRoot
+         transform="matrix(1.1671151,0,0,3.5606045,-61.200002,-1683.6914)"
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;font-family:Arial Black"
+         id="flowRoot8558"
+         xml:space="preserve"><flowRegion
+           id="flowRegion8560"><rect
+             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;font-family:Arial Black"
+             y="654.80768"
+             x="359.61539"
+             height="33.653847"
+             width="83.653847"
+             id="rect8562" /></flowRegion><flowPara
+           id="flowPara8566">&lt; EXIT &gt;</flowPara></flowRoot>    </g>
+    <g
+       id="g2823"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/complete.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(59.615385,39.423077)"
+         d="M 277.88462 479.80768 A 46.153847 46.153847 0 1 1  185.57693,479.80768 A 46.153847 46.153847 0 1 1  277.88462 479.80768 z"
+         sodipodi:ry="46.153847"
+         sodipodi:rx="46.153847"
+         sodipodi:cy="479.80768"
+         sodipodi:cx="231.73077"
+         id="path6358"
+         style="opacity:1;fill:url(#radialGradient7335);fill-opacity:1;filter:url(#filter7363)"
+         sodipodi:type="arc" />
+      <flowRoot
+         transform="matrix(0.9400928,0,0,2.7835741,10.822629,-902.60798)"
+         style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
+         id="flowRoot10615"
+         xml:space="preserve"><flowRegion
+           id="flowRegion10617"><rect
+             style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
+             y="503.84616"
+             x="260.57693"
+             height="34.615383"
+             width="82.692307"
+             id="rect10619" /></flowRegion><flowPara
+           id="flowPara10621">COMPLETE</flowPara></flowRoot>    </g>
+    <g
+       id="g2830"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/wimp_out.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(277.88461,40.384616)"
+         sodipodi:type="arc"
+         style="opacity:1;fill:url(#radialGradient8548);fill-opacity:1;filter:url(#filter8538)"
+         id="path7367"
+         sodipodi:cx="231.73077"
+         sodipodi:cy="479.80768"
+         sodipodi:rx="46.153847"
+         sodipodi:ry="46.153847"
+         d="M 277.88462 479.80768 A 46.153847 46.153847 0 1 1  185.57693,479.80768 A 46.153847 46.153847 0 1 1  277.88462 479.80768 z" />
+      <flowRoot
+         transform="matrix(1.4753109,0,0,1.3835721,-244.55356,-198.37697)"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Baveuse"
+         id="flowRoot10623"
+         xml:space="preserve"><flowRegion
+           id="flowRegion10625"><rect
+             style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Baveuse"
+             y="504.80768"
+             x="478.84616"
+             height="43.26923"
+             width="61.53846"
+             id="rect10627" /></flowRegion><flowPara
+           id="flowPara10629">WIMP</flowPara><flowPara
+           id="flowPara10631">OUT</flowPara></flowRoot>    </g>
+    <g
+       style="display:inline"
+       id="g2838"
+       transform="translate(-8.8000257,0.9063192)"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/current_player.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         ry="3.793777"
+         rx="5.634727"
+         y="571.15387"
+         x="297.11539"
+         height="62.5"
+         width="212.49998"
+         id="rect10540"
+         style="opacity:1;fill:#000000;fill-opacity:0.63999999" />
+      <flowRoot
+         transform="matrix(1.1683103,0,0,1,-35.868836,-4.8076923)"
+         style="font-size:12.95236111px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
+         id="flowRoot10574"
+         xml:space="preserve"><flowRegion
+           id="flowRegion10576"><rect
+             style="font-size:12.95236111px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
+             y="575"
+             x="303.84616"
+             height="22.115383"
+             width="141.55016"
+             id="rect10578" /></flowRegion><flowPara
+           id="flowPara10580">CURRENT PLAYER</flowPara></flowRoot>    </g>
+  </g>
+</svg>
