@@ -1,3 +1,10 @@
+*
+{
+padding: 0;
+margin: 0;
+border: 0;
+}
+
 body
 {
 		background-color: black;
@@ -135,4 +142,15 @@ float: right;
 #create_prompt
 {
 color: white;
+}
+
+#players
+{
+margin: auto;
+text-align: center;
+width: 180px;
+clear: both;
+background-color: black;
+opacity: .75;
+font-size: 30px;
 }
