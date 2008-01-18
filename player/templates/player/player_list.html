@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p>Create a <a href="/player/{{ game.id }}/create/">New Player</a></p>
+<ul id="player_list" class="object_list">
+{% for object in object_list %}
+<li>
+  <form action="/player/{{ object.id }}/delete/" method="post"><input type="image" src="/media/images/delete.png" alt="delete" /></form> 
+  {{ object.name }}
+</li>
+{% endfor%}
+</ul>
+<p><form action="/game/{{ game.id }}/players_added/" method="post"><input type="submit" value="All Players Added" /></form></p>
+
+{% endblock %}

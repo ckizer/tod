@@ -7,6 +7,9 @@ urlpatterns = patterns('django.views.generic.simple',
 
 urlpatterns += patterns('',
     (r"^test/$", "tod.views.test"),
+    (r"^mockups/$", "tod.views.mockups"),
     (r"^prompt/", include("tod.prompt.urls")),
+    (r"^game/", include ("tod.game.urls")),
+    (r"^player/", include ("tod.player.urls")),
     (r'^media/(.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT}),
 )

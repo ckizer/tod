@@ -2,6 +2,7 @@
 {% block content %}
 <div id="curtain">
 <div id="difficulty">{{ current_prompt.difficulty }}</div>
+{% block stage_detail %}
 <div id="prompt_card">
 <h2>{{current_prompt.name}}</h2>
 <p id="description">{{ current_prompt.description }}</p>
@@ -10,5 +11,6 @@
 <div id="wimp_out"><form action="/prompt/{{current_prompt.id}}/wimp_out/" method="post"><input type="image" src="/media/images/wimp_out.png" alt="wimp_out" /></form></div>
 <div id="complete"><form action="/prompt/{{current_prompt.id}}/complete/" method="post"><input type="image" src="/media/images/complete.png" alt="complete" /></form></div>
 </div>
+{% endblock %}
 </div>
 {% endblock %}

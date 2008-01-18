@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Mockups</h1>
+{% for mockup in mockups %}
+<p><h3>{{ mockup }}</h3><a href="/media/images/mockups/{{ mockup }}"><img src="/media/images/mockups/{{ mockup }}" width="200" height="200"/></a></p>
+{% endfor %}
+{% endblock %}
