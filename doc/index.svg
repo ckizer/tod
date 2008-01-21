@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="800"
+   height="700"
+   id="svg2705"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   version="1.0"
+   sodipodi:docbase="/home/peter/Documents/www/tod/doc"
+   sodipodi:docname="index.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs2707">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient6815">
+      <stop
+         style="stop-color:#800000;stop-opacity:1;"
+         offset="0"
+         id="stop6817" />
+      <stop
+         style="stop-color:#dd6262;stop-opacity:0"
+         offset="1"
+         id="stop6819" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3838">
+      <stop
+         style="stop-color:#5050e4;stop-opacity:1"
+         offset="0"
+         id="stop3840" />
+      <stop
+         id="stop3846"
+         offset="0.5"
+         style="stop-color:#7171bc;stop-opacity:0.49803922;" />
+      <stop
+         style="stop-color:#38389e;stop-opacity:0.24705882;"
+         offset="0.75"
+         id="stop3848" />
+      <stop
+         id="stop3850"
+         offset="0.875"
+         style="stop-color:#1c1c8f;stop-opacity:0.12156863;" />
+      <stop
+         style="stop-color:#0e0e87;stop-opacity:0.05882353;"
+         offset="0.9375"
+         id="stop3852" />
+      <stop
+         id="stop3854"
+         offset="0.96875"
+         style="stop-color:#070783;stop-opacity:0.02745098;" />
+      <stop
+         style="stop-color:#000080;stop-opacity:0;"
+         offset="1"
+         id="stop3842" />
+    </linearGradient>
+    <filter
+       inkscape:collect="always"
+       id="filter7363">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.7692308"
+         id="feGaussianBlur7365" />
+    </filter>
+    <linearGradient
+       id="linearGradient7337">
+      <stop
+         style="stop-color:#40b740;stop-opacity:1;"
+         offset="0"
+         id="stop7339" />
+      <stop
+         style="stop-color:#004400;stop-opacity:0.815"
+         offset="1"
+         id="stop7341" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7337"
+       id="radialGradient2774"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.5416667,2.9917601e-7,-3.1939061e-7,1.6458333,-125.52068,-309.87586)"
+       cx="227.36487"
+       cy="472.21274"
+       fx="227.36487"
+       fy="472.21274"
+       r="46.153847" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3838"
+       id="radialGradient3844"
+       cx="229.13596"
+       cy="480.00415"
+       fx="229.13596"
+       fy="480.00415"
+       r="46.153847"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.5916535,2.5304589,-2.5047079,0.5856324,1286.8025,-392.0198)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6815"
+       id="radialGradient6825"
+       cx="223.00879"
+       cy="472.53937"
+       fx="223.00879"
+       fy="472.53937"
+       r="46.153847"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(2.9048022,4.2003188,-3.011209,2.0824521,998.1272,-1448.2092)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.04"
+     inkscape:cx="400"
+     inkscape:cy="350"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     width="800px"
+     height="700px"
+     inkscape:window-width="1280"
+     inkscape:window-height="949"
+     inkscape:window-x="0"
+     inkscape:window-y="26" />
+  <metadata
+     id="metadata2710">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2178"
+       style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;display:inline;font-family:Baveuse"
+       transform="matrix(1,0,0,1.5439636,-7.4531733,-14.724595)"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/title.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><flowRegion
+         id="flowRegion2180"><rect
+           id="rect2182"
+           width="466.34616"
+           height="54.807693"
+           x="164.42308"
+           y="15.384615"
+           style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Baveuse" /></flowRegion><flowPara
+         id="flowPara2184">Truth or Dare</flowPara></flowRoot>    <g
+       id="g2776"
+       transform="translate(-23.076923,8.6538463)"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/index_game_create.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(1.3229167,0,0,1.3229167,-78.195117,-424.64941)"
+         d="M 277.88462 479.80768 A 46.153847 46.153847 0 1 1  185.57693,479.80768 A 46.153847 46.153847 0 1 1  277.88462 479.80768 z"
+         sodipodi:ry="46.153847"
+         sodipodi:rx="46.153847"
+         sodipodi:cy="479.80768"
+         sodipodi:cx="231.73077"
+         id="path6358"
+         style="fill:url(#radialGradient2774);fill-opacity:1;filter:url(#filter7363)"
+         sodipodi:type="arc" />
+      <flowRoot
+         transform="matrix(0.9270918,0,0,2.8238358,-46.36478,-1256.637)"
+         style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
+         id="flowRoot10615"
+         xml:space="preserve"><flowRegion
+           id="flowRegion10617"><rect
+             style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
+             y="503.84616"
+             x="260.57693"
+             height="34.615383"
+             width="82.692307"
+             id="rect10619" /></flowRegion><flowPara
+           id="flowPara10621">CREATE a</flowPara><flowPara
+           id="flowPara2772">New game</flowPara></flowRoot>    </g>
+    <g
+       id="g6829"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/index_view_games.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         sodipodi:type="arc"
+         style="fill:url(#radialGradient6825);fill-opacity:1.0;filter:url(#filter7363)"
+         id="path2786"
+         sodipodi:cx="231.73077"
+         sodipodi:cy="479.80768"
+         sodipodi:rx="46.153847"
+         sodipodi:ry="46.153847"
+         d="M 277.88462 479.80768 A 46.153847 46.153847 0 1 1  185.57693,479.80768 A 46.153847 46.153847 0 1 1  277.88462 479.80768 z"
+         transform="matrix(1.3229167,0,0,1.3229167,91.997163,-415.99556)" />
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot2788"
+         style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Baveuse"
+         transform="matrix(1.2090988,0,0,2.0634175,22.17848,-866.86748)"><flowRegion
+           id="flowRegion2790"><rect
+             id="rect2792"
+             width="100.32395"
+             height="55.386368"
+             x="260.57693"
+             y="503.84616"
+             style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Baveuse" /></flowRegion><flowPara
+           id="flowPara2796">view</flowPara><flowPara
+           id="flowPara2818">pending games</flowPara></flowRoot>    </g>
+    <g
+       id="g2830"
+       transform="translate(363.46156,8.6538463)"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/index_prompt_create.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <g
+         id="g3858"
+         inkscape:export-filename="/home/peter/Documents/www/tod/media/images/index_prompt_create.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90">
+        <path
+           sodipodi:type="arc"
+           style="fill:url(#radialGradient3844);fill-opacity:1.0;filter:url(#filter7363)"
+           id="path2802"
+           sodipodi:cx="231.73077"
+           sodipodi:cy="479.80768"
+           sodipodi:rx="46.153847"
+           sodipodi:ry="46.153847"
+           d="M 277.88462 479.80768 A 46.153847 46.153847 0 1 1  185.57693,479.80768 A 46.153847 46.153847 0 1 1  277.88462 479.80768 z"
+           transform="matrix(1.3229167,0,0,1.3229167,-78.195117,-424.64941)" />
+        <flowRoot
+           xml:space="preserve"
+           id="flowRoot2804"
+           style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
+           transform="matrix(0.9270918,0,0,2.8238358,-46.36478,-1256.637)"><flowRegion
+             id="flowRegion2806"><rect
+               id="rect2808"
+               width="82.692307"
+               height="34.615383"
+               x="260.57693"
+               y="503.84616"
+               style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse" /></flowRegion><flowPara
+             id="flowPara2810">CREATE a</flowPara><flowPara
+             id="flowPara2812">New dare</flowPara></flowRoot>      </g>
+    </g>
+  </g>
+</svg>
