@@ -17,7 +17,10 @@
    version="1.0"
    sodipodi:docbase="/home/peter/Documents/www/tod/doc"
    sodipodi:docname="game_create.svg"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/home/peter/Documents/www/tod/doc/game_create.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs10781">
     <filter
@@ -86,9 +89,9 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.04"
      inkscape:cx="400"
-     inkscape:cy="350"
+     inkscape:cy="465.38462"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      width="800px"
      height="700px"
      inkscape:window-width="1280"
@@ -107,9 +110,10 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
+     inkscape:label="Background"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     style="display:inline">
     <flowRoot
        xml:space="preserve"
        id="flowRoot2178"
@@ -123,39 +127,6 @@
            y="15.384615"
            style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Baveuse" /></flowRegion><flowPara
          id="flowPara2184">Truth or Dare</flowPara></flowRoot>    <rect
-       style="opacity:1;fill:url(#radialGradient9559);fill-opacity:1"
-       id="rect8554"
-       width="96.153847"
-       height="45.192307"
-       x="349.03845"
-       y="649.51923"
-       rx="0"
-       ry="0" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot8558"
-       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;font-family:Arial Black"
-       transform="matrix(1.1671151,0,0,3.5606045,-66.51611,-1683.4861)"
-       inkscape:transform-center-y="-7.6923077"
-       inkscape:transform-center-x="19.230769"><flowRegion
-         id="flowRegion8560"><rect
-           id="rect8562"
-           width="83.653847"
-           height="33.653847"
-           x="359.61539"
-           y="654.80768"
-           style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;font-family:Arial Black" /></flowRegion><flowPara
-         id="flowPara8566">&lt; EXIT &gt;</flowPara></flowRoot>    <path
-       sodipodi:type="arc"
-       style="opacity:1;fill:url(#radialGradient7335);fill-opacity:1;filter:url(#filter7363)"
-       id="path6358"
-       sodipodi:cx="231.73077"
-       sodipodi:cy="479.80768"
-       sodipodi:rx="46.153847"
-       sodipodi:ry="46.153847"
-       d="M 277.88462 479.80768 A 46.153847 46.153847 0 1 1  185.57693,479.80768 A 46.153847 46.153847 0 1 1  277.88462 479.80768 z"
-       transform="matrix(1.2291666,0,0,1.2291666,109.8758,-297.93666)" />
-    <rect
        style="opacity:1;fill:#ffffff;fill-opacity:1"
        id="rect10807"
        width="309.61539"
@@ -173,17 +144,64 @@
            x="145.19231"
            y="152.88461"
            style="font-size:24px;fill:#ffffff" /></flowRegion><flowPara
-         id="flowPara11784">NAME :</flowPara></flowRoot>    <flowRoot
-       xml:space="preserve"
-       id="flowRoot11786"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
-       transform="matrix(1.0861402,0,0,3.1157752,-31.894844,-585.35623)"><flowRegion
-         id="flowRegion11788"><rect
-           id="rect11790"
-           width="136.53847"
-           height="65.384613"
-           x="358.65384"
-           y="272.11539"
-           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse" /></flowRegion><flowPara
-         id="flowPara11792">CREATE</flowPara></flowRoot>  </g>
+         id="flowPara11784">NAME :</flowPara></flowRoot>  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Buttons">
+    <g
+       id="g2286"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/create_game.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="matrix(1.2291666,0,0,1.2291666,109.8758,-297.93666)"
+         d="M 277.88462 479.80768 A 46.153847 46.153847 0 1 1  185.57693,479.80768 A 46.153847 46.153847 0 1 1  277.88462 479.80768 z"
+         sodipodi:ry="46.153847"
+         sodipodi:rx="46.153847"
+         sodipodi:cy="479.80768"
+         sodipodi:cx="231.73077"
+         id="path6358"
+         style="opacity:1;fill:url(#radialGradient7335);fill-opacity:1;filter:url(#filter7363)"
+         sodipodi:type="arc" />
+      <flowRoot
+         transform="matrix(1.0861402,0,0,3.1157752,-31.894844,-585.35623)"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
+         id="flowRoot11786"
+         xml:space="preserve"><flowRegion
+           id="flowRegion11788"><rect
+             style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
+             y="272.11539"
+             x="358.65384"
+             height="65.384613"
+             width="136.53847"
+             id="rect11790" /></flowRegion><flowPara
+           id="flowPara11792">CREATE</flowPara></flowRoot>    </g>
+    <g
+       id="g2300">
+      <rect
+         ry="0"
+         rx="0"
+         y="649.51923"
+         x="349.03845"
+         height="45.192307"
+         width="96.153847"
+         id="rect8554"
+         style="opacity:1;fill:url(#radialGradient9559);fill-opacity:1" />
+      <flowRoot
+         inkscape:transform-center-x="19.230769"
+         inkscape:transform-center-y="-7.6923077"
+         transform="matrix(1.1671151,0,0,3.5606045,-66.51611,-1683.4861)"
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;font-family:Arial Black"
+         id="flowRoot8558"
+         xml:space="preserve"><flowRegion
+           id="flowRegion8560"><rect
+             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;font-family:Arial Black"
+             y="654.80768"
+             x="359.61539"
+             height="33.653847"
+             width="83.653847"
+             id="rect8562" /></flowRegion><flowPara
+           id="flowPara8566">&lt; EXIT &gt;</flowPara></flowRoot>    </g>
+  </g>
 </svg>
