@@ -85,6 +85,7 @@ font-size: 30px;
 #prompt_card, #game_detail
 {
 background-image: url("/media/images/prompt_card.png");
+background-repeat: no-repeat;
 margin: auto;
 position: relative;
 top: 50px;
@@ -146,11 +147,14 @@ color: white;
 
 #players
 {
+background-image: url("/media/images/current_player.png");
+background-repeat: no-repeat;
 margin: auto;
 text-align: center;
-width: 180px;
+width: 220px;
+height: 60px;
+padding-top: 15px;
+margin-top: 15px;
 clear: both;
-background-color: black;
-opacity: .75;
 font-size: 30px;
 }
