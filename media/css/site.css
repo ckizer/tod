@@ -42,6 +42,28 @@ position: fixed;
 left: -1000px;
 }
 
+#index_buttons
+{
+width: 600px;
+margin: auto;
+margin-top: 100px;
+}
+
+#index_create_game
+{
+float: left;
+}
+
+#index_create_prompt
+{
+float: right;
+}
+
+#index_view_games
+{
+text-align: center;
+}
+
 #curtain
 {
 background-image: url("/media/images/background.png");
