@@ -86,7 +86,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.04"
      inkscape:cx="400"
-     inkscape:cy="350"
+     inkscape:cy="347.98077"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      width="800px"
@@ -122,32 +122,35 @@
            x="164.42308"
            y="15.384615"
            style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Baveuse" /></flowRegion><flowPara
-         id="flowPara2184">Truth or Dare</flowPara></flowRoot>    <rect
-       style="opacity:1;fill:url(#radialGradient9559);fill-opacity:1"
-       id="rect8554"
-       width="96.153847"
-       height="45.192307"
-       x="351.9231"
-       y="649.51923"
-       rx="0"
-       ry="0" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot8558"
-       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;font-family:Arial Black"
-       transform="matrix(1.1671151,0,0,3.5606045,-62.669956,-1683.4861)"
-       inkscape:transform-center-y="-7.6923077"
-       inkscape:transform-center-x="19.230769"><flowRegion
-         id="flowRegion8560"><rect
-           id="rect8562"
-           width="83.653847"
-           height="33.653847"
-           x="359.61539"
-           y="654.80768"
-           style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;font-family:Arial Black" /></flowRegion><flowPara
-         id="flowPara8566">&lt; EXIT &gt;</flowPara></flowRoot>    <g
-       id="g2355"
-       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/game_create_option.png"
+         id="flowPara2184">Truth or Dare</flowPara></flowRoot>    <g
+       id="g2321">
+      <rect
+         ry="0"
+         rx="0"
+         y="649.51923"
+         x="351.9231"
+         height="45.192307"
+         width="96.153847"
+         id="rect8554"
+         style="opacity:1;fill:url(#radialGradient9559);fill-opacity:1" />
+      <flowRoot
+         inkscape:transform-center-x="19.230769"
+         inkscape:transform-center-y="-7.6923077"
+         transform="matrix(1.1671151,0,0,3.5606045,-62.669956,-1683.4861)"
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;font-family:Arial Black"
+         id="flowRoot8558"
+         xml:space="preserve"><flowRegion
+           id="flowRegion8560"><rect
+             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;font-family:Arial Black"
+             y="654.80768"
+             x="359.61539"
+             height="33.653847"
+             width="83.653847"
+             id="rect8562" /></flowRegion><flowPara
+           id="flowPara8566">&lt; EXIT &gt;</flowPara></flowRoot>    </g>
+    <g
+       id="g2345"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/list_game_create.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -158,7 +161,7 @@
          sodipodi:cy="479.80768"
          sodipodi:cx="231.73077"
          id="path6358"
-         style="opacity:1;fill:url(#radialGradient7335);fill-opacity:1;filter:url(#filter7363)"
+         style="fill:url(#radialGradient7335);fill-opacity:1;filter:url(#filter7363)"
          sodipodi:type="arc" />
       <flowRoot
          transform="matrix(1.3182401,0,0,1.4326058,-140.5707,-39.223154)"
@@ -175,45 +178,48 @@
            id="flowPara10677">CREATE</flowPara><flowPara
            id="flowPara10679">A NEW</flowPara><flowPara
            id="flowPara10681">GAME</flowPara></flowRoot>    </g>
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot10683"
-       style="font-size:16px;fill:#ffffff"
-       transform="translate(171.15385,14.423077)"><flowRegion
-         id="flowRegion10685"><rect
-           id="rect10687"
-           width="574.03845"
-           height="189.42308"
-           x="114.42308"
-           y="255.76923"
-           style="font-size:16px;fill:#ffffff" /></flowRegion><flowPara
-         id="flowPara10689">GAME 1</flowPara><flowPara
-         id="flowPara10691" /><flowPara
-         id="flowPara10693">GAME 2</flowPara><flowPara
-         id="flowPara10695" /><flowPara
-         id="flowPara10697">GAME 3</flowPara></flowRoot>    <image
-       y="265.88461"
-       x="458.19232"
-       id="image10772"
-       height="24"
-       width="24"
-       sodipodi:absref="/home/peter/Documents/www/tod/media/images/delete.png"
-       xlink:href="/home/peter/Documents/www/tod/media/images/delete.png" />
-    <image
-       xlink:href="/home/peter/Documents/www/tod/media/images/delete.png"
-       sodipodi:absref="/home/peter/Documents/www/tod/media/images/delete.png"
-       width="24"
-       height="24"
-       id="image10775"
-       x="459.15384"
-       y="305.30771" />
-    <image
-       y="348.57693"
-       x="459.15387"
-       id="image10777"
-       height="24"
-       width="24"
-       sodipodi:absref="/home/peter/Documents/www/tod/media/images/delete.png"
-       xlink:href="/home/peter/Documents/www/tod/media/images/delete.png" />
+    <g
+       id="g7655">
+      <flowRoot
+         transform="translate(171.15385,14.423077)"
+         style="font-size:16px;fill:#ffffff"
+         id="flowRoot10683"
+         xml:space="preserve"><flowRegion
+           id="flowRegion10685"><rect
+             style="font-size:16px;fill:#ffffff"
+             y="255.76923"
+             x="114.42308"
+             height="189.42308"
+             width="574.03845"
+             id="rect10687" /></flowRegion><flowPara
+           id="flowPara10689">GAME 1</flowPara><flowPara
+           id="flowPara10691" /><flowPara
+           id="flowPara10693">GAME 2</flowPara><flowPara
+           id="flowPara10695" /><flowPara
+           id="flowPara10697">GAME 3</flowPara></flowRoot>      <image
+         xlink:href="/home/peter/Documents/www/tod/media/images/delete.png"
+         sodipodi:absref="/home/peter/Documents/www/tod/media/images/delete.png"
+         width="24"
+         height="24"
+         id="image10772"
+         x="458.19232"
+         y="265.88461" />
+      <image
+         y="305.30771"
+         x="459.15384"
+         id="image10775"
+         height="24"
+         width="24"
+         sodipodi:absref="/home/peter/Documents/www/tod/media/images/delete.png"
+         xlink:href="/home/peter/Documents/www/tod/media/images/delete.png" />
+      <image
+         xlink:href="/home/peter/Documents/www/tod/media/images/delete.png"
+         sodipodi:absref="/home/peter/Documents/www/tod/media/images/delete.png"
+         width="24"
+         height="24"
+         id="image10777"
+         x="459.15387"
+         y="348.57693" />
+    </g>
   </g>
 </svg>
