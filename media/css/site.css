@@ -76,6 +76,16 @@ margin-top: 50px;
 margin-top: 30px;
 }
 
+#create_game input
+{
+margin-top:10px;
+}
+
+#create_game_button
+{
+text-align: center;
+}
+
 #list
 {
 width: 600px;
