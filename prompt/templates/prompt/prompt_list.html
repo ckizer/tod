@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p><a href="/prompt/create/">Create a New Dare</a></p>
-<ul id="prompt_list" class="object_list">
-{% for object in object_list %}
-<li>
-  <form action="/prompt/{{object.id}}/delete/" method="post"><input type="image" src="/media/images/delete.png" alt="delete" /></form> 
-  {{ object.difficulty }}: {{object.name}}: {{object.description}} 
-</li>
-{% endfor%}
-</ul>
-<p><a href="/">Home</a></p>
+<p class="marquis"><a href="/prompt/create/"><img src="/media/images/create_prompt_marquis.png" alt="Create a New Dare" /></a></p>
+<div id="list">
+  <ul id="prompt_list" class="object_list">
+	{% for object in object_list %}
+	<li>
+	  <form action="/prompt/{{object.id}}/delete/" method="post"><input type="image" src="/media/images/delete.png" alt="delete" /></form> 
+	  {{ object.difficulty }}: {{object.name}}: {{object.description}} 
+	</li>
+	{% endfor%}
+  </ul>
+</div>
 
 {% include "exit.html" %}
 {% endblock %}
