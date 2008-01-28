@@ -130,7 +130,7 @@
      inkscape:cx="400"
      inkscape:cy="350"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer4"
      width="800px"
      height="700px"
      inkscape:window-width="1280"
@@ -149,7 +149,7 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
+     inkscape:label="Background"
      inkscape:groupmode="layer"
      id="layer1">
     <flowRoot
@@ -167,7 +167,78 @@
            x="164.42308"
            y="15.384615"
            style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Baveuse" /></flowRegion><flowPara
-         id="flowPara2184">Truth or Dare</flowPara></flowRoot>    <g
+         id="flowPara2184">Truth or Dare</flowPara></flowRoot>  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Index_Buttons"
+     style="display:inline">
+    <g
+       id="g2830"
+       transform="translate(363.46156,8.6538463)"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/index_prompt_create.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <g
+         id="g3858"
+         inkscape:export-filename="/home/peter/Documents/www/tod/media/images/index_prompt_create.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90">
+        <path
+           sodipodi:type="arc"
+           style="fill:url(#radialGradient3844);fill-opacity:1;filter:url(#filter7363)"
+           id="path2802"
+           sodipodi:cx="231.73077"
+           sodipodi:cy="479.80768"
+           sodipodi:rx="46.153847"
+           sodipodi:ry="46.153847"
+           d="M 277.88462 479.80768 A 46.153847 46.153847 0 1 1  185.57693,479.80768 A 46.153847 46.153847 0 1 1  277.88462 479.80768 z"
+           transform="matrix(1.3229167,0,0,1.3229167,-78.195117,-424.64941)" />
+        <flowRoot
+           xml:space="preserve"
+           id="flowRoot2804"
+           style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
+           transform="matrix(0.9270918,0,0,2.8238358,-46.36478,-1256.637)"><flowRegion
+             id="flowRegion2806"><rect
+               id="rect2808"
+               width="82.692307"
+               height="34.615383"
+               x="260.57693"
+               y="503.84616"
+               style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse" /></flowRegion><flowPara
+             id="flowPara2810">CREATE a</flowPara><flowPara
+             id="flowPara2812">New dare</flowPara></flowRoot>      </g>
+    </g>
+    <g
+       id="g6829"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/index_view_games.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         sodipodi:type="arc"
+         style="fill:url(#radialGradient6825);fill-opacity:1;filter:url(#filter7363)"
+         id="path2786"
+         sodipodi:cx="231.73077"
+         sodipodi:cy="479.80768"
+         sodipodi:rx="46.153847"
+         sodipodi:ry="46.153847"
+         d="M 277.88462 479.80768 A 46.153847 46.153847 0 1 1  185.57693,479.80768 A 46.153847 46.153847 0 1 1  277.88462 479.80768 z"
+         transform="matrix(1.3229167,0,0,1.3229167,91.997163,-415.99556)" />
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot2788"
+         style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Baveuse"
+         transform="matrix(1.2090988,0,0,2.0634175,22.17848,-866.86748)"><flowRegion
+           id="flowRegion2790"><rect
+             id="rect2792"
+             width="100.32395"
+             height="55.386368"
+             x="260.57693"
+             y="503.84616"
+             style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Baveuse" /></flowRegion><flowPara
+           id="flowPara2796">view</flowPara><flowPara
+           id="flowPara2818">pending games</flowPara></flowRoot>    </g>
+    <g
        id="g2776"
        transform="translate(-23.076923,8.6538463)"
        inkscape:export-filename="/home/peter/Documents/www/tod/media/images/index_game_create.png"
@@ -197,70 +268,5 @@
              id="rect10619" /></flowRegion><flowPara
            id="flowPara10621">CREATE a</flowPara><flowPara
            id="flowPara2772">New game</flowPara></flowRoot>    </g>
-    <g
-       id="g6829"
-       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/index_view_games.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <path
-         sodipodi:type="arc"
-         style="fill:url(#radialGradient6825);fill-opacity:1.0;filter:url(#filter7363)"
-         id="path2786"
-         sodipodi:cx="231.73077"
-         sodipodi:cy="479.80768"
-         sodipodi:rx="46.153847"
-         sodipodi:ry="46.153847"
-         d="M 277.88462 479.80768 A 46.153847 46.153847 0 1 1  185.57693,479.80768 A 46.153847 46.153847 0 1 1  277.88462 479.80768 z"
-         transform="matrix(1.3229167,0,0,1.3229167,91.997163,-415.99556)" />
-      <flowRoot
-         xml:space="preserve"
-         id="flowRoot2788"
-         style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Baveuse"
-         transform="matrix(1.2090988,0,0,2.0634175,22.17848,-866.86748)"><flowRegion
-           id="flowRegion2790"><rect
-             id="rect2792"
-             width="100.32395"
-             height="55.386368"
-             x="260.57693"
-             y="503.84616"
-             style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Baveuse" /></flowRegion><flowPara
-           id="flowPara2796">view</flowPara><flowPara
-           id="flowPara2818">pending games</flowPara></flowRoot>    </g>
-    <g
-       id="g2830"
-       transform="translate(363.46156,8.6538463)"
-       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/index_prompt_create.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <g
-         id="g3858"
-         inkscape:export-filename="/home/peter/Documents/www/tod/media/images/index_prompt_create.png"
-         inkscape:export-xdpi="90"
-         inkscape:export-ydpi="90">
-        <path
-           sodipodi:type="arc"
-           style="fill:url(#radialGradient3844);fill-opacity:1.0;filter:url(#filter7363)"
-           id="path2802"
-           sodipodi:cx="231.73077"
-           sodipodi:cy="479.80768"
-           sodipodi:rx="46.153847"
-           sodipodi:ry="46.153847"
-           d="M 277.88462 479.80768 A 46.153847 46.153847 0 1 1  185.57693,479.80768 A 46.153847 46.153847 0 1 1  277.88462 479.80768 z"
-           transform="matrix(1.3229167,0,0,1.3229167,-78.195117,-424.64941)" />
-        <flowRoot
-           xml:space="preserve"
-           id="flowRoot2804"
-           style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
-           transform="matrix(0.9270918,0,0,2.8238358,-46.36478,-1256.637)"><flowRegion
-             id="flowRegion2806"><rect
-               id="rect2808"
-               width="82.692307"
-               height="34.615383"
-               x="260.57693"
-               y="503.84616"
-               style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse" /></flowRegion><flowPara
-             id="flowPara2810">CREATE a</flowPara><flowPara
-             id="flowPara2812">New dare</flowPara></flowRoot>      </g>
-    </g>
   </g>
 </svg>
