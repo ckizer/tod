@@ -217,3 +217,19 @@ font-size: 30px;
 {
 text-align: center;
 }
+
+
+.detail_form label
+{
+width: 120px;
+margin-bottom: 10px;
+float: left;
+clear: left;
+text-align: right;
+padding-right: 10px;
+}
+
+.detail_form input, .detail_form textarea
+{
+margin-bottom: 10px;
+}
