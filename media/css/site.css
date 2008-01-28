@@ -64,6 +64,11 @@ float: right;
 text-align: center;
 }
 
+.button_dock
+{
+text-align: center;
+}
+
 #create_game
 {
 text-align: center;

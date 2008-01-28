@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p>Create a <a href="/player/{{ game.id }}/create/">New Player</a></p>
+<p class="button_dock"><a href="/player/{{ game.id }}/create/"><img src="/media/images/add_player.png" alt="Create a New Player" /></a></p>
 <ul id="player_list" class="object_list">
 {% for object in object_list %}
 <li>
@@ -10,7 +10,13 @@
 </li>
 {% endfor%}
 </ul>
-<p><form action="/game/{{ game.id }}/players_added/" method="post"><input type="submit" value="All Players Added" /></form></p>
+
+<form action="/game/{{ game.id }}/players_added/" method="post">
+<p class="button_dock">
+<input type="image" src="/media/images/players_added.png" alt="All Players Added" />
+</p>
+</form>
+
 
 {% include "exit.html" %}
 {% endblock %}
