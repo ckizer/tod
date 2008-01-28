@@ -218,6 +218,10 @@ font-size: 30px;
 text-align: center;
 }
 
+#prompt_buttons input
+{
+margin-bottom: 0;
+}
 
 .detail_form label
 {

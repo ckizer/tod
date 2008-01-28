@@ -6,12 +6,14 @@
 	<p><label for="id_name">Name:</label> {{ form.name }}</p>
 	<p><label for="id_description">Description:</label> {{ form.description }}</p>
 	<p><label for="id_difficulty">Difficulty:</label> {{ form.difficulty }}</p>
-	<p><input type="submit" name="create" value="create" /></p>
+	<p id="prompt_buttons">
+	  <input type="image" src="/media/images/prompt_create.png" name="create" value="create" />
+	  <a href="/prompt/"><img src="/media/images/prompt_cancel.png" alt="See the List of Dares" /></a>
+	</p>
 	</form>
 </div>
-<!--
-	<p><a href="/prompt/">See the List of Dares</a></p>
--->
+
+
 {% include "exit.html" %}
 
 {% endblock %}
