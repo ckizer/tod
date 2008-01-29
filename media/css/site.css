@@ -67,6 +67,7 @@ text-align: center;
 .button_dock
 {
 text-align: center;
+padding: 10px;
 }
 
 #create_game
@@ -74,21 +75,6 @@ text-align: center;
 text-align: center;
 margin-bottom: 50px;
 margin-top: 50px;
-}
-
-#create_button
-{
-margin-top: 30px;
-}
-
-#create_game input
-{
-margin-top:10px;
-}
-
-#create_game_button
-{
-text-align: center;
 }
 
 #list
@@ -99,16 +85,23 @@ padding: 50px;
 margin: auto;
 }
 
+#create_player
+{
+text-align: center;
+padding: 20px;
+}
+
+#select_prompts
+{
+text-align: center;
+padding: 20px;
+}
+
 #create_prompt
 {
 width: 450px;
 padding-bottom: 50px;
 margin: auto;
-}
-
-.marquis
-{
-text-align: center;
 }
 
 #curtain
