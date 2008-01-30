@@ -1,20 +1,17 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "game/stage.html" %}
+{% block stage_detail %}
 
-<p>Congratulations, you've finished this game of Truth or Dare!</p>
-
-<div id="final_scores">
-<dl id="player_list">
-{% for player in players %}
-<dt class="players">{{ player }}</dt>
-<dd class="score">{{ player.score }}</dd>
-{% endfor %}
-</dl>
+<div id="end_game">
+  <h2> Congratulations, you have completed this game!</h2>
+  <div id="final_scores">
+	<dl id="player_list">
+	  {% for player in players %}
+	  <dt class="players">{{ player }}</dt>
+	  <dd class="score">{{ player.score }}</dd>
+	  {% endfor %}
+	</dl>
+  </div>
 </div>
-
-<p><form action="/game/create/" method="post"><input type="submit" value="Play a New Game" /></form></p>
-
-<p><a href="/prompt/">Go Back to the List of Dares</a></p>
 
 {% include "exit.html" %}
 {% endblock %}

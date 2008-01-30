@@ -81,7 +81,7 @@ margin-top: 50px;
 {
 width: 600px;
 position: relative;
-padding: 50px;
+padding: 20px;
 margin: auto;
 }
 
@@ -156,7 +156,20 @@ height: 354px;
 color: white;
 }
 
-#prompt_card h2, #game_detail h2
+#end_game
+{
+background-image: url("/media/images/prompt_card.png");
+background-repeat: no-repeat;
+margin: auto;
+text-align: center;
+outline: 1px solid white;
+width: 323px;
+height: 600px;
+margin-bottom: 100px;
+color: white;
+}
+
+#prompt_card h2, #game_detail h2, #end_game h2
 {
 padding: 20px;
 text-align: center;
@@ -186,6 +199,24 @@ float: left;
 {
 width: 40%;
 float: right;
+}
+
+#end_game
+{
+text-align: center;
+padding: 20px;
+}
+
+#final_scores dt
+{
+float: left;
+margin-left: 40px;
+}
+
+#final_scores dd
+{
+text-align: right;
+margin-right: 40px;
 }
 
 .object_list li
