@@ -1,14 +1,18 @@
+
 {% extends "base.html" %}
 {% block content %}
 
-<p>Create a <a href="/game/create/">New Game</a></p>
-<ul id="game_list" class="object_list">
-{% for object in object_list %}
-<li>
-  <form action="/game/{{object.id}}/delete/" method="post"><input type="image" src="/media/images/delete.png" alt="delete" /></form> 
-  <a href="{{ object.get_absolute_url }}">{{ object.name }}</a>
-</li>
-{% endfor%}
-</ul>
-<p><a href="/">Cancel</a></p>
+<p class="button_dock"><a href="/game/create/"><img src="/media/images/list_game_create.png" alt="Create a New Game" /></a></p>
+<div id="list">
+  <ul id="game_list" class="object_list">
+	{% for object in object_list %}
+	<li>
+	  <form action="/game/{{object.id}}/delete/" method="post"><input type="image" src="/media/images/delete.png" alt="delete" /></form> 
+	  <a href="{{ object.get_absolute_url }}">{{ object.name }}</a>
+	</li>
+	{% endfor%}
+  </ul>
+</div>
+
+{% include "exit.html" %}
 {% endblock %}

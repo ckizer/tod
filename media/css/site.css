@@ -1,3 +1,10 @@
+*
+{
+padding: 0;
+margin: 0;
+border: 0;
+}
+
 body
 {
 		background-color: black;
@@ -33,6 +40,68 @@ color: white;
 {
 position: fixed;
 left: -1000px;
+}
+
+#index_buttons
+{
+width: 600px;
+margin: auto;
+margin-top: 100px;
+}
+
+#index_create_game
+{
+float: left;
+}
+
+#index_create_prompt
+{
+float: right;
+}
+
+#index_view_games
+{
+text-align: center;
+}
+
+.button_dock
+{
+text-align: center;
+padding: 10px;
+}
+
+#create_game
+{
+text-align: center;
+margin-bottom: 50px;
+margin-top: 50px;
+}
+
+#list
+{
+width: 600px;
+position: relative;
+padding: 20px;
+margin: auto;
+}
+
+#create_player
+{
+text-align: center;
+padding: 20px;
+}
+
+#select_prompts
+{
+text-align: center;
+padding: 20px;
+}
+
+#create_prompt
+{
+width: 450px;
+padding-bottom: 50px;
+margin: auto;
 }
 
 #curtain
@@ -78,6 +147,7 @@ font-size: 30px;
 #prompt_card, #game_detail
 {
 background-image: url("/media/images/prompt_card.png");
+background-repeat: no-repeat;
 margin: auto;
 position: relative;
 top: 50px;
@@ -86,7 +156,20 @@ height: 354px;
 color: white;
 }
 
-#prompt_card h2, #game_detail h2
+#end_game
+{
+background-image: url("/media/images/prompt_card.png");
+background-repeat: no-repeat;
+margin: auto;
+text-align: center;
+outline: 1px solid white;
+width: 323px;
+height: 600px;
+margin-bottom: 100px;
+color: white;
+}
+
+#prompt_card h2, #game_detail h2, #end_game h2
 {
 padding: 20px;
 text-align: center;
@@ -118,6 +201,24 @@ width: 40%;
 float: right;
 }
 
+#end_game
+{
+text-align: center;
+padding: 20px;
+}
+
+#final_scores dt
+{
+float: left;
+margin-left: 40px;
+}
+
+#final_scores dd
+{
+text-align: right;
+margin-right: 40px;
+}
+
 .object_list li
 {
 color: white;
@@ -135,4 +236,43 @@ float: right;
 #create_prompt
 {
 color: white;
+}
+
+#players
+{
+background-image: url("/media/images/current_player.png");
+background-repeat: no-repeat;
+margin: auto;
+text-align: center;
+width: 220px;
+height: 60px;
+padding-top: 15px;
+margin-top: 15px;
+clear: both;
+font-size: 30px;
+}
+
+#exit
+{
+text-align: center;
+}
+
+#prompt_buttons input
+{
+margin-bottom: 0;
+}
+
+.detail_form label
+{
+width: 120px;
+margin-bottom: 10px;
+float: left;
+clear: left;
+text-align: right;
+padding-right: 10px;
+}
+
+.detail_form input, .detail_form textarea
+{
+margin-bottom: 10px;
 }

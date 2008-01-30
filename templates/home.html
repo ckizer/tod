@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p><a href="/game/create">Create</a> a new game</p>
-<p><a href="/game/">View</a> a list of pending games</p>
-<p><a href="/prompt/">Create</a> a new prompt</p>
+<div id="index_buttons">
+<p id="index_create_game"><a href="/game/create"><img src="/media/images/index_game_create.png" alt="Create Game"</a></p>
+<p id="index_create_prompt"><a href="/prompt/"><img src="/media/images/index_prompt_create.png" alt="Create Prompts"</a></p>
+<p id="index_view_games"><a href="/game/"><img src="/media/images/index_view_games.png" alt="View Games"</a></p>
+</div>
 {% endblock %}

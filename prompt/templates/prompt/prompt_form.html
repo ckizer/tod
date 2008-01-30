@@ -2,13 +2,18 @@
 {% block content %}
 
 <div id="create_prompt">
-	<form action="." method="post">
+	<form action="." method="post" class="detail_form">
 	<p><label for="id_name">Name:</label> {{ form.name }}</p>
-	<p><label for="id_description">Description:</label> {{ form.description }}
-	<p><label for="id_difficulty">Difficulty:</label> {{ form.difficulty }}
-	<input type="submit" name="create" value="create" />
+	<p><label for="id_description">Description:</label> {{ form.description }}</p>
+	<p><label for="id_difficulty">Difficulty:</label> {{ form.difficulty }}</p>
+	<p id="prompt_buttons">
+	  <input type="image" src="/media/images/prompt_create.png" name="create" value="create" />
+	  <a href="/prompt/"><img src="/media/images/prompt_cancel.png" alt="See the List of Dares" /></a>
+	</p>
 	</form>
-	<p><a href="/prompt/list/">See the List of Dares</a></p>
 </div>
-<p><a href="/">Cancel</a></p>
+
+
+{% include "exit.html" %}
+
 {% endblock %}
