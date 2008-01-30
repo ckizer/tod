@@ -5,12 +5,14 @@ from os.path import dirname
 sys.path.insert(0, dirname(os.getcwd()))
 os.environ['DJANGO_SETTINGS_MODULE'] = 'tod.settings'
 
-from tod.game.models import Game
+from tod.prompt.models import Prompt, TaggedItem
 
-#[g.delete() for g in Game.objects.all()]
-for name in ["New Years", "Birthday", "4th of July", "International Peter Day"]:
-    (g, created)=Game.objects.get_or_create(name=name)
+def assign_tags(prompt_id, tags):
+    current_prompt=Prompt.objects.get(id=prompt_id)
+    for current_tag in tags:
+        current_prompt.tags.create(tag=current_tag)
 
-g=Game.objects.get(name="New Game")
+assign_tags(1, ["exhibitionism", "nudity", "danger"])
 
-print g.gameprompt_set.all()
+for prompt in Prompt.objects.all():
+    print prompt, prompt.tags.all()
