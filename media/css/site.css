@@ -257,6 +257,12 @@ font-size: 30px;
 text-align: center;
 }
 
+#prompt_buttons
+{
+clear: both;
+text-align: center;
+}
+
 #prompt_buttons input
 {
 margin-bottom: 0;
@@ -275,4 +281,9 @@ padding-right: 10px;
 .detail_form input, .detail_form textarea
 {
 margin-bottom: 10px;
+}
+
+.detail_form input.checkbox
+{
+margin-top: 5px;
 }
