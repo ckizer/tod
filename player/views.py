@@ -8,7 +8,7 @@ from tod.game.models import Game
 
 def player_list(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
-    players = game.player_set.all()
+    players = game.players.all()
     if not players:
         return HttpResponseRedirect('/player/%d/create' % game.id)
     template = "player/player_list.html"
