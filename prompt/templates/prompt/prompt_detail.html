@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="create_prompt">
+	<form action="." method="post" class="detail_form">
+{{ form.as_p }}
+{% for tag in tags %}
+<p><label>{{tag}}</label><input type="checkbox" class="checkbox" name="{{tag}}" /></p>
+{% endfor %}
+	<p id="prompt_buttons">
+	  <input type="image" src="/media/images/prompt_create.png" name="create" value="create" />
+	  <a href="/prompt/"><img src="/media/images/prompt_cancel.png" alt="See the List of Dares" /></a>
+	</p>
+	</form>
+</div>
+
+
+{% include "exit.html" %}
+
+{% endblock %}

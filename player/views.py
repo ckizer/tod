@@ -8,8 +8,11 @@ from tod.game.models import Game
 
 def player_list(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
+    players = game.player_set.all()
+    if not players:
+        return HttpResponseRedirect('/player/%d/create' % game.id)
     template = "player/player_list.html"
-    context = {"object_list":game.player_set.all(), "game": game}
+    context = {"object_list": players, "game": game}
     return render_to_response(template, context, context_instance=RequestContext(request))
 
 def create(request, game_id):

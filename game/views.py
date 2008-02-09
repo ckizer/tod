@@ -37,7 +37,7 @@ def select_prompts(request, game_id):
         rounds = int(values['rounds'])
         if 0 < rounds <= maximum_rounds:
             prompt_count = player_count*rounds
-            prompts = Prompt.objects.all()[:prompt_count]
+            prompts = Prompt.objects.filter(difficulty = 1)
             game.assign_prompts(prompts)
             return HttpResponseRedirect(game.get_absolute_url())
         else:
