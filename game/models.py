@@ -11,6 +11,7 @@ class Game(models.Model):
         )
     name = models.CharField(max_length=50)
     status = models.CharField(max_length=50, choices = STATUS_CHOICES, editable = False, default='created')
+    max_difficulty = models.IntegerField(default=10, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -22,6 +23,40 @@ class Game(models.Model):
         self.status = "prompts_selected"
         self.save()
         return prompts
+
+    def create_game(self, rounds_selected):
+        if not self.max_difficulty:
+            self.max_difficulty = 10
+            self.save()
+        #determine the number of players
+        player_count = self.players.count()
+        #populate a two-dimensional list of prompts
+        prompts=[]
+        for difficulty in range(1,self.max_difficulty+1):
+            prompts.append([prompt for prompt in Prompt.objects.filter(difficulty=difficulty)])
+        rounds_assigned = 0
+        game_prompts = []
+        current_difficulty = 0
+        prompts_available = True
+        #loop over the difficulty levels and assign prompts to the game
+        while rounds_selected > rounds_assigned and prompts_available:
+            prompt_count = len(prompts[current_difficulty])
+
+            if prompt_count >= player_count:
+                for player in range(player_count):
+                    game_prompts.append(prompts[current_difficulty].pop())
+                rounds_assigned += 1
+
+            current_difficulty = (current_difficulty + 1)%10
+            prompts_available = False
+            for difficulty in range(1,11):
+                if len(prompts[current_difficulty]) >= player_count:
+                    prompts_available = True
+                if prompts_available:
+                    break
+            
+        self.assign_prompts(game_prompts)
+        return True
 
     def get_absolute_url(self):
         return "/game/%d/" % self.id
@@ -43,7 +78,7 @@ class Game(models.Model):
         return False
     
     def current_player(self):
-        players = self.player_set.all()
+        players = self.players.all()
         player_count = players.count()
         completed_prompt_count = self.gameprompt_set.filter(is_complete=True).count()
         player=players[completed_prompt_count % player_count]

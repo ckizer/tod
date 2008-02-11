@@ -24,7 +24,7 @@ def select_prompts(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
 
     template = "game/select_prompts.html"
-    player_count = game.player_set.count()
+    player_count = game.players.count()
     error = ""
     if player_count:
         maximum_rounds = Prompt.objects.count() / player_count
@@ -36,9 +36,7 @@ def select_prompts(request, game_id):
         values = request.POST.copy()
         rounds = int(values['rounds'])
         if 0 < rounds <= maximum_rounds:
-            prompt_count = player_count*rounds
-            prompts = Prompt.objects.filter(difficulty = 1)
-            game.assign_prompts(prompts)
+            game.create_game(rounds)
             return HttpResponseRedirect(game.get_absolute_url())
         else:
             if rounds<1:
@@ -83,7 +81,7 @@ def complete(request, game_id):
 def game_over(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     template = "game/over.html"
-    context = {"players": game.player_set.all(), "game": game}
+    context = {"players": game.players.all(), "game": game}
     return render_to_response(template, context, context_instance=RequestContext(request))
 
 def players_added(request, game_id):
