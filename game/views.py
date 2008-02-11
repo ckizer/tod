@@ -50,7 +50,7 @@ def select_prompts(request, game_id):
 def begin_game(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     template = "game/begin_game.html"
-    context = {"game": game}
+    context = {"game": game, "rules": rules}
     if request.method == "POST":
         game.in_progress()
         return HttpResponseRedirect(game.get_absolute_url())
