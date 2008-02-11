@@ -24,35 +24,38 @@ class Game(models.Model):
         self.save()
         return prompts
 
-    def create_game(self, rounds):
+    def create_game(self, rounds_selected):
         if not self.max_difficulty:
             self.max_difficulty = 10
             self.save()
         #determine the number of players
-        number_of_players = self.players.count()
+        player_count = self.players.count()
         #populate a two-dimensional list of prompts
-        prompts={}
-        for difficulty in range(self.max_difficulty):
-            prompts[difficulty]=Prompt.objects.filter(difficulty=difficulty).iterator()
-        assigned_rounds = 0
-        assigned_prompts = []
+        prompts=[]
+        for difficulty in range(1,self.max_difficulty+1):
+            prompts.append([prompt for prompt in Prompt.objects.filter(difficulty=difficulty)])
+        rounds_assigned = 0
+        game_prompts = []
         current_difficulty = 0
-        #loop over difficulty level
-        while assigned_rounds < rounds and prompts:
-            print "assigned rounds:", assigned_rounds
-        #if there are enough prompts for the number of players
-            try:
-                for i in range(number_of_players):
-                    assigned_prompts.append(prompts.get(current_difficulty, iter([])).next())
-                assigned_rounds+=1
-        #otherwise delete the remaining prompts at that difficulty level
-            except StopIteration:
-                print "deleting:", current_difficulty
-                if current_difficulty in prompts.keys():
-                    del prompts[current_difficulty]
-            current_difficulty += 1
-            current_difficulty %= 10
-        self.assign_prompts(assigned_prompts)
+        prompts_available = True
+        #loop over the difficulty levels and assign prompts to the game
+        while rounds_selected > rounds_assigned and prompts_available:
+            prompt_count = len(prompts[current_difficulty])
+
+            if prompt_count >= player_count:
+                for player in range(player_count):
+                    game_prompts.append(prompts[current_difficulty].pop())
+                rounds_assigned += 1
+
+            current_difficulty = (current_difficulty + 1)%10
+            prompts_available = False
+            for difficulty in range(1,11):
+                if len(prompts[current_difficulty]) >= player_count:
+                    prompts_available = True
+                if prompts_available:
+                    break
+            
+        self.assign_prompts(game_prompts)
         return True
 
     def get_absolute_url(self):
