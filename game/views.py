@@ -47,6 +47,7 @@ def select_prompts(request, game_id):
 
 def begin_game(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
+    rules = file("game/rules.txt").read()
     template = "game/begin_game.html"
     context = {"game": game, "rules": rules}
     if request.method == "POST":

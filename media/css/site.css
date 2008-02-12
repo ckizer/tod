@@ -80,6 +80,7 @@ margin-top: 50px;
 #list
 {
 width: 600px;
+outline: 1px solid blue;
 position: relative;
 padding: 20px;
 margin: auto;
@@ -112,6 +113,7 @@ background-color: #d63d35;
 position: relative;
 width: 800px;
 height: 600px;
+outline: 1px solid white;
 }
 
 #difficulty
@@ -164,7 +166,7 @@ margin: auto;
 text-align: center;
 outline: 1px solid white;
 width: 323px;
-height: 600px;
+height: 550px;
 margin-bottom: 100px;
 color: white;
 }
@@ -270,7 +272,7 @@ margin-bottom: 0;
 
 .detail_form label
 {
-width: 120px;
+width: 100px;
 margin-bottom: 10px;
 float: left;
 clear: left;
