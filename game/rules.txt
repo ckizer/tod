@@ -1,0 +1,7 @@
+Rules of the Game:
+The current player's name will appear in the box at the bottom of the game screen.
+Each player will receive a dare on their turn.
+The player may chose to complete the dare or to wimp out.
+If the player completes the dare, the difficulty of the dare will be added to the player's score.
+If the player wimps out, no points will be added to the player's score.
+The player with the most points at the end of the game wins!
