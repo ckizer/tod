@@ -17,8 +17,9 @@ class TaggedItem(models.Model):
         return self.tag
 
 class Prompt(models.Model):
-    name = models.CharField(max_length=50)
-    description = models.TextField()
+    name = models.CharField(max_length=50, unique = True)
+    truth = models.TextField()
+    dare = models.TextField()
     difficulty = models.IntegerField()
 
     tags = generic.GenericRelation(TaggedItem)
