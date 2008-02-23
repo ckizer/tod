@@ -121,6 +121,50 @@
        r="46.153847"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.3333333,0.7500001,-0.6722563,2.9878049,-218.35959,-1126.9632)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7337"
+       id="radialGradient2421"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.5416667,2.9917601e-7,-3.1939061e-7,1.6458333,-125.52068,-309.87586)"
+       cx="227.36487"
+       cy="472.21274"
+       fx="227.36487"
+       fy="472.21274"
+       r="46.153847" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8542"
+       id="radialGradient2437"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(3.3333333,0.7500001,-0.6722563,2.9878049,-218.35959,-1126.9632)"
+       cx="229.61017"
+       cy="477.565"
+       fx="229.61017"
+       fy="477.565"
+       r="46.153847" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8542"
+       id="radialGradient2453"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(3.3333333,0.7500001,-0.6722563,2.9878049,-218.35959,-1126.9632)"
+       cx="229.61017"
+       cy="477.565"
+       fx="229.61017"
+       fy="477.565"
+       r="46.153847" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7337"
+       id="radialGradient2467"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.5416667,2.9917601e-7,-3.1939061e-7,1.6458333,-125.52068,-309.87586)"
+       cx="227.36487"
+       cy="472.21274"
+       fx="227.36487"
+       fy="472.21274"
+       r="46.153847" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -130,7 +174,7 @@
      gridtolerance="10000"
      guidetolerance="10"
      objecttolerance="10"
-     inkscape:pageopacity="1"
+     inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.04"
      inkscape:cx="419.10381"
@@ -159,7 +203,8 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-20.653851,-14.742562)"
-     style="display:inline">
+     style="display:none"
+     sodipodi:insensitive="true">
     <flowRoot
        xml:space="preserve"
        id="flowRoot2178"
@@ -225,7 +270,8 @@
      id="layer4"
      inkscape:label="Stats"
      transform="translate(-20.653851,-14.742562)"
-     style="display:none">
+     style="display:none"
+     sodipodi:insensitive="true">
     <g
        id="g2809"
        inkscape:export-filename="/home/peter/Documents/www/tod/media/images/difficulty.png"
@@ -287,7 +333,8 @@
      id="layer3"
      inkscape:label="Card"
      transform="translate(-20.653851,-14.742562)"
-     style="display:inline">
+     style="display:none"
+     sodipodi:insensitive="true">
     <rect
        style="opacity:1;fill:#000000;fill-opacity:0.63999999"
        id="rect9562"
@@ -305,7 +352,8 @@
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="End_Game"
-     style="display:inline">
+     style="display:none"
+     sodipodi:insensitive="true">
     <flowRoot
        xml:space="preserve"
        id="flowRoot10683"
@@ -336,10 +384,72 @@
          id="flowPara3265">Congratulations, you have completed this game of Truth or Dare!</flowPara></flowRoot>  </g>
   <g
      inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="choice">
+    <g
+       id="g2474"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/truth.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         sodipodi:type="arc"
+         style="fill:url(#radialGradient2467);fill-opacity:1;filter:url(#filter7363)"
+         id="path2411"
+         sodipodi:cx="231.73077"
+         sodipodi:cy="479.80768"
+         sodipodi:rx="46.153847"
+         sodipodi:ry="46.153847"
+         d="M 277.88462 479.80768 A 46.153847 46.153847 0 1 1  185.57693,479.80768 A 46.153847 46.153847 0 1 1  277.88462 479.80768 z"
+         transform="translate(-123.53847,-23.396408)" />
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot2413"
+         style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse"
+         transform="matrix(1.4832768,0,0,2.981983,-311.30172,-1066.8844)"><flowRegion
+           id="flowRegion2415"><rect
+             id="rect2417"
+             width="82.692307"
+             height="34.615383"
+             x="260.57693"
+             y="503.84616"
+             style="font-size:11.44332314px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Baveuse" /></flowRegion><flowPara
+           id="flowPara2419">Truth</flowPara></flowRoot>    </g>
+    <g
+       id="g2481"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/dare.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         d="M 277.88462 479.80768 A 46.153847 46.153847 0 1 1  185.57693,479.80768 A 46.153847 46.153847 0 1 1  277.88462 479.80768 z"
+         sodipodi:ry="46.153847"
+         sodipodi:rx="46.153847"
+         sodipodi:cy="479.80768"
+         sodipodi:cx="231.73077"
+         id="path2425"
+         style="fill:url(#radialGradient2453);fill-opacity:1;filter:url(#filter8538)"
+         sodipodi:type="arc"
+         transform="translate(405.30768,-52.242561)" />
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot2427"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Baveuse"
+         transform="matrix(1.548312,0,0,3.0090846,-152.20444,-1113.3506)"><flowRegion
+           id="flowRegion2429"><rect
+             id="rect2431"
+             width="61.53846"
+             height="43.26923"
+             x="478.84616"
+             y="504.80768"
+             style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;font-family:Baveuse" /></flowRegion><flowPara
+           id="flowPara2463">Dare</flowPara></flowRoot>    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Buttons"
      transform="translate(-20.653851,-14.742562)"
-     style="display:none">
+     style="display:none"
+     sodipodi:insensitive="true">
     <g
        id="g2823"
        inkscape:export-filename="/home/peter/Documents/www/tod/media/images/complete.png"
