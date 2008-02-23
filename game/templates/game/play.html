@@ -5,7 +5,7 @@
 	<div id="score">{{ current_player.score }}</div>
 	<div id="prompt_card">
 		<h2>{{current_prompt.name}}</h2>
-		<p id="description">{{ current_prompt.description }}</p>
+		<p id="description">{{ description }}</p>
 	</div>
 	<div id="buttons">
 	<div id="wimp_out"><form action="/game/{{current_game.id}}/wimp_out/" method="post"><input type="image" src="/media/images/wimp_out.png" alt="wimp_out" /></form></div>

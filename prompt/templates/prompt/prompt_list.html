@@ -7,7 +7,7 @@
 	{% for object in object_list %}
 	<li>
 	  <form action="/prompt/{{object.id}}/delete/" method="post"><input type="image" src="/media/images/delete.png" alt="delete" /></form> 
-	  {{ object.difficulty }}: {{object.name}}: {{object.description}} 
+	  {{ object.difficulty }}: {{object.name}}: {{object.truth}} // {{object.dare}} 
 	</li>
 	{% endfor%}
   </ul>

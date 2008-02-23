@@ -14,7 +14,7 @@ def detail(request, game_id):
         'created': "/player/%s/" % game_id,
         'players_added': '/game/%s/select_prompts/' % game_id,
         'prompts_selected': '/game/%s/begin_game/' % game_id,
-        'in_progress': '/game/%s/play/' % game_id,
+        'in_progress': '/game/%s/choice/' % game_id,
         'completed': '/game/%s/game_over/' % game_id,
         }
 
@@ -55,14 +55,22 @@ def begin_game(request, game_id):
         return HttpResponseRedirect(game.get_absolute_url())
     return render_to_response(template, context, context_instance=RequestContext(request))
 
-def play(request, game_id):
+def choice(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
-    template = "game/play.html"
-    current_prompt = game.current_prompt()
-    if not current_prompt:
+    template = "game/choice.html"
+    if not game.current_prompt():
         game.game_over()
         return HttpResponseRedirect(game.get_absolute_url())
-    context = {"current_prompt": current_prompt.prompt, "current_game": game, "current_player": game.current_player()}
+    current_prompt = game.current_prompt().prompt
+    context = {"current_prompt": current_prompt, "current_game": game, "current_player": game.current_player()}
+    return render_to_response(template, context, context_instance=RequestContext(request))
+    
+def play(request, game_id, choice):
+    game = get_object_or_404(Game, pk=game_id)
+    template = "game/play.html"
+    current_prompt = game.current_prompt().prompt
+    description = current_prompt.truth if choice == "truth" else current_prompt.dare
+    context = {"current_prompt": current_prompt, "current_game": game, "current_player": game.current_player(), "description": description}
     return render_to_response(template, context, context_instance=RequestContext(request))
 
 def wimp_out(request, game_id):

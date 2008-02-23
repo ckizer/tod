@@ -1,0 +1,16 @@
+{% extends "game/stage.html" %}
+{% block content %}
+<div id="curtain">
+	<div id="difficulty">{{ current_prompt.difficulty }}</div>
+	<div id="score">{{ current_player.score }}</div>
+	<div id="prompt_card">
+		<h2>{{current_prompt.name}}</h2>
+	</div>
+	<div id="buttons">
+	<div id="dare"><form action="/game/{{current_game.id}}/play/dare/" method="post"><input type="image" src="/media/images/dare.png" alt="dare" /></form></div>
+	<div id="truth"><form action="/game/{{current_game.id}}/play/truth/" method="post"><input type="image" src="/media/images/truth.png" alt="truth" /></form></div>
+	</div>
+	<div id="players"><p>{{current_player}}</p></div>
+</div>
+{% include "exit.html" %}
+{% endblock %}
