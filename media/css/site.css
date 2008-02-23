@@ -144,7 +144,7 @@ text-align: center;
 font-size: 30px;
 }
 
-#prompt_card, #game_detail
+#prompt_card, #game_detailn, #end_game
 {
 background-image: url("/media/images/prompt_card.png");
 background-repeat: no-repeat;
@@ -167,16 +167,7 @@ position: relative;
 
 #end_game
 {
-background-image: url("/media/images/prompt_card.png");
-background-repeat: no-repeat;
-margin: auto;
-text-align: center;
-padding: 20px;
-outline: 1px solid white;
-width: 323px;
-height: 550px;
-margin-bottom: 100px;
-color: white;
+margin-bottom: 250px;
 }
 
 #prompt_card h2, #game_detail h2, #end_game h2
@@ -199,13 +190,13 @@ bottom: 0px;
 width:363px;
 }
 
-#complete
+#complete, #truth
 {
 width: 35%;
 float: left;
 }
 
-#wimp_out
+#wimp_out, #dare
 {
 width: 40%;
 float: right;
