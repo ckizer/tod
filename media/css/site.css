@@ -66,6 +66,7 @@ text-align: center;
 
 .button_dock
 {
+position: relative;
 text-align: center;
 padding: 10px;
 }
@@ -263,7 +264,14 @@ text-align: center;
 margin-bottom: 0;
 }
 
-.detail_form label
+#login_form
+{
+width: 300px;
+margin: auto;
+text-align: center;
+}
+
+.detail_form label, #login_form label
 {
 width: 100px;
 margin-bottom: 10px;
@@ -273,7 +281,7 @@ text-align: right;
 padding-right: 10px;
 }
 
-.detail_form input, .detail_form textarea
+.detail_form input, .detail_form textarea, #login_form input
 {
 margin-bottom: 10px;
 }

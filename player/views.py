@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
@@ -6,6 +8,7 @@ from django.newforms import form_for_model
 from tod.player.models import Player
 from tod.game.models import Game
 
+@login_required
 def player_list(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     players = game.players.all()
@@ -15,6 +18,7 @@ def player_list(request, game_id):
     context = {"object_list": players, "game": game}
     return render_to_response(template, context, context_instance=RequestContext(request))
 
+@login_required
 def create(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     template = "player/player_form.html"
@@ -34,6 +38,7 @@ def create(request, game_id):
     context = {"game": game, "form": PlayerForm()}
     return render_to_response(template, context, context_instance=RequestContext(request))
 
+@login_required
 def delete(request, player_id):
     player = get_object_or_404(Player, pk=player_id)
     game = player.game

@@ -7,6 +7,7 @@ urlpatterns = patterns('django.views.generic.simple',
 
 urlpatterns += patterns('',
     (r"^test/$", "tod.views.test"),
+    (r"^accounts/login/$", "django.contrib.auth.views.login"),
     (r"^mockups/$", "tod.views.mockups"),
     (r"^prompt/", include("tod.prompt.urls")),
     (r"^game/", include ("tod.game.urls")),

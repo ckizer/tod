@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect
@@ -7,6 +8,7 @@ from django.newforms import form_for_model
 from tod.game.models import Game
 from tod.prompt.models import Prompt
 
+@login_required
 def detail(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     #define a dictionary of redirects depending on the status of the game
@@ -20,6 +22,7 @@ def detail(request, game_id):
 
     return HttpResponseRedirect(game_status[game.status])
 
+@login_required
 def select_prompts(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
 
@@ -45,6 +48,7 @@ def select_prompts(request, game_id):
                 context["error"] = "MAXIMUM_ROUNDS_EXCEEDED"
     return render_to_response(template, context, context_instance=RequestContext(request))
 
+@login_required
 def begin_game(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     rules = file("game/rules.txt").read()
@@ -55,6 +59,7 @@ def begin_game(request, game_id):
         return HttpResponseRedirect(game.get_absolute_url())
     return render_to_response(template, context, context_instance=RequestContext(request))
 
+@login_required
 def choice(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     template = "game/choice.html"
@@ -65,6 +70,7 @@ def choice(request, game_id):
     context = {"current_prompt": current_prompt, "current_game": game, "current_player": game.current_player()}
     return render_to_response(template, context, context_instance=RequestContext(request))
     
+@login_required
 def play(request, game_id, choice):
     game = get_object_or_404(Game, pk=game_id)
     template = "game/play.html"
@@ -73,12 +79,14 @@ def play(request, game_id, choice):
     context = {"current_prompt": current_prompt, "current_game": game, "current_player": game.current_player(), "description": description}
     return render_to_response(template, context, context_instance=RequestContext(request))
 
+@login_required
 def wimp_out(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     current_prompt = game.current_prompt()
     current_prompt.complete()
     return HttpResponseRedirect(game.get_absolute_url())
 
+@login_required
 def complete(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     current_prompt = game.current_prompt()
@@ -87,12 +95,14 @@ def complete(request, game_id):
     current_player.update_score(score)
     return HttpResponseRedirect(game.get_absolute_url())
 
+@login_required
 def game_over(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     template = "game/over.html"
     context = {"players": game.players.all(), "game": game}
     return render_to_response(template, context, context_instance=RequestContext(request))
 
+@login_required
 def players_added(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     game.players_added()
