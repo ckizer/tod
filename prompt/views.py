@@ -1,10 +1,20 @@
 from django.contrib.auth.decorators import login_required
 
+from django.views.generic.list_detail import object_list
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from tod.prompt.models import Prompt
 from tod.prompt.forms import PromptForm
+from django.views.generic.create_update import delete_object
+
+@login_required
+def limited_object_list(*args, **kwargs):
+    return object_list(*args, **kwargs)
+
+@login_required
+def limited_delete_object(*args, **kwargs):
+    return delete_object(*args, **kwargs)
 
 @login_required
 def index(request):

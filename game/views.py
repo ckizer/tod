@@ -4,9 +4,24 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.newforms import form_for_model
+from django.views.generic.list_detail import object_list
+from django.views.generic.create_update import create_object
+from django.views.generic.create_update import delete_object
 
 from tod.game.models import Game
 from tod.prompt.models import Prompt
+
+@login_required
+def limited_object_list(*args, **kwargs):
+    return object_list(*args, **kwargs)
+
+@login_required
+def limited_create_object(*args, **kwargs):
+    return create_object(*args, **kwargs)
+
+@login_required
+def limited_delete_object(*args, **kwargs):
+    return delete_object(*args, **kwargs)
 
 @login_required
 def detail(request, game_id):
