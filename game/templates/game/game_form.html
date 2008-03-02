@@ -2,6 +2,7 @@
 {% block content %}
 
 <div id="create_game">
+  {% if form.errors %}{{ form.errors }}{% endif %}
   <form action="." method="post">
 	<p><label for="id_name">Name:</label> {{ form.name }}</p>
 	<div class="button_dock">

@@ -5,19 +5,32 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.newforms import form_for_model
 from django.views.generic.list_detail import object_list
-from django.views.generic.create_update import create_object
 from django.views.generic.create_update import delete_object
-
+from tod.game.forms import GameForm
 from tod.game.models import Game
 from tod.prompt.models import Prompt
 
 @login_required
-def limited_object_list(*args, **kwargs):
-    return object_list(*args, **kwargs)
+def object_list(request):
+    template = "game/game_list.html"
+    context = {'object_list':request.user.game_set.all()}
+    return render_to_response(template, context, context_instance=RequestContext(request))
 
 @login_required
-def limited_create_object(*args, **kwargs):
-    return create_object(*args, **kwargs)
+def create_object(request):
+    if request.method == "POST":
+        values = request.POST.copy()
+        form = GameForm(values)
+        if form.is_valid():
+            game = form.save(commit=False)
+            game.user = request.user
+            game.save()
+            return HttpResponseRedirect(game.get_absolute_url())
+    else:
+        form = GameForm()
+    context = {'form': form}
+    template = "game/game_form.html"
+    return render_to_response(template, context, context_instance=RequestContext(request))
 
 @login_required
 def limited_delete_object(*args, **kwargs):

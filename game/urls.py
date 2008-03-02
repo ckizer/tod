@@ -11,8 +11,8 @@ urlpatterns = patterns('tod.game.views',
     (r'^(?P<game_id>\d+)/$', 'detail'),
     (r'^(?P<game_id>\d+)/players_added/$', 'players_added'),
     (r'^(?P<game_id>\d+)/select_prompts/$', 'select_prompts'),
-    (r'^$', 'limited_object_list', {'queryset': Game.objects.all(),'allow_empty': True}),
-    (r'^create/$', 'limited_create_object', {'model': Game}),
+    (r'^$', 'object_list'),
+    (r'^create/$', 'create_object'),
     (r'^(?P<object_id>\d+)/delete/$', 'limited_delete_object', {'model': Game, 'post_delete_redirect': '/game/'}),
 )
 

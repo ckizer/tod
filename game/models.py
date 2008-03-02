@@ -1,5 +1,6 @@
 from django.db import models
 from tod.prompt.models import Prompt
+from django.contrib.auth.models import User
 
 class Game(models.Model):
     STATUS_CHOICES = (
@@ -12,6 +13,7 @@ class Game(models.Model):
     name = models.CharField(max_length=50)
     status = models.CharField(max_length=50, choices = STATUS_CHOICES, editable = False, default='created')
     max_difficulty = models.IntegerField(default=10, null=True, blank=True)
+    user = models.ForeignKey(User)
 
     def __str__(self):
         return self.name
