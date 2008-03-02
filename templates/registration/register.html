@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post" action=".">
+<fieldset>
+<p><label> Username:</label> {{ form.username }}</p>
+<p><label> Password:</label> {{ form.password }}</p>
+<input type="submit" value="Register" />
+</fieldset>
+</form>
+
+{% include "exit.html" %}
+
+{% endblock %}

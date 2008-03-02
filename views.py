@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-
+from tod.forms import UserForm
+from django.http import HttpResponseRedirect
 
 def test(request):
     template = "test.html"
@@ -14,4 +15,17 @@ def mockups(request):
     for mock in file("mockups.txt"):
         mockups.append(mock.strip())
     context = {'mockups': mockups}
+    return render_to_response(template, context, context_instance=RequestContext(request))
+
+def register(request):
+    template = "registration/register.html"
+    if request.method == "POST":
+        values = request.POST.copy()
+        form = UserForm(values)
+        if form.is_valid():
+            user = form.save()
+            return HttpResponseRedirect("/")
+    else:
+        form = UserForm()
+    context = {'form': form}
     return render_to_response(template, context, context_instance=RequestContext(request))
