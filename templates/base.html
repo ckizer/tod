@@ -13,16 +13,18 @@
 	  {% endblock header %}
 	</div>
 	</a>
+	<div id="content">
+	  {% block content %}
+	  {% endblock content %}
+	</div>
 	<div id="authentication">
 	  {% if user.is_authenticated %}
 	  <a href="/accounts/logout/">Logout</a> {{ user }}
 	  {% else %}
 	  <a href="/accounts/login/">Login</a>
 	  {% endif %}
-	<div id="content">
-	  {% block content %}
-	  {% endblock content %}
 	</div>
+
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

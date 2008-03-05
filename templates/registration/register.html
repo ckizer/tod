@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<div id="register">
 <form method="post" action=".">
 <fieldset>
 <p><label> Username:</label> {{ form.username }}</p>
 <p><label> Password:</label> {{ form.password }}</p>
-<input type="submit" value="Register" />
+<div class="button_dock">
+<input type="image" src="/media/images/register.png" alt="Register" />
+</div>
 </fieldset>
 </form>
-
+</div>
 {% include "exit.html" %}
 
 {% endblock %}

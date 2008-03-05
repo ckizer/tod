@@ -124,7 +124,7 @@
      gridtolerance="10000"
      guidetolerance="10"
      objecttolerance="10"
-     inkscape:pageopacity="1"
+     inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.04"
      inkscape:cx="400"
@@ -151,7 +151,8 @@
   <g
      inkscape:label="Background"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     style="display:none">
     <flowRoot
        xml:space="preserve"
        id="flowRoot2178"
@@ -172,7 +173,7 @@
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="Index_Buttons"
-     style="display:inline">
+     style="display:none">
     <g
        id="g2830"
        transform="translate(363.46156,8.6538463)"
@@ -268,5 +269,89 @@
              id="rect10619" /></flowRegion><flowPara
            id="flowPara10621">CREATE a</flowPara><flowPara
            id="flowPara2772">New game</flowPara></flowRoot>    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="image_bkgrnd"
+     style="display:inline">
+    <g
+       id="g2931"
+       transform="matrix(-1,0,0,1,751.92307,-5.7692308)"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/masks_right.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <image
+         y="0.76921374"
+         x="-7.7115393"
+         id="image2923"
+         height="160"
+         width="176"
+         sodipodi:absref="/home/peter/Desktop/theatre-masks2.png"
+         xlink:href="/home/peter/Desktop/theatre-masks2.png" />
+      <image
+         xlink:href="/home/peter/Desktop/theatre-masks2.png"
+         sodipodi:absref="/home/peter/Desktop/theatre-masks2.png"
+         width="176"
+         height="160"
+         id="image2925"
+         x="-7.7115393"
+         y="538.26923" />
+      <image
+         y="179.93588"
+         x="-7.7115393"
+         id="image2927"
+         height="160"
+         width="176"
+         sodipodi:absref="/home/peter/Desktop/theatre-masks2.png"
+         xlink:href="/home/peter/Desktop/theatre-masks2.png" />
+      <image
+         xlink:href="/home/peter/Desktop/theatre-masks2.png"
+         sodipodi:absref="/home/peter/Desktop/theatre-masks2.png"
+         width="176"
+         height="160"
+         id="image2929"
+         x="-7.7115393"
+         y="359.10254" />
+    </g>
+    <g
+       id="g2945"
+       transform="translate(14.423077,-0.961538)"
+       inkscape:export-filename="/home/peter/Documents/www/tod/media/images/masks_left.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <image
+         y="0.76922899"
+         x="17.288462"
+         id="image2937"
+         height="160"
+         width="176"
+         sodipodi:absref="/home/peter/Desktop/theatre-masks2.png"
+         xlink:href="/home/peter/Desktop/theatre-masks2.png" />
+      <image
+         xlink:href="/home/peter/Desktop/theatre-masks2.png"
+         sodipodi:absref="/home/peter/Desktop/theatre-masks2.png"
+         width="176"
+         height="160"
+         id="image2939"
+         x="17.288462"
+         y="535.38464" />
+      <image
+         y="178.97437"
+         x="17.288462"
+         id="image2941"
+         height="160"
+         width="176"
+         sodipodi:absref="/home/peter/Desktop/theatre-masks2.png"
+         xlink:href="/home/peter/Desktop/theatre-masks2.png" />
+      <image
+         xlink:href="/home/peter/Desktop/theatre-masks2.png"
+         sodipodi:absref="/home/peter/Desktop/theatre-masks2.png"
+         width="176"
+         height="160"
+         id="image2943"
+         x="17.288462"
+         y="357.1795" />
+    </g>
   </g>
 </svg>
