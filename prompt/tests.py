@@ -45,3 +45,23 @@ class PromptTest(TestCase):
         self.failUnlessEqual(prompt.truth, datum['truth'])
         self.failUnlessEqual(prompt.dare, datum['dare'])
         self.failUnlessEqual(prompt.difficulty, datum['difficulty'])
+
+class PromptViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        laura = User.objects.create_user(username="Laura", password="laura", email="laura.m.madsen@gmail.com")
+        self.prompt = Prompt.objects.create(name="Test Dare", truth="Tell something embarassing", dare="Do something embarassing", difficulty=5)
+        self.urls = {
+            '/prompt/': 200,
+            }
+    
+    def test_unauthenticated(self):
+        for url, status_code in self.urls.items():
+            response = self.client.get(url)
+            self.assertRedirects(response, 'http://testserver/accounts/login/?next='+url, status_code=302, target_status_code=200)
+
+    def test_authenticated(self):
+        self.client.login(username="Laura", password="laura")
+        for url, status_code in self.urls.items():
+            response = self.client.get(url)
+            self.failUnlessEqual(response.status_code, status_code)
