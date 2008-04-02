@@ -2,6 +2,20 @@ from django.db import models
 from tod.prompt.models import Prompt
 from django.contrib.auth.models import User
 
+class TaggedItem(models.Model):
+    tag = models.SlugField()
+    content_type = models.ForeignKey(ContentType)
+    object_id = models.PositiveIntegerField()
+    
+    content_object = generic.GenericForeignKey()
+
+    class Meta:
+        ordering = ["tag"]
+        unique_together = (("tag", "object_id"),)
+    
+    def __unicode__(self):
+        return self.tag
+
 class Game(models.Model):
     STATUS_CHOICES = (
         ('created', 'Created'),
@@ -14,6 +28,8 @@ class Game(models.Model):
     status = models.CharField(max_length=50, choices = STATUS_CHOICES, editable = False, default='created')
     max_difficulty = models.IntegerField(default=10, null=True, blank=True)
     user = models.ForeignKey(User)
+
+    tags = generic.GenericRelation(TaggedItem)
 
     def __str__(self):
         return self.name
