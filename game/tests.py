@@ -7,18 +7,18 @@ from tod.game.models import Game
 
 class GameTest(TestCase):
     def setUp(self):
-        (laura, created) = User.objects.get_or_create(username="Laura")
+        (self.laura, created) = User.objects.get_or_create(username="Laura")
         self.data = [
             {},
             {
                 'name': 'TestGame',
                 'status': 'completed',
-                'user': laura,
+                'user': self.laura,
             },
             {
                 'name': 'TestGame',
                 'status': 'completed',
-                'user': laura,
+                'user': self.laura,
                 'max_difficulty': 7,
             },
             ]
@@ -30,11 +30,23 @@ class GameTest(TestCase):
 
     def test_create_minimal(self):
         datum = self.data[1]
-        game = Game(**datum)
+        game = Game.objects.create(**datum)
+        for key, value in datum.items():
+            if key == 'user':
+                continue
+            self.failUnlessEqual(game.__dict__[key], value)
+        self.failUnlessEqual(game.user, self.laura)
+        self.failUnless(game.id)
 
     def test_create_maximal(self):
         datum = self.data[2]
-        game = Game(**datum)
+        game = Game.objects.create(**datum)
+        for key, value in datum.items():
+            if key == 'user':
+                continue
+            self.failUnlessEqual(game.__dict__[key], value)
+        self.failUnlessEqual(game.user, self.laura)
+        self.failUnless(game.id)
 
 class GameViewTest(TestCase):
     def setUp(self):
