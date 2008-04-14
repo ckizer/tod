@@ -28,8 +28,8 @@ class Prompt(models.Model):
     truth = models.TextField()
     dare = models.TextField()
     difficulty = models.IntegerField()
-    private = models.BooleanField(default=True)
-    owner = models.ForeignKey(Owner)
+    private = models.BooleanField(default=True, editable = False)
+    owner = models.ForeignKey(Owner, editable = False)
 
     tags = generic.GenericRelation(TaggedItem)
 

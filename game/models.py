@@ -1,20 +1,6 @@
 from django.db import models
-from tod.prompt.models import Prompt
+from tod.prompt.models import Prompt, TaggedItem, generic
 from django.contrib.auth.models import User
-
-class TaggedItem(models.Model):
-    tag = models.SlugField()
-    content_type = models.ForeignKey(ContentType)
-    object_id = models.PositiveIntegerField()
-    
-    content_object = generic.GenericForeignKey()
-
-    class Meta:
-        ordering = ["tag"]
-        unique_together = (("tag", "object_id"),)
-    
-    def __unicode__(self):
-        return self.tag
 
 class Game(models.Model):
     STATUS_CHOICES = (
