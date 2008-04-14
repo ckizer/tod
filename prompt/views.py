@@ -19,7 +19,7 @@ def limited_delete_object(*args, **kwargs):
 @login_required
 def index(request):
     template = "prompt/index.html"
-    context = {'prompts':Prompt.objects.all()}
+    context = {'prompts':Prompt.objects.exclude(private=True, user__ne=me)}
     return render_to_response(template, context, context_instance=RequestContext(request))
 
 @login_required

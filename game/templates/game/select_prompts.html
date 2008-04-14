@@ -2,21 +2,24 @@
 {% block content %}
 
 <div id="select_prompts">
+
+  <p><label for="id_max_difficulty">Choose the Maximum Difficulty for {{ game.name }}: </label> {{ form.max_difficulty }}</p>
+
   <form action="." method="post">
 	<p>How many rounds would you like to play? (1 to {{ maximum_rounds }})</p>
-
-<p class="error">
-{% ifequal error "MINIMUM_PLAYERS_EXCEEDED" %}
-Please <a href="/player/{{ game.id }}/"> add players </a>to this game
-{% endifequal %}
-{% ifequal error "MINIMUM_ROUNDS_EXCEEDED" %}
-Please select a number greater than zero
-{% endifequal %}
-{% ifequal error "MAXIMUM_ROUNDS_EXCEEDED" %}
-Please either select fewer rounds, <a href="/prompt/create"> create</a> new prompts, or <a href="/player/{{ game.id}}/">select </a>fewer players.
-{% endifequal %}
-</p>
+	<p class="error">
+	  {% ifequal error "MINIMUM_PLAYERS_EXCEEDED" %}
+	  Please <a href="/player/{{ game.id }}/"> add players </a>to this game
+	  {% endifequal %}
+	  {% ifequal error "MINIMUM_ROUNDS_EXCEEDED" %}
+	  Please select a number greater than zero
+	  {% endifequal %}
+	  {% ifequal error "MAXIMUM_ROUNDS_EXCEEDED" %}
+	  Please either select fewer rounds, <a href="/prompt/create"> create</a> new prompts, or <a href="/player/{{ game.id}}/">select </a>fewer players.
+	  {% endifequal %}
+	</p>
 	<p><label for="id_name">Number of Rounds: </label> <input type="text" name="rounds" value="{{ rounds }}" /></p>
+  </form>
 	<div class="button_dock">
 	  <input type="image" src="/media/images/select_rounds.png" alt="submit" value="Select Number of Rounds" />
 	</div>

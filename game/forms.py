@@ -5,4 +5,4 @@ from tod.game.models import Game
 class GameForm(ModelForm):
     class Meta:
         model = Game
-        fields = ('name')
+        fields = ('name', 'max_difficulty')
