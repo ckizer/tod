@@ -49,13 +49,13 @@ class PlayerViewTest(TestCase):
         self.player = Player.objects.create(name="Peter", game=self.game)
         create = '/player/%d/create' % (self.game.id)
         self.urls = {
-            '/player/%d/create/': 302,
+            create: 301,
             }
     
     def test_unauthenticated(self):
         for url, status_code in self.urls.items():
             response = self.client.get(url)
-            self.assertRedirects(response, 'http://testserver/accounts/login/?next='+url, status_code=302, target_status_code=200)
+            self.assertRedirects(response, 'http://testserver/accounts/login/?next='+url, status_code=301, target_status_code=200)
 
     def test_authenticated(self):
         self.client.login(username="Laura", password="laura")

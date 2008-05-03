@@ -1,0 +1,22 @@
+[
+    {
+        "pk": 1, 
+        "model": "game.game", 
+        "fields": {
+            "status": "created", 
+            "max_difficulty": null, 
+            "name": "TestGame", 
+            "user": 2
+        }
+    },
+    {
+        "pk": 2, 
+        "model": "game.game", 
+        "fields": {
+            "status": "created", 
+            "max_difficulty": 7, 
+            "name": "WimpyGame", 
+            "user": 2
+        }
+    }
+]

@@ -32,7 +32,9 @@ def detail(request):
         values = request.POST.copy()
         form = PromptForm(values)
         if form.is_valid():
-            current_prompt=form.save()
+            current_prompt=form.save(commit=False)
+            current_prompt.owner=request.user
+            current_prompt.save()
             for tag in tags:
                 if values.get(tag,None):
                     current_prompt.tags.create(tag=tag)
