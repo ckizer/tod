@@ -62,6 +62,11 @@ class GameViewTest(TestCase):
             response = self.client.get(url)
             self.failUnlessEqual(response.status_code, status_code)
 
+class PrivatePromptTest(TestCase):
+    """test that other users' private prompts are not included in a user's available prompts
+    """
+    
+
 class MaxDifficultyTest(TestCase):
     """ test that max difficulty properly restricts prompts
     """
@@ -76,13 +81,14 @@ class MaxDifficultyTest(TestCase):
     #test that the prompt count for the game is ten
         self.game = Game.objects.get(name='TestGame')
         prompts = self.game.availablePrompts()
-        self.failUnlessEqual(prompts.count(), 10)
+        self.failUnlessEqual(Prompt.objects.count(), 16)
+        self.failUnlessEqual(prompts.count(), 13)
     def test_max_difficulty(self):
     #test that the prompt count when the max difficulty is set is equal to the number of prompts at or below max difficulty
     #test that the prompt count is seven
         self.game = Game.objects.get(name='WimpyGame')
         prompts = self.game.availablePrompts()
-        self.failUnlessEqual(prompts.count(), 7)
+        self.failUnlessEqual(prompts.count(), 9)
     #test that all prompts included in the prompt count when the max difficulty is set are at or under the max difficulty
     #get the list of prompts available for the game
     #loop through the prompts and assert that their difficulty is at or below 7

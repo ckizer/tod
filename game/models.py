@@ -22,9 +22,9 @@ class Game(models.Model):
 
     def availablePrompts(self):
         availablePrompts = Prompt.objects.all()
+        availablePrompts = Prompt.objects.exclude(private=True) | Prompt.objects.filter(owner=self.user)
         if self.max_difficulty:
             availablePrompts = availablePrompts.filter(difficulty__lte=self.max_difficulty)
-
         return availablePrompts
         #exclude other people's private prompts
         #exclude prompts with tagged items selected for the game

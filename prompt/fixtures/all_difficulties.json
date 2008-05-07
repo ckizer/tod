@@ -118,5 +118,77 @@
             "owner": 2, 
             "dare": "10"
         }
+    },
+    {
+        "pk": 11, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "prv1", 
+            "private": true, 
+            "difficulty": 1, 
+            "truth": "1", 
+            "owner": 1, 
+            "dare": "1"
+        }
+    },
+    {
+        "pk": 12, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "prv2", 
+            "private": true, 
+            "difficulty": 3, 
+            "truth": "1", 
+            "owner": 1, 
+            "dare": "1"
+        }
+    },
+    {
+        "pk": 13, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "prv3", 
+            "private": true, 
+            "difficulty": 10, 
+            "truth": "1", 
+            "owner": 1, 
+            "dare": "1"
+        }
+    },
+    {
+        "pk": 14, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "prv4", 
+            "private": true, 
+            "difficulty": 1, 
+            "truth": "1", 
+            "owner": 2, 
+            "dare": "1"
+        }
+    },
+    {
+        "pk": 15, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "prv5", 
+            "private": true, 
+            "difficulty": 5, 
+            "truth": "1", 
+            "owner": 2, 
+            "dare": "1"
+        }
+    },
+    {
+        "pk": 16, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "prv6", 
+            "private": true, 
+            "difficulty": 10, 
+            "truth": "1", 
+            "owner": 2, 
+            "dare": "1"
+        }
     }
 ]
