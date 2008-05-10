@@ -33,8 +33,6 @@ class Game(models.Model):
     def availablePrompts(self):
         """Provides the available prompts for a game based on chosen preferences
 
-        TODO - test that other users' private prompts are excluded
-        TODO - test that prompts exceeding the max difficulty are excluded
         TODO - test that prompts with tags selected for exclusion from the game are excluded
         """
         availablePrompts = Prompt.objects.all()
@@ -53,7 +51,6 @@ class Game(models.Model):
     def assign_prompts(self, prompts):
         """Takes a list of prompts selected for the game and changes the game status to prompts_selected
 
-        TODO - test that the game's status is changed to prompts_selected
         TODO - test that the prompts for the game are saved
         """
         for prompt in prompts:
@@ -117,8 +114,6 @@ class Game(models.Model):
 
     def players_added(self):
         """Changes the status to players_added
-
-        TODO - Test that the game's status changes from created to players_added
         """
 
         self.status = "players_added"
@@ -127,8 +122,6 @@ class Game(models.Model):
 
     def in_progress(self):
         """Changes the status to in_progress
-
-        TODO - Test that the game's status changes from players_added to in_progress
         """
         self.status = "in_progress"
         self.save()
@@ -136,8 +129,6 @@ class Game(models.Model):
     
     def game_over(self):
         """Changes the status from in_progress to completed
-
-        TODO - Test that status is changed from in_progress to completed
         """
         self.status="completed"
         self.save()

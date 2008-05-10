@@ -4,38 +4,42 @@ from django.db import IntegrityError
 from django.contrib.auth.models import User
 from tod.prompt.models import Prompt
 from tod.game.models import Game
+from tod.game.forms import GameForm
+
+GAME_DATA = [
+    {},
+    {
+        'name': 'TestGame',
+        'status': 'completed',
+        'user': self.laura,
+        },
+    {
+        'name': 'TestGame',
+        'status': 'completed',
+        'user': self.laura,
+        'max_difficulty': 7,
+        },
+    ]
+
+
 
 class GameTest(TestCase):
     """Test elements of the Game model
     """
     def setUp(self):
         (self.laura, created) = User.objects.get_or_create(username="Laura")
-        self.data = [
-            {},
-            {
-                'name': 'TestGame',
-                'status': 'completed',
-                'user': self.laura,
-            },
-            {
-                'name': 'TestGame',
-                'status': 'completed',
-                'user': self.laura,
-                'max_difficulty': 7,
-            },
-            ]
 
     def test_create_blank(self):
         """Test game creation with no data
         """
-        datum = self.data[0]
+        datum = GAME_DATA[0]
         game = Game(**datum)
         self.assertRaises(IntegrityError, game.save) 
 
     def test_create_minimal(self):
         """Test game creation with the least possible data
         """
-        datum = self.data[1]
+        datum = GAME_DATA[1]
         game = Game(**datum)
         self.failUnlessEqual(game.name, 'TestGame')
         self.failUnlessEqual(game.status, 'completed')
@@ -44,9 +48,78 @@ class GameTest(TestCase):
     def test_create_maximal(self):
         """Test game creation with all possible data
         """
-        datum = self.data[2]
+        datum = GAME_DATA[2]
         game = Game(**datum)
         self.failUnlessEqual(game.max_difficulty, 7)
+
+class GameStatusTest(TestCase):
+    """Test that an existing game proceeds normally through statuses
+
+    Provide a fixture that has:
+    A newly created game
+    A valid user
+    Several prompts to assign
+    """
+    fixtures = ['game_status']
+    def setUp(self):
+        self.user = User.objects.get(username="laura")
+        self.game = Game.objects.get()
+
+    def test_status(self):
+        self.failUnlessEqual(self.game.status, 'created')
+        #Add 2 players and mark the game players_added
+        for player in ['alice', 'bob']:
+            Player.objects.create(name=name, game=self.game)
+        self.game.players_added()
+        self.failUnlessEqual(self.game.status, 'players_added')
+        #assign prompts
+        self.game.assign_prompts(self.game.availablePrompts())
+        self.failUnlessEqual(self.game.status, 'prompts_selected')
+        #start game
+        self.game.in_progress()
+        self.failUnlessEqual(self.game.status, 'in_progress')
+        #complete game
+        while self.game.current_prompt():
+            prompt = self.game.current_prompt()
+            prompt.complete()
+        self.failUnlessEqual(self.game.status, 'completed')
+        
+
+class GameFormTest(TestCase):
+    """Test creation the Game model via form
+    """
+    fixtures = ["user"]
+    def setUp(self):
+        self.user = User.objects.get(username="laura")
+
+    def submit_form(self, datum):
+        form = GameForm(self.user, datum)
+        if form.is_valid():
+            game = form.save(commit=False)
+        return game
+
+    def test_create_blank(self):
+        """Test game creation with no data
+        """
+        game = self.submit_form(GAME_DATA[0])
+        self.assertRaises(IntegrityError, game.save) 
+
+    def test_create_minimal(self):
+        """Test game creation with the least possible data
+        """
+        game = self.submit_form(GAME_DATA[1])
+        game.save()
+        self.failUnlessEqual(game.name, 'TestGame')
+        self.failUnlessEqual(game.status, 'completed')
+        self.failUnlessEqual(game.user, self.user)
+
+    def test_create_maximal(self):
+        """Test game creation with all possible data
+        """
+        game = self.submit_form(GAME_DATA[2])
+        game.save()
+        self.failUnlessEqual(game.max_difficulty, 7)
+        self.failUnlessEqual(game.tags.count(), 3)
 
 class GameViewTest(TestCase):
     def setUp(self):

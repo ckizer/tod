@@ -26,8 +26,7 @@ def create_object(request):
     TODO - test that game form displays if there is not a post
     """
     if request.method == "POST":
-        #TODO - add user to GameForm
-        form = GameForm(request.POST.copy())
+        form = GameForm(request.user, request.POST.copy())
         if form.is_valid():
             game = form.save(commit=False)
             game.user = request.user
