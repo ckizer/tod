@@ -17,19 +17,13 @@ class TaggedItem(models.Model):
     def __unicode__(self):
         return self.tag
 
-class Owner(models.Model):
-    name = models.ForeignKey(User)
-
-    def __unicode__(self):
-        return self.name
-
 class Prompt(models.Model):
     name = models.CharField(max_length=50, unique = True)
     truth = models.TextField()
     dare = models.TextField()
     difficulty = models.IntegerField()
     private = models.BooleanField(default=True, editable = False)
-    owner = models.ForeignKey(Owner, editable = False)
+    owner = models.ForeignKey(User, editable = False)
 
     tags = generic.GenericRelation(TaggedItem)
 

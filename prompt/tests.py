@@ -7,6 +7,7 @@ from tod.prompt.models import Prompt
 
 class PromptTest(TestCase):
     def setUp(self):
+        self.laura = User.objects.create_user(username="laura", password="laura", email="laura.m.madsen@gmail.com")
         self.data = [
             {},
             {
@@ -14,12 +15,14 @@ class PromptTest(TestCase):
                 'truth': 'Tell something embarassing',
                 'dare': 'do something embarassing',
                 'difficulty': 5,
+                'owner': self.laura,
             },
             {
                 'name': 'Test Dare',
                 'truth': 'Tell something embarassing',
                 'dare': 'do something embarassing',
                 'difficulty': 5,
+                'owner': self.laura,
             },
             ]
 
@@ -32,10 +35,13 @@ class PromptTest(TestCase):
         datum = self.data[1]
         prompt = Prompt(**datum)
         prompt.save()
+        
         self.failUnlessEqual(prompt.name, datum['name'])
         self.failUnlessEqual(prompt.truth, datum['truth'])
         self.failUnlessEqual(prompt.dare, datum['dare'])
         self.failUnlessEqual(prompt.difficulty, datum['difficulty'])
+        self.failUnlessEqual(prompt.owner, datum['owner'])
+
 
     def test_create_maximal(self):
         datum = self.data[2]
@@ -49,8 +55,8 @@ class PromptTest(TestCase):
 class PromptViewTest(TestCase):
     def setUp(self):
         self.client = Client()
-        laura = User.objects.create_user(username="Laura", password="laura", email="laura.m.madsen@gmail.com")
-        self.prompt = Prompt.objects.create(name="Test Dare", truth="Tell something embarassing", dare="Do something embarassing", difficulty=5)
+        self.laura = User.objects.create_user(username="Laura", password="laura", email="laura.m.madsen@gmail.com")
+        self.prompt = Prompt.objects.create(name="Test Dare", truth="Tell something embarassing", dare="Do something embarassing", difficulty=5, owner=self.laura)
         self.urls = {
             '/prompt/': 200,
             }
