@@ -1,0 +1,426 @@
+commit ba0b82b09d52490b0f85ee04b3b0711c627c9e68
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Wed May 7 17:42:24 2008 +0000
+
+    made max difficulty and owner apply to the prompts available to the game.  all game tests pass.
+
+commit c5b0f5b46af21f6276db6134010313032df077b7
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Sat May 3 16:19:29 2008 +0000
+
+    developed max_difficulty and related tests
+
+commit 87521c513ff13162dbe3a855fddb93a7ea900c10
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Mon Apr 14 00:45:15 2008 +0000
+
+    making changes to the tagging system
+
+commit d607a76e7e914bb578d23333e9249624fd69ee95
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Wed Apr 2 21:40:50 2008 +0000
+
+    added maximum difficulty to select rounds page
+
+commit d3a6df45898eb90beb5526aa9b5261700785a661
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Wed Apr 2 21:28:07 2008 +0000
+
+    added tagged item to game but did not yet implement filter.  made private and owner objects for prompt.
+
+commit 79dc6cc909bf23899f9fb8ea154c66cf5345e72d
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Wed Mar 19 18:54:44 2008 +0000
+
+    worked on view tests for player and prompt
+
+commit a18389b6fcc95dd11563f5bbeb8563f95ce2293a
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Wed Mar 19 17:36:37 2008 +0000
+
+    made player and prompt create tests
+
+commit 3158d8c0bcb922c7244b8d2ee99c169a3cc3020a
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Thu Mar 13 04:12:49 2008 +0000
+
+    wrote first tests for game
+
+commit fc60f1e20a7d72c12e57699220c97fb2346e10cf
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Tue Mar 4 19:23:39 2008 -0800
+
+    added background image and images and style to login and register pages
+
+commit ff73e3e000020ed859eea7c957e7ba1f6e5b8e43
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Sun Mar 2 10:29:34 2008 -0800
+
+    made users only able to see their own games, made log in and log out options
+
+commit 4ccd2a566e99ddfead97b9e012d94a9f172f7bcb
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Sat Mar 1 16:50:06 2008 -0800
+
+    added wrappers to the generic views to limit use to logged in users
+
+commit f14243c9675de752761d14d94a63fa4a6cf600ef
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Sat Mar 1 16:35:39 2008 -0800
+
+    added registration page and form
+
+commit d9f8e513b1b90b9efa9272c271acd278810f397d
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Sat Mar 1 23:19:31 2008 +0000
+
+    added log in template
+
+commit f202299aa964eb17458e925818695596b0d5132a
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Sat Mar 1 23:18:43 2008 +0000
+
+    added log in to views
+
+commit f9b3e75d1707c59eb012d236580a6d0084570ae4
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Sat Feb 23 16:26:38 2008 +0000
+
+    made visual changes to truth and dare buttons and end game page
+
+commit 2c5730b8d2cb892d716fb9bd1b8b80afb6472d45
+Merge: 212c2fd... e5b7403...
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Sat Feb 23 05:38:57 2008 +0000
+
+    Merge branch 'master' of ../tod
+
+commit 212c2fd5b74af70a90fe9a3e01fa93e4ca486d96
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Sat Feb 23 05:38:47 2008 +0000
+
+    added truth or dare choice to game play
+
+commit e5b7403cfd152437c5f401d90be3de7561d7b736
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Fri Feb 22 21:37:47 2008 -0800
+
+    made truth and dare buttons
+
+commit 3345cafb63b37c65c37ecfdd6f0691f3b69565ee
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Fri Feb 22 20:51:30 2008 +0000
+
+    added files for the game rules and for importing prompts
+
+commit 85a479c736b9ed8d03f747690dd10b50464b9fbd
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Fri Feb 22 20:42:19 2008 +0000
+
+    added truth and dare to prompt model, imported prompts from spreadsheet
+
+commit e4eeee80412ea99f51ecb3d6091b006f799952ac
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Tue Feb 12 22:28:20 2008 +0000
+
+    formatted game rules, fixed some small visual issues on begin game page and prompt form page
+
+commit b12327a18541e2fef0b25e983208d5832d14bec1
+Merge: 5b6d89c... ade2686...
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Mon Feb 11 17:06:27 2008 +0000
+
+    Merge branch 'master' of ../tod
+
+commit 5b6d89cabfea3d2665a773f63d71525097300629
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Mon Feb 11 17:06:22 2008 +0000
+
+    changed view
+
+commit ade26865d27f4e14e81841b64628c12eda5499fd
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Sun Feb 10 19:38:30 2008 -0800
+
+    Laura added game create functionality
+
+commit b6e11929155594fe49f00db1acd344b922e167c0
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Fri Feb 8 21:34:13 2008 -0800
+
+    implemented the round system
+
+commit 5b0656cb805310404c27f614a84a7c87c64405c1
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Sat Feb 9 04:22:04 2008 +0000
+
+    redirected to player add if there are no players
+
+commit 680b9f897a0ddc565f0dffadfdda3bfe9e49d58d
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Thu Jan 31 03:47:03 2008 +0000
+
+    added tags to prompts. added tag fixtures and inputs, tested tags.
+
+commit 0b1b4ea0367d89465b168623c28da960dda7a42e
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Wed Jan 30 22:31:22 2008 +0000
+
+    added tagged items to prompt model, tested in tryout file
+
+commit b358a64321cdcbd776a8d9dcc66612c56f968b20
+Merge: c5773b1... 54a8ae5...
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Tue Jan 29 19:09:59 2008 -0800
+
+    Merge branch 'master' of ssh+git://laura@emlprime.com/home/laura/tod
+
+commit c5773b1d293592e712c5e611d74bffa69e30d211
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Tue Jan 29 19:09:22 2008 -0800
+
+    added begin button
+
+commit 51b85f06b46591989f9c6655da86bee0f23d9122
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Tue Jan 29 19:07:43 2008 -0800
+
+    exported begin button from svg file
+
+commit 54a8ae564ff9ed5dd3568790439c6d9a801af195
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Wed Jan 30 03:06:11 2008 +0000
+
+    worked on appearance of game over page
+
+commit 49310aef1dfb1a6aba1082a8c8f70d8dc0ca29ec
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Tue Jan 29 05:15:46 2008 +0000
+
+    grouped button css id's into the button_dock class, added buttons to player and select prompt pages
+
+commit c1ca4c13a7f3eea36cc58972944f69ecb8aad18d
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Mon Jan 28 02:20:36 2008 +0000
+
+    added images to player list
+
+commit 3bbaa17c21bf04277a4ceb104cc46334bcf1c3e4
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Mon Jan 28 02:00:11 2008 +0000
+
+    added create button to game list, added margin to create game form
+
+commit 8c2f222b51e976e01f949b6b91f923ea09f6da71
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Mon Jan 28 01:48:54 2008 +0000
+
+    added buttons to prompt form page
+
+commit 227d330956463e61eb0c2477e51dac9bfc884bf1
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Mon Jan 28 01:33:26 2008 +0000
+
+    established css for prompt create form
+
+commit fa34d347cd9cf08bb9326e8fcd16a4dcf69d9507
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Mon Jan 28 01:14:47 2008 +0000
+
+    added marquis to prompt list page
+
+commit 7d22ec317428f3b8a22e44a47959d57f2e11d110
+Merge: 20078e5... 1ee0d86...
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Mon Jan 28 01:05:43 2008 +0000
+
+    Merge branch 'master' of ../tod
+
+commit 1ee0d86d6528f0e9219eab89e2e4d01bcd153337
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Sun Jan 27 16:49:44 2008 -0800
+
+    made remaining images
+
+commit 20078e5a27f21ca62fe6898b60bc95a0c4a946b0
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Thu Jan 24 05:16:34 2008 +0000
+
+    designed index page
+
+commit 9d48e863ccd32854b64c336c1a178c4f103f052f
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Wed Jan 23 03:14:31 2008 +0000
+
+    added exit template to all pages other than index
+
+commit e8bdc6b260c492f3a63dfdac3cae5e0c0955500f
+Merge: 6c3b414... f3274e9...
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Wed Jan 23 02:59:06 2008 +0000
+
+    Merge branch 'master' of ../tod
+
+commit 6c3b414b57ad192d38a41e0290e27c4d77e26565
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Wed Jan 23 02:58:55 2008 +0000
+
+    added exit include
+
+commit f3274e94aaddf4f938cec233b14551bcaa048bb0
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Sun Jan 20 17:33:18 2008 -0800
+
+    restored good game urls
+
+commit e4504c283d2f9e49721ff5085b0531c7457504eb
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Sun Jan 20 17:31:13 2008 -0800
+
+     a bunch of graphic changes
+
+commit 24d3b69eb865d483231d60a02128ccb0892c9cc0
+Merge: 972b4e6... 5f0ee61...
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Fri Jan 18 05:17:37 2008 +0000
+
+    Merge branch 'master' of ../tod
+
+commit 972b4e6fda36329a0c188df8c216a1fe68418987
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Fri Jan 18 05:17:29 2008 +0000
+
+    worked on site some
+
+commit 80f80a300db2859593fe88d24179b290ccd02d8a
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Thu Jan 17 21:16:57 2008 -0800
+
+    fixed merge stuff
+
+commit 5f0ee610aed72b2741a8512180e3d7212a5a62d2
+Merge: 7f9651a... 9b16548...
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Thu Jan 17 21:14:59 2008 -0800
+
+    image is correct now
+
+commit 7f9651aa9f585bafb370eb09b350b9c4433cba09
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Thu Jan 17 21:13:51 2008 -0800
+
+    Added in mocks and images
+
+commit 9b16548ad04ad9c93becaf360c7980f97722b372
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Thu Jan 10 23:08:32 2008 +0000
+
+    gave functionality to complete and wimp out buttons, made game over page
+
+commit 8a35c91081324aa26522bdee526901f88394c254
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Thu Jan 10 19:38:24 2008 +0000
+
+    Made scoring work
+
+commit 3b1182c6a2ce579b44fa9777328a4d6c9c89b3ad
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Thu Jan 10 15:55:54 2008 +0000
+
+    changed the background image and the floating
+
+commit 1c6add2fba68001c985b61abf358e4a96c569c0a
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Thu Jan 10 05:08:08 2008 +0000
+
+    Game play works now
+
+commit 4d886d097642101d9ded79680da4a24d23addda9
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Wed Jan 9 23:37:26 2008 +0000
+
+    added newstyle google tracker
+
+commit 203f545ad510bf3e9ccf4bafb96068dd7dced87e
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Wed Jan 9 06:32:21 2008 +0000
+
+    Added the assign_prompts view
+
+commit 0e7ca55a576e5821bd63bfbcb1e489edd07b8110
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Sun Jan 6 21:31:23 2008 +0000
+
+    changed formatting on the prompt list
+
+commit 0f62cd9bc776ffa136671ab1cbc25eac4311ab3f
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Sun Jan 6 19:49:05 2008 +0000
+
+    reorganized the game play, added a reset db script
+
+commit f0495c291ecf385d06925c4e93538a6decc0b321
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Sat Jan 5 16:28:31 2008 +0000
+
+    added mocks, moved play to game, cleaned up cruft
+
+commit acdcfa2785a536e388ab83c0af9d1859aa21af17
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Fri Jan 4 05:20:39 2008 +0000
+
+    Addded game and player and made them work
+
+commit 5bec219919fdbcb21b751b2af6ca44e7c0e10179
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Fri Jan 4 00:13:47 2008 +0000
+
+    Cleaned up a little of the css
+
+commit 50a094a0d68b406c8a36f681e16ec78033aff4b3
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Fri Jan 4 00:07:11 2008 +0000
+
+    Added game
+
+commit 2c25ea4b24af17e22e9102fbf3cf202f410a31e6
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Wed Jan 2 21:47:29 2008 -0800
+
+    added game and player objects
+
+commit 36f0933ef005ee4305d40c1e810046d2279e306d
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Tue Jan 1 14:31:42 2008 -0800
+
+    Added game model
+
+commit 3359fd12146d8955dbf3ccf8c8cfeff771c3c9b9
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Mon Dec 31 22:18:43 2007 -0800
+
+    formatted the difficulty
+
+commit ad8eb5acecc73c2fc75dc280a0f4075f9f66d978
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Mon Dec 31 22:09:40 2007 -0800
+
+    styled difficulty
+
+commit d6070e836609b42eeaeb4700738106d109ce6c9c
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Mon Dec 31 21:43:07 2007 -0800
+
+    styled the buttons and fixed the media url
+
+commit 22e5096e2e6b99b2cbcd70f40d51d313ffaddcde
+Author: Peter Stradinger <peter@cutopia.(none)>
+Date:   Mon Dec 31 21:08:17 2007 -0800
+
+    added test
+
+commit 9ee21059506178512356e2bbb1e7179344ab82b2
+Author: Laura Madsen <laura@paradox.(none)>
+Date:   Tue Jan 1 04:54:02 2008 +0000
+
+    added files

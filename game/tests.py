@@ -60,32 +60,27 @@ class GameViewTest(TestCase):
         self.client.login(username="Laura", password="laura")
         for url, status_code in self.urls.items():
             response = self.client.get(url)
-            self.failUnlessEqual(response.status_code, status_code)
-
-class PrivatePromptTest(TestCase):
-    """test that other users' private prompts are not included in a user's available prompts
-    """
-    
+            self.failUnlessEqual(response.status_code, status_code)    
 
 class MaxDifficultyTest(TestCase):
-    """ test that max difficulty properly restricts prompts
+    """ test that max difficulty properly restricts prompts, also test that other user's private prompts are not included
     """
-    #create ten prompts, one for each difficulty level
+    #create ten prompts, one for each difficulty level, plus 3 extra at 1,5 and 10 belonging to the current user, and 3 at 1, 5 and 10 belonging to another user
     #create a game with no max difficulty
     #create a game with a max difficulty of 7
     fixtures = ["all_difficulties"]
     def setUp(self):
         pass
     def test_max_difficulty_blank(self):
-    #test that the prompt count equals the total number of prompts if no max difficulty is set
-    #test that the prompt count for the game is ten
+    #test that the prompt count equals the total number of prompts excluding those private to the other user if no max difficulty is set
+    #test that the prompt count for the game is thirteen
         self.game = Game.objects.get(name='TestGame')
         prompts = self.game.availablePrompts()
         self.failUnlessEqual(Prompt.objects.count(), 16)
         self.failUnlessEqual(prompts.count(), 13)
     def test_max_difficulty(self):
     #test that the prompt count when the max difficulty is set is equal to the number of prompts at or below max difficulty
-    #test that the prompt count is seven
+    #test that the prompt count is nine
         self.game = Game.objects.get(name='WimpyGame')
         prompts = self.game.availablePrompts()
         self.failUnlessEqual(prompts.count(), 9)
@@ -93,3 +88,16 @@ class MaxDifficultyTest(TestCase):
     #get the list of prompts available for the game
     #loop through the prompts and assert that their difficulty is at or below 7
 
+class TaggedItemTest(TestCase):
+    """test that prompts with tags selected for the game are excluded from the available prompts"""
+    #create a fixture with ten prompts, one tagged for nudity and one tagged as mature content
+    #create a game with tags for nudity and adult
+    #test that the available prompts for the game is 8
+    fixtures = ["tagged_items"]
+    def setUp(self):
+        pass
+    def test_tagged_item(self):
+        self.game = Game.objects.get(name="TagsGame")
+        prompts = self.game.availablePrompts()
+        self.failUnlessEqual(Prompt.objects.count(), 10)
+        self.failUnlessEqual(prompts.count(), 8)

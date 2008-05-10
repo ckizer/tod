@@ -22,13 +22,18 @@ class Game(models.Model):
 
     def availablePrompts(self):
         availablePrompts = Prompt.objects.all()
+        #exclude other people's private prompts
         availablePrompts = Prompt.objects.exclude(private=True) | Prompt.objects.filter(owner=self.user)
+        #exclude prompts with tagged items selected for the game
+        tags = self.tags
+        if tags:
+            for tag in tags:
+                availablePrompts = availablePrompts.exclude(tags = tag)
+
+        #exclude prompts with difficulty levels greater than the max_difficulty
         if self.max_difficulty:
             availablePrompts = availablePrompts.filter(difficulty__lte=self.max_difficulty)
         return availablePrompts
-        #exclude other people's private prompts
-        #exclude prompts with tagged items selected for the game
-        #exclude prompts with difficulty levels greater than the max_difficulty
 
     def assign_prompts(self, prompts):
         for prompt in prompts:
