@@ -6,6 +6,8 @@ from tod.prompt.models import Prompt
 from tod.game.models import Game
 
 class GameTest(TestCase):
+    """Test elements of the Game model
+    """
     def setUp(self):
         (self.laura, created) = User.objects.get_or_create(username="Laura")
         self.data = [
@@ -24,11 +26,15 @@ class GameTest(TestCase):
             ]
 
     def test_create_blank(self):
+        """Test game creation with no data
+        """
         datum = self.data[0]
         game = Game(**datum)
         self.assertRaises(IntegrityError, game.save) 
 
     def test_create_minimal(self):
+        """Test game creation with the least possible data
+        """
         datum = self.data[1]
         game = Game(**datum)
         self.failUnlessEqual(game.name, 'TestGame')
@@ -36,12 +42,16 @@ class GameTest(TestCase):
         self.failUnlessEqual(game.user, self.laura)
 
     def test_create_maximal(self):
+        """Test game creation with all possible data
+        """
         datum = self.data[2]
         game = Game(**datum)
         self.failUnlessEqual(game.max_difficulty, 7)
 
 class GameViewTest(TestCase):
     def setUp(self):
+        """Test game creation through the views with all possible data
+        """
         self.client = Client()
         self.laura = User.objects.create_user(username="Laura", password="laura", email="laura.m.madsen@gmail.com")
         self.game = Game.objects.create(name="Test Game", status="created", user=self.laura)
@@ -52,11 +62,15 @@ class GameViewTest(TestCase):
             }
     
     def test_unauthenticated(self):
+        """Test trying to view the game while not authenticated
+        """
         for url, status_code in self.urls.items():
             response = self.client.get(url)
             self.assertRedirects(response, 'http://testserver/accounts/login/?next='+url, status_code=302, target_status_code=200)
 
     def test_authenticated(self):
+        """Test trying to view the game while authenticated
+        """
         self.client.login(username="Laura", password="laura")
         for url, status_code in self.urls.items():
             response = self.client.get(url)
@@ -64,35 +78,46 @@ class GameViewTest(TestCase):
 
 class MaxDifficultyTest(TestCase):
     """ test that max difficulty properly restricts prompts, also test that other user's private prompts are not included
+
+    Provide a fixture with 16 prompts
+    10 public (1 for each difficulty)
+    3 private to our user
+    3 private to another user
+
+    Provide a fixture with 2 games
+    One with no max difficulty
+    One with a max difficulty of 7
     """
-    #create ten prompts, one for each difficulty level, plus 3 extra at 1,5 and 10 belonging to the current user, and 3 at 1, 5 and 10 belonging to another user
-    #create a game with no max difficulty
-    #create a game with a max difficulty of 7
     fixtures = ["all_difficulties"]
     def setUp(self):
         pass
     def test_max_difficulty_blank(self):
-    #test that the prompt count equals the total number of prompts excluding those private to the other user if no max difficulty is set
-    #test that the prompt count for the game is thirteen
+        """Test that all prompts are available if max difficulty is not set
+
+        """
         self.game = Game.objects.get(name='TestGame')
         prompts = self.game.availablePrompts()
         self.failUnlessEqual(Prompt.objects.count(), 16)
+        #test that the prompt count equals the total number of prompts 
+        #excluding those private to the other users
+        #With 3 prompts private to the other user the prompt count for the game is thirteen
         self.failUnlessEqual(prompts.count(), 13)
+
     def test_max_difficulty(self):
-    #test that the prompt count when the max difficulty is set is equal to the number of prompts at or below max difficulty
-    #test that the prompt count is nine
+        """Test that only sub-max prompts are displayed if a max difficulty is set
+        """
         self.game = Game.objects.get(name='WimpyGame')
         prompts = self.game.availablePrompts()
+        #test that the prompt count is 9
         self.failUnlessEqual(prompts.count(), 9)
-    #test that all prompts included in the prompt count when the max difficulty is set are at or under the max difficulty
-    #get the list of prompts available for the game
-    #loop through the prompts and assert that their difficulty is at or below 7
+        #TODO - loop through the prompts and assert that their difficulty is at or below 7
 
 class TaggedItemTest(TestCase):
-    """test that prompts with tags selected for the game are excluded from the available prompts"""
-    #create a fixture with ten prompts, one tagged for nudity and one tagged as mature content
-    #create a game with tags for nudity and adult
-    #test that the available prompts for the game is 8
+    """test that prompts with tags selected for the game are excluded from the available prompts
+    create a fixture 
+    ten prompts (1 tagged for nudity and 1 tagged as mature content)
+    A game with tags for nudity and adult
+    """
     fixtures = ["tagged_items"]
     def setUp(self):
         pass
@@ -100,4 +125,5 @@ class TaggedItemTest(TestCase):
         self.game = Game.objects.get(name="TagsGame")
         prompts = self.game.availablePrompts()
         self.failUnlessEqual(Prompt.objects.count(), 10)
+        #test that the available prompts for the game is 8
         self.failUnlessEqual(prompts.count(), 8)
