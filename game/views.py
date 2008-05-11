@@ -26,7 +26,7 @@ def create_object(request):
     TODO - test that game form displays if there is not a post
     """
     if request.method == "POST":
-        form = GameForm(request.user, request.POST.copy())
+        form = GameForm(user=request.user, data=request.POST.copy())
         if form.is_valid():
             game = form.save(commit=False)
             game.user = request.user
@@ -83,7 +83,7 @@ def select_prompts(request, game_id):
     else:
         maximum_rounds = 0
         error = "MINIMUM_PLAYERS_EXCEEDED"
-       if request.method == "POST":
+    if request.method == "POST":
         values = request.POST.copy()
         rounds = int(values['rounds'])
         if 0 < rounds <= maximum_rounds:
@@ -126,7 +126,6 @@ def choice(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     template = "game/choice.html"
     if not game.current_prompt():
-        game.game_over()
         return HttpResponseRedirect(game.get_absolute_url())
     current_prompt = game.current_prompt().prompt
     context = {"current_prompt": current_prompt, "current_game": game, "current_player": game.current_player()}
@@ -153,8 +152,7 @@ def wimp_out(request, game_id):
     TODO - test that the prompt is finished and the score of the player is not changed
     """
     game = get_object_or_404(Game, pk=game_id)
-    current_prompt = game.current_prompt()
-    current_prompt.complete()
+    game.resolve_current_prompt("wimp out")
     return HttpResponseRedirect(game.get_absolute_url())
 
 @login_required
@@ -164,10 +162,7 @@ def complete(request, game_id):
     TODO - test that the prompt is finished and the score of the player is changed
     """
     game = get_object_or_404(Game, pk=game_id)
-    current_prompt = game.current_prompt()
-    current_player = game.current_player()
-    score = current_prompt.complete()
-    current_player.update_score(score)
+    game.resolve_current_prompt("complete")
     return HttpResponseRedirect(game.get_absolute_url())
 
 @login_required

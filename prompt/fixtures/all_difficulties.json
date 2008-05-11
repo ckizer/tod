@@ -137,7 +137,7 @@
         "fields": {
             "name": "prv2", 
             "private": true, 
-            "difficulty": 3, 
+            "difficulty": 5, 
             "truth": "1", 
             "owner": 1, 
             "dare": "1"

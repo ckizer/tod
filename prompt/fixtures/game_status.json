@@ -1,0 +1,98 @@
+[
+    {
+        "pk": 1, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "one", 
+            "private": true, 
+            "difficulty": 1, 
+            "truth": "1", 
+            "owner": 2, 
+            "dare": "1"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "two", 
+            "private": true, 
+            "difficulty": 2, 
+            "truth": "2", 
+            "owner": 2, 
+            "dare": "2"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "three", 
+            "private": true, 
+            "difficulty": 3, 
+            "truth": "3", 
+            "owner": 2, 
+            "dare": "3"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "four", 
+            "private": true, 
+            "difficulty": 4, 
+            "truth": "4", 
+            "owner": 2, 
+            "dare": "4"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "five", 
+            "private": true, 
+            "difficulty": 1, 
+            "truth": "5", 
+            "owner": 2, 
+            "dare": "5"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "six", 
+            "private": true, 
+            "difficulty": 2, 
+            "truth": "6", 
+            "owner": 2, 
+            "dare": "6"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "seven", 
+            "private": true, 
+            "difficulty": 3, 
+            "truth": "7", 
+            "owner": 2, 
+            "dare": "7"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "eight", 
+            "private": true, 
+            "difficulty": 4, 
+            "truth": "8", 
+            "owner": 2, 
+            "dare": "8"
+        }
+    }
+]

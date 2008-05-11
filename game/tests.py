@@ -3,6 +3,7 @@ from django.test.client import Client
 from django.db import IntegrityError
 from django.contrib.auth.models import User
 from tod.prompt.models import Prompt
+from tod.player.models import Player
 from tod.game.models import Game
 from tod.game.forms import GameForm
 
@@ -11,12 +12,10 @@ GAME_DATA = [
     {
         'name': 'TestGame',
         'status': 'completed',
-        'user': self.laura,
         },
     {
         'name': 'TestGame',
         'status': 'completed',
-        'user': self.laura,
         'max_difficulty': 7,
         },
     ]
@@ -27,7 +26,7 @@ class GameTest(TestCase):
     """Test elements of the Game model
     """
     def setUp(self):
-        (self.laura, created) = User.objects.get_or_create(username="Laura")
+        (self.laura, created) = User.objects.get_or_create(username="laura")
 
     def test_create_blank(self):
         """Test game creation with no data
@@ -36,19 +35,23 @@ class GameTest(TestCase):
         game = Game(**datum)
         self.assertRaises(IntegrityError, game.save) 
 
-    def test_create_minimal(self):
+    def test_createMinimal(self):
         """Test game creation with the least possible data
         """
         datum = GAME_DATA[1]
+        datum['user'] = self.laura
         game = Game(**datum)
+        game.save()
         self.failUnlessEqual(game.name, 'TestGame')
         self.failUnlessEqual(game.status, 'completed')
         self.failUnlessEqual(game.user, self.laura)
+        self.failUnlessEqual(game.get_absolute_url(), '/game/%d/' % game.id)
 
     def test_create_maximal(self):
         """Test game creation with all possible data
         """
         datum = GAME_DATA[2]
+        datum['user'] = self.laura
         game = Game(**datum)
         self.failUnlessEqual(game.max_difficulty, 7)
 
@@ -69,7 +72,7 @@ class GameStatusTest(TestCase):
         self.failUnlessEqual(self.game.status, 'created')
         #Add 2 players and mark the game players_added
         for player in ['alice', 'bob']:
-            Player.objects.create(name=name, game=self.game)
+            Player.objects.create(name=player, game=self.game)
         self.game.players_added()
         self.failUnlessEqual(self.game.status, 'players_added')
         #assign prompts
@@ -84,6 +87,56 @@ class GameStatusTest(TestCase):
             prompt.complete()
         self.failUnlessEqual(self.game.status, 'completed')
         
+class GamePromptTest(TestCase):
+    """Test that the Game Prompts are assigned to the game
+    """
+    fixtures = ["pair", "all_difficulties"]
+    def setUp(self):
+        self.game = Game.objects.get(name="TestGame")
+        self.prompts = Prompt.objects.all()[:3]
+        self.game.assign_prompts(self.prompts)
+        
+    def test_assignPrompts(self):
+        """test that assign_prompt saves the prompts assigned to a game
+        """
+        self.failUnlessEqual(self.game.gameprompt_set.count(), self.prompts.count())
+        #test that as we complete prompts they fall out of circulation
+        prompts_remaining = len(self.prompts)
+        while self.game.current_prompt():
+            #the prompt count is the count of prompts that are not complete
+            prompt_count = self.game.gameprompt_set.filter(is_complete=False).count()
+            self.failUnlessEqual(prompt_count, prompts_remaining)
+            current_prompt = self.game.current_prompt()
+            #complete the prompt to take it out of circulation
+            current_prompt.complete()
+            #there should not be one less prompt remaining because it's complete
+            prompts_remaining -= 1
+
+    def test_idempotentCurrentPrompt(self):
+        """Test that, if no action happens, current_prompt always returns the same prompt
+        """
+        current_prompt = self.game.current_prompt()
+        still_current_prompt = self.game.current_prompt()
+        self.failUnlessEqual(current_prompt, still_current_prompt)
+
+    def test_completeScore(self):
+        """Test that when we complete a prompt the difficulty is added to the score
+        """
+        player = self.game.players.all()[0] 
+        score = player.score
+        additional_score = self.game.current_prompt().prompt.difficulty
+        self.game.resolve_current_prompt()
+        player = Player.objects.get(id=2)
+        self.failUnlessEqual(player.score, additional_score + score)
+
+    def test_wimpOut(self):
+        """Test that when we wimp out the score doesn't change
+        """
+        player = self.game.players.all()[0] 
+        score = player.score
+        self.game.resolve_current_prompt("wimp out")
+        player = Player.objects.get(id=2)
+        self.failUnlessEqual(player.score, score)
 
 class GameFormTest(TestCase):
     """Test creation the Game model via form
@@ -93,33 +146,80 @@ class GameFormTest(TestCase):
         self.user = User.objects.get(username="laura")
 
     def submit_form(self, datum):
-        form = GameForm(self.user, datum)
+        form = GameForm(user=self.user, data=datum)
         if form.is_valid():
-            game = form.save(commit=False)
+            game = form.save()
         return game
 
     def test_create_blank(self):
         """Test game creation with no data
         """
-        game = self.submit_form(GAME_DATA[0])
-        self.assertRaises(IntegrityError, game.save) 
+        form = GameForm(user=self.user, data=GAME_DATA[0])
+        form.is_valid()
+        self.assertRaises(ValueError, form.save) 
 
     def test_create_minimal(self):
         """Test game creation with the least possible data
         """
         game = self.submit_form(GAME_DATA[1])
-        game.save()
         self.failUnlessEqual(game.name, 'TestGame')
-        self.failUnlessEqual(game.status, 'completed')
+        self.failUnlessEqual(game.status, 'created')
         self.failUnlessEqual(game.user, self.user)
 
     def test_create_maximal(self):
         """Test game creation with all possible data
         """
         game = self.submit_form(GAME_DATA[2])
-        game.save()
         self.failUnlessEqual(game.max_difficulty, 7)
         self.failUnlessEqual(game.tags.count(), 3)
+
+class GameCreateTest(TestCase):
+    """Test that a created game with prompts available assigns the selected number of rounds
+    
+    Test that the rounds assigned have prompts with all equal difficulties
+    Test that the rounds are all filled if there are sufficient prompts
+    Test that not all rounds are assigned if there aren't enough prompts
+
+    Create a fixture with:
+    one game
+    several prompts
+    assign one player to test with sufficient prompts and two players to test insufficient prompts
+    """
+    fixtures = ["all_difficulties"]
+    def setUp(self):
+        self.game = Game.objects.get(name="TestGame")
+
+    def test_excessPrompts(self):
+        """Tests that rounds selected equals rounds created with sufficient prompts
+        """
+        Player.objects.create(name='Alice', game=self.game)
+        self.game.players_added()
+        self.game.create_game(rounds_selected = 5)
+        rounds_assigned = self.game.gameprompt_set.count()
+        self.failUnlessEqual(rounds_assigned, 5)
+
+    def test_insufficientPrompts(self):
+        """Tests that rounds selected equals maximum rounds available with insufficient prompts
+
+        Tests that all prompts in a round have equal difficulty
+        """
+        for player in ['alice', 'bob']:
+            Player.objects.create(name=player, game=self.game)
+        self.game.players_added()
+        self.game.create_game(rounds_selected = 5)
+        rounds_assigned = self.game.gameprompt_set.count()/self.game.players.count()
+        self.failUnlessEqual(rounds_assigned, 3)
+        difficulty = None
+        while self.game.current_prompt():
+            for player in self.game.players.all():
+                current_prompt = self.game.current_prompt()
+                if not difficulty:
+                    difficulty = current_prompt.prompt.difficulty
+                else:
+                    self.failUnlessEqual(difficulty, current_prompt.prompt.difficulty)
+                current_prompt.complete()
+            difficulty = None
+            
 
 class GameViewTest(TestCase):
     def setUp(self):

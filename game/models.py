@@ -39,7 +39,7 @@ class Game(models.Model):
         #exclude other people's private prompts
         availablePrompts = Prompt.objects.exclude(private=True) | Prompt.objects.filter(owner=self.user)
         #exclude prompts with tagged items selected for the game
-        tags = self.tags
+        tags = self.tags.all()
         if tags:
             for tag in tags:
                 availablePrompts = availablePrompts.exclude(tags = tag)
@@ -50,8 +50,6 @@ class Game(models.Model):
 
     def assign_prompts(self, prompts):
         """Takes a list of prompts selected for the game and changes the game status to prompts_selected
-
-        TODO - test that the prompts for the game are saved
         """
         for prompt in prompts:
             gp = GamePrompt(game = self, prompt = prompt)
@@ -67,10 +65,6 @@ class Game(models.Model):
         prompts within each round
         Stops when there are not enough prompts of any one difficulty to fill
         a whole round or when the rounds selected have been filled
-
-        TODO - Test that all prompts in one round have the same difficulty
-        TODO - Test that if there aren't enough prompts that we are short rounds
-        TODO - Test that if there are enough prompts that we have the correct number of rounds
         """
         if not self.max_difficulty:
             self.max_difficulty = 10
@@ -88,16 +82,15 @@ class Game(models.Model):
         #loop over the difficulty levels and assign prompts to the game
         while rounds_selected > rounds_assigned and prompts_available:
             prompt_count = len(prompts[current_difficulty])
-
             if prompt_count >= player_count:
                 for player in range(player_count):
                     game_prompts.append(prompts[current_difficulty].pop())
                 rounds_assigned += 1
-
+            #increments to the next highest difficulty up until 10, then sets back to 1
             current_difficulty = (current_difficulty + 1)%10
             prompts_available = False
-            for difficulty in range(1,11):
-                if len(prompts[current_difficulty]) >= player_count:
+            for difficulty in range(1,len(prompts)):
+                if len(prompts[difficulty]) >= player_count:
                     prompts_available = True
                 if prompts_available:
                     break
@@ -107,8 +100,6 @@ class Game(models.Model):
 
     def get_absolute_url(self):
         """Return the absolute url for this object
-
-        TODO - Test that a game returns the correct absolute url
         """
         return "/game/%d/" % self.id
 
@@ -136,14 +127,11 @@ class Game(models.Model):
 
     def current_prompt(self):
         """Returns the next incomplete prompt
-        
-        TODO - Test that if there are prompts, that the next incomplete prompt is displayed
-        TODO - Test that if the prompt is not completed or wimped that the same one displays
-        TODO - Test that if there are no prompts remaining, that False is returned
         """
         prompts=self.gameprompt_set.filter(is_complete=False)
         if prompts.count():
             return prompts[0]
+        self.game_over()
         return False
     
     def current_player(self):
@@ -156,6 +144,14 @@ class Game(models.Model):
         completed_prompt_count = self.gameprompt_set.filter(is_complete=True).count()
         player=players[completed_prompt_count % player_count]
         return player
+
+    def resolve_current_prompt(self, resolution = "complete"):
+        current_prompt = self.current_prompt()
+        if current_prompt:
+            score = current_prompt.complete()
+            if resolution == "complete":
+                self.current_player().update_score(score)
+        return score
 
 class GamePrompt(models.Model):
     """Many-To-Many relationship between Game and Prompt
