@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.test.client import Client
 from django.db import IntegrityError
 from django.contrib.auth.models import User
+from django.core import management
 
 from tod.prompt.models import Prompt
 from tod.prompt.forms import PromptForm
@@ -99,7 +100,16 @@ class PromptViewTest(TestCase):
         self.failUnlessEqual(prompt.dare, "TestDare")
         self.failUnlessEqual(prompt.difficulty, 1)
 
-        
+    def test_promptOwnerFilter(self):
+        """Tests that a user's prompt list displays public prompts and only that user's private prompts
+        """
+        management.call_command('loaddata', 'all_difficulties.json')
+        self.failUnlessEqual(Prompt.objects.count(), 16)
+        response = self.client.get('/prompt/')
+        prompts = response.context.get('prompts')
+        self.failUnlessEqual(len(prompts), 13)
+        self.assertTemplateUsed(response, 'prompt/index.html')
+
 class PromptFormTest(TestCase):
     """Tests that the prompt form correctly handles user inputs
     """

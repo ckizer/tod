@@ -29,9 +29,8 @@ def index(request):
     TODO - (defer) test that this lists prompt objects
     TODO - (defer) decide between object list and index to display prompts
     """
-    template = "prompt/index.html"
-    context = {'prompts':Prompt.objects.exclude(private=True, user__ne=me)}
-    return render_to_response(template, context, context_instance=RequestContext(request))
+    prompts = Prompt.objects.exclude(private=True) | Prompt.objects.filter(owner=request.user)
+    return render_to_response("prompt/index.html", locals(), context_instance=RequestContext(request))
 
 @login_required
 def detail(request):
