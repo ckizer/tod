@@ -11,8 +11,6 @@ from tod.prompt.models import Prompt
 @login_required
 def object_list(request):
     """displays a list of game objects
-
-    TODO - test that game objects are displayed
     """
     template = "game/game_list.html"
     context = {'object_list':request.user.game_set.all()}
@@ -21,9 +19,6 @@ def object_list(request):
 @login_required
 def create_object(request):
     """creates a game object if there is a post, otherwise displays the game form
-
-    TODO - test that object is created if there is a post
-    TODO - test that game form displays if there is not a post
     """
     if request.method == "POST":
         form = GameForm(user=request.user, data=request.POST.copy())
@@ -40,8 +35,6 @@ def create_object(request):
 @login_required
 def limited_delete_object(*args, **kwargs):
     """generic delete limited by login
-
-    TODO - test that object is deleted
     """
     return delete_object(*args, **kwargs)
 

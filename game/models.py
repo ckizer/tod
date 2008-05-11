@@ -136,8 +136,6 @@ class Game(models.Model):
     
     def current_player(self):
         """returns the next player in the list
-
-        TODO - Test that as prompts are completed the players are incremented in order.
         """
         players = self.players.all()
         player_count = players.count()
@@ -165,8 +163,6 @@ class GamePrompt(models.Model):
 
     def complete(self):
         """Change the status so that is_complete is True
-
-        TODO - Test that status is not complete before and is complete after.
         """
         self.is_complete=True
         self.save()

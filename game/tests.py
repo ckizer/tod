@@ -138,6 +138,22 @@ class GamePromptTest(TestCase):
         player = Player.objects.get(id=2)
         self.failUnlessEqual(player.score, score)
 
+    def test_incrementPlayer(self):
+        """Test that when prompts are completed, the current player is incremented by one
+        """
+        player = self.game.players.all()[0]
+        current_prompt = self.game.current_prompt()
+        self.game.resolve_current_prompt()
+        self.failUnlessEqual(self.game.current_player(), self.game.players.all()[1])
+
+    def test_completeGamePrompt(self):
+        """Test that completing the current prompt changes its is_complete from False to True
+        """
+        current_prompt = self.game.current_prompt()
+        self.failUnlessEqual(current_prompt.is_complete, False)
+        current_prompt.complete()
+        self.failUnlessEqual(current_prompt.is_complete, True)
+        
 class GameFormTest(TestCase):
     """Test creation the Game model via form
     """
@@ -220,35 +236,6 @@ class GameCreateTest(TestCase):
                 current_prompt.complete()
             difficulty = None
             
-
-class GameViewTest(TestCase):
-    def setUp(self):
-        """Test game creation through the views with all possible data
-        """
-        self.client = Client()
-        self.laura = User.objects.create_user(username="Laura", password="laura", email="laura.m.madsen@gmail.com")
-        self.game = Game.objects.create(name="Test Game", status="created", user=self.laura)
-        absolute_url = '/game/%d/' % (self.game.id)
-        self.urls = {
-            '/game/': 200,
-            absolute_url: 302,
-            }
-    
-    def test_unauthenticated(self):
-        """Test trying to view the game while not authenticated
-        """
-        for url, status_code in self.urls.items():
-            response = self.client.get(url)
-            self.assertRedirects(response, 'http://testserver/accounts/login/?next='+url, status_code=302, target_status_code=200)
-
-    def test_authenticated(self):
-        """Test trying to view the game while authenticated
-        """
-        self.client.login(username="Laura", password="laura")
-        for url, status_code in self.urls.items():
-            response = self.client.get(url)
-            self.failUnlessEqual(response.status_code, status_code)    
-
 class MaxDifficultyTest(TestCase):
     """ test that max difficulty properly restricts prompts, also test that other user's private prompts are not included
 
@@ -300,3 +287,74 @@ class TaggedItemTest(TestCase):
         self.failUnlessEqual(Prompt.objects.count(), 10)
         #test that the available prompts for the game is 8
         self.failUnlessEqual(prompts.count(), 8)
+
+class GameAuthenticationTest(TestCase):
+    def setUp(self):
+        """Test game creation through the views with all possible data
+        """
+        self.client = Client()
+        self.laura = User.objects.create_user(username="Laura", password="laura", email="laura.m.madsen@gmail.com")
+        self.game = Game.objects.create(name="Test Game", status="created", user=self.laura)
+        absolute_url = '/game/%d/' % (self.game.id)
+        self.urls = {
+            '/game/': 200,
+            absolute_url: 302,
+            }
+    
+    def test_unauthenticated(self):
+        """Test trying to view the game while not authenticated
+        """
+        for url, status_code in self.urls.items():
+            response = self.client.get(url)
+            self.assertRedirects(response, 'http://testserver/accounts/login/?next='+url, status_code=302, target_status_code=200)
+
+    def test_authenticated(self):
+        """Test trying to view the game while authenticated
+        """
+        self.client.login(username="laura", password="laura")
+        for url, status_code in self.urls.items():
+            response = self.client.get(url)
+            self.failUnlessEqual(response.status_code, status_code)    
+
+class GameViewTest(TestCase):
+    """Test that rendered pages display correctly
+    """
+    fixtures = ["all_difficulties"]
+    def setUp(self):
+        """Initilaizes the client and logs the user in
+        """
+        self.client = Client()
+        self.user = User.objects.get(username="laura")
+        self.client.login(username="laura", password='laura')
+
+    def test_objectList(self):
+        """Test that the game object list displays the games
+        """
+        response = self.client.get('/game/')        
+        self.assertContains(response, "TestGame")
+        self.assertContains(response, "WimpyGame")
+
+    def test_createObject(self):
+        """Tests that a post containing game data creates a game object
+        """
+        games = Game.objects.filter(name="TestGame2")
+        self.failUnlessEqual(games.count(), 0)
+        response = self.client.post('/game/create/', {"name": "TestGame2"})
+        self.failUnlessEqual(games.count(), 1)
+        
+
+    def test_viewDetail(self):
+        """Tests that a get request displays the game form
+        """
+        response = self.client.get('/game/create/')
+        self.assertContains(response, "Name:")
+        self.assertContains(response, "Create Game")
+
+    def test_deleteObject(self):
+        """Test that delete_object deletes a game object
+        """
+        game = Game.objects.get(name="TestGame")
+        response = self.client.post(game.get_absolute_url()+'delete/')
+        games = Game.objects.filter(name="TestGame")
+        self.failUnlessEqual(games.count(), 0)
+        
