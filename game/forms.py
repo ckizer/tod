@@ -6,7 +6,7 @@ from tod.game.models import Game
 class GameForm(ModelForm):
     """Provides a form for creating a game
 
-    TODO - test that the form properly creates a game object with specified tagged items
+    TODO - (defer) test that the form properly creates a game object with specified tagged items
     """
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user') if kwargs.has_key('user') else None

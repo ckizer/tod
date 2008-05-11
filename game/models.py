@@ -33,7 +33,7 @@ class Game(models.Model):
     def availablePrompts(self):
         """Provides the available prompts for a game based on chosen preferences
 
-        TODO - test that prompts with tags selected for exclusion from the game are excluded
+        TODO - (defer) test that prompts with tags selected for exclusion from the game are excluded
         """
         availablePrompts = Prompt.objects.all()
         #exclude other people's private prompts

@@ -249,8 +249,7 @@ class MaxDifficultyTest(TestCase):
     One with a max difficulty of 7
     """
     fixtures = ["all_difficulties"]
-    def setUp(self):
-        pass
+
     def test_max_difficulty_blank(self):
         """Test that all prompts are available if max difficulty is not set
 
@@ -270,7 +269,8 @@ class MaxDifficultyTest(TestCase):
         prompts = self.game.availablePrompts()
         #test that the prompt count is 9
         self.failUnlessEqual(prompts.count(), 9)
-        #TODO - loop through the prompts and assert that their difficulty is at or below 7
+        for prompt in prompts:
+            self.failUnless(prompt.difficulty <= self.game.max_difficulty)
 
 class TaggedItemTest(TestCase):
     """test that prompts with tags selected for the game are excluded from the available prompts
@@ -311,7 +311,7 @@ class GameAuthenticationTest(TestCase):
     def test_authenticated(self):
         """Test trying to view the game while authenticated
         """
-        self.client.login(username="laura", password="laura")
+        self.client.login(username="Laura", password="laura")
         for url, status_code in self.urls.items():
             response = self.client.get(url)
             self.failUnlessEqual(response.status_code, status_code)    
@@ -430,4 +430,31 @@ class GameViewTest(TestCase):
         response = self.client.post(self.game.get_absolute_url()+'wimp_out/')
         player = Player.objects.get(id=2)
         self.failUnlessEqual(player.score, 0)
+
+    def test_redirects(self):
+        """Tests that the game's absolute url redirects to the right pages
+
+        Each status has its own view.  We will increment the status 
+        and confirm that the redirect goes to the right place
+        """
+        game = Game.objects.get(name="WimpyGame")
+        response = self.client.get(game.get_absolute_url())
+        self.assertRedirects(response, 'player/2/', status_code=302, target_status_code=302)
+        for player in ['alice', 'bob']:
+            Player.objects.create(name=player, game=game)
+        game.players_added()
+        response = self.client.get(game.get_absolute_url())
+        self.assertRedirects(response, 'game/2/select_prompts/', status_code=302, target_status_code=200)
+        game.assign_prompts(Prompt.objects.all()[:3])
+        response = self.client.get(game.get_absolute_url())
+        self.assertRedirects(response, 'game/2/begin_game/', status_code=302, target_status_code=200)
+        game.in_progress()
+        response = self.client.get(game.get_absolute_url())
+        self.assertRedirects(response, 'game/2/choice/', status_code=302, target_status_code=200)
+        while game.current_prompt():
+            game.resolve_current_prompt()
+        response = self.client.get(game.get_absolute_url())
+        self.assertRedirects(response, 'game/2/game_over/', status_code=302, target_status_code=200)
+        
+        
 

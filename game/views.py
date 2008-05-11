@@ -42,8 +42,7 @@ def limited_delete_object(*args, **kwargs):
 def detail(request, game_id):
     """tells game where to redirect according to game status
 
-    TODO - test that games with each status will redirect to the correct url's
-    TODO - use named urls to avoid violating the DRY principle
+    TODO - (defer) use named urls to avoid violating the DRY principle
     """
     game = get_object_or_404(Game, pk=game_id)
     #define a dictionary of redirects depending on the status of the game
@@ -63,14 +62,14 @@ def select_prompts(request, game_id):
     determine the number of rounds
     determine filtering rules by tag
     determine max_difficulty
-    TODO - put filtering functionality into the model
+    TODO - (defer) put filtering functionality into the model
     """
     game = get_object_or_404(Game, pk=game_id)
 
     template = "game/select_prompts.html"
     player_count = game.players.count()
     error = ""
-    #TODO - availablePrompts instead of Prompt.objects.count()
+    #TODO - (defer) availablePrompts instead of Prompt.objects.count()
     if player_count:
         maximum_rounds = Prompt.objects.count() / player_count
     else:
@@ -145,8 +144,7 @@ def complete(request, game_id):
 def game_over(request, game_id):
     """Displays the game over page and the winner
 
-    TODO - test that the game over page is displayed
-    TODO - test that the winner is displayed
+    TODO - (defer) test that the winner is displayed
     """
     game = get_object_or_404(Game, pk=game_id)
     template = "game/over.html"
@@ -156,8 +154,6 @@ def game_over(request, game_id):
 @login_required
 def players_added(request, game_id):
     """Changes game status to players_added
-
-    TODO - test that game status is changed to players_added
     """
     game = get_object_or_404(Game, pk=game_id)
     game.players_added()
