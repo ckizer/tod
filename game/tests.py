@@ -316,7 +316,7 @@ class GameAuthenticationTest(TestCase):
             response = self.client.get(url)
             self.failUnlessEqual(response.status_code, status_code)    
 
-class GameViewTest(TestCase):
+class GameCreateViewTest(TestCase):
     """Test that rendered pages display correctly
     """
     fixtures = ["all_difficulties"]
@@ -349,43 +349,52 @@ class GameViewTest(TestCase):
         self.assertContains(response, "Name:")
         self.assertContains(response, "Create Game")
 
+class GameViewTest(TestCase):
+    """Test that rendered pages display correctly
+    """
+    fixtures = ["all_difficulties"]
+    def setUp(self):
+        """Initilaizes the client and logs the user in
+        """
+        self.client = Client()
+        self.user = User.objects.get(username="laura")
+        self.client.login(username="laura", password='laura')
+        self.game = Game.objects.get(name="TestGame")
+
+        for player in ['alice', 'bob']:
+            Player.objects.create(name=player, game=self.game)
+        prompts = Prompt.objects.all()
+        self.game.assign_prompts(prompts)        
+        self.game.in_progress()
+
     def test_deleteObject(self):
         """Test that delete_object deletes a game object
         """
-        game = Game.objects.get(name="TestGame")
-        response = self.client.post(game.get_absolute_url()+'delete/')
+        response = self.client.post(self.game.get_absolute_url()+'delete/')
         games = Game.objects.filter(name="TestGame")
         self.failUnlessEqual(games.count(), 0)
         
     def test_beginGame(self):
         """Tests that a post will change the status to in_progress
         """
-        game = Game.objects.get(name="TestGame")
+        game = Game.objects.get(name="WimpyGame")
         self.failUnlessEqual(game.status, "created")
         response = self.client.post(game.get_absolute_url()+'begin_game/')
-        game = Game.objects.get(name="TestGame")        
+        game = Game.objects.get(name="WimpyGame")        
         self.failUnlessEqual(game.status, "in_progress")
-        
 
     def test_displayBeginGame(self):
         """Test that a form is displayed to start the game
         Test that the rules are displayed
         """
-        game = Game.objects.get(name="TestGame")
-        response = self.client.get(game.get_absolute_url()+'begin_game/')
+        response = self.client.get(self.game.get_absolute_url()+'begin_game/')
         self.assertContains(response, "Rules of the Game")
         self.assertContains(response, "begin_game")
 
     def test_displayChoice(self):
         """Test that a form is displayed presenting a choice
         """
-        game = Game.objects.get(name="TestGame")
-        for player in ['alice', 'bob']:
-            Player.objects.create(name=player, game=game)
-        prompts = Prompt.objects.all()
-        game.assign_prompts(prompts)        
-        game.in_progress()
-        response = self.client.get(game.get_absolute_url()+'choice/')
+        response = self.client.get(self.game.get_absolute_url()+'choice/')
         self.assertContains(response, "play/dare")
         self.assertContains(response, "play/truth")
 
@@ -393,13 +402,7 @@ class GameViewTest(TestCase):
         """Test that the correct prompt is displayed for the choice givem
         Test that a form is displayed to wimp out or complete
         """
-        game = Game.objects.get(name="TestGame")
-        for player in ['alice', 'bob']:
-            Player.objects.create(name=player, game=game)
-        prompts = Prompt.objects.all()
-        game.assign_prompts(prompts)        
-        game.in_progress()
-        response = self.client.get(game.get_absolute_url()+'play/truth/')
+        response = self.client.get(self.game.get_absolute_url()+'play/truth/')
         self.assertContains(response, "I am a truth")
         self.assertContains(response, "complete")
         self.assertContains(response, "wimp_out")
@@ -408,13 +411,7 @@ class GameViewTest(TestCase):
         """Test that the correct prompt is displayed for the choice givem
         Test that a form is displayed to wimp out or complete
         """
-        game = Game.objects.get(name="TestGame")
-        for player in ['alice', 'bob']:
-            Player.objects.create(name=player, game=game)
-        prompts = Prompt.objects.all()
-        game.assign_prompts(prompts)        
-        game.in_progress()
-        response = self.client.get(game.get_absolute_url()+'play/dare/')
+        response = self.client.get(self.game.get_absolute_url()+'play/dare/')
         self.assertContains(response, "I am a dare")
         self.assertContains(response, "complete")
         self.assertContains(response, "wimp_out")
@@ -422,15 +419,7 @@ class GameViewTest(TestCase):
     def test_playComplete(self):
         """Test that the prompt is finished and the score of the player is changed
         """
-        game = Game.objects.get(name="TestGame")
-        for player in ['alice', 'bob']:
-            Player.objects.create(name=player, game=game)
-        player = Player.objects.all()[0]
-        self.failUnlessEqual(player.score, 0)
-        prompts = Prompt.objects.all()
-        game.assign_prompts(prompts)        
-        game.in_progress()
-        response = self.client.post(game.get_absolute_url()+'complete/')
+        response = self.client.post(self.game.get_absolute_url()+'complete/')
         player = Player.objects.get(id=2)
         self.failUnlessEqual(player.score, 1)
         
@@ -438,15 +427,7 @@ class GameViewTest(TestCase):
     def test_playWimpOut(self):
         """Test that the prompt is finished and the score of the player is not changed
         """
-        game = Game.objects.get(name="TestGame")
-        for player in ['alice', 'bob']:
-            Player.objects.create(name=player, game=game)
-        player = Player.objects.all()[0]
-        self.failUnlessEqual(player.score, 0)
-        prompts = Prompt.objects.all()
-        game.assign_prompts(prompts)        
-        game.in_progress()
-        response = self.client.post(game.get_absolute_url()+'wimp_out/')
+        response = self.client.post(self.game.get_absolute_url()+'wimp_out/')
         player = Player.objects.get(id=2)
         self.failUnlessEqual(player.score, 0)
 
