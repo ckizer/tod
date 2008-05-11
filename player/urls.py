@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
 
 from tod.player.models import Player
+
 urlpatterns = patterns('tod.player.views',
     (r'^play/$', 'play'),
     (r'^(?P<game_id>\d+)/$','player_list'),

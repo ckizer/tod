@@ -399,7 +399,7 @@ class GameViewTest(TestCase):
         self.assertContains(response, "play/truth")
 
     def test_displayPlayTruth(self):
-        """Test that the correct prompt is displayed for the choice givem
+        """Test that the correct prompt is displayed for the choice given
         Test that a form is displayed to wimp out or complete
         """
         response = self.client.get(self.game.get_absolute_url()+'play/truth/')
@@ -408,7 +408,7 @@ class GameViewTest(TestCase):
         self.assertContains(response, "wimp_out")
 
     def test_displayPlayDare(self):
-        """Test that the correct prompt is displayed for the choice givem
+        """Test that the correct prompt is displayed for the choice given
         Test that a form is displayed to wimp out or complete
         """
         response = self.client.get(self.game.get_absolute_url()+'play/dare/')

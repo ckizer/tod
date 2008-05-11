@@ -1,5 +1,4 @@
 from django.contrib.auth.decorators import login_required
-
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
@@ -10,18 +9,23 @@ from tod.game.models import Game
 
 @login_required
 def player_list(request, game_id):
+    """Lists the player objects
+    """
     game = get_object_or_404(Game, pk=game_id)
     players = game.players.all()
     if not players:
-        return HttpResponseRedirect('/player/%d/create' % game.id)
+        return HttpResponseRedirect('/player/%d/create/' % game.id)
     template = "player/player_list.html"
     context = {"object_list": players, "game": game}
     return render_to_response(template, context, context_instance=RequestContext(request))
 
 @login_required
 def create(request, game_id):
+    """Creates the player object
+    """
     game = get_object_or_404(Game, pk=game_id)
     template = "player/player_form.html"
+    #TODO (defer) use model form for player form
     PlayerForm = form_for_model(Player)
     if request.method == "POST":
         values = request.POST.copy()
@@ -40,6 +44,8 @@ def create(request, game_id):
 
 @login_required
 def delete(request, player_id):
+    """Deletes a player object
+    """
     player = get_object_or_404(Player, pk=player_id)
     game = player.game
     player.delete()
