@@ -94,9 +94,6 @@ def begin_game(request, game_id):
     """Displays game rules and gives a form to start the game
 
     a post will change the game status
-    TODO - test that a post will change the game status to in_progress
-    TODO - test that a form is displayed to start the game
-    TODO - test that the rules are displayed
     """
     game = get_object_or_404(Game, pk=game_id)
     rules = file("game/rules.txt").read()
@@ -110,16 +107,9 @@ def begin_game(request, game_id):
 @login_required
 def choice(request, game_id):
     """Displays the truth or dare choice
-
-    sends to game over page if there are no more prompts
-    TODO - test that an in progress game redirects to game over if there are no more prompts
-    TODO - test that an in progress game's status is changed to game_over if there are no more prompts
-    TODO - test that a form is displayed presenting a choice
     """
     game = get_object_or_404(Game, pk=game_id)
     template = "game/choice.html"
-    if not game.current_prompt():
-        return HttpResponseRedirect(game.get_absolute_url())
     current_prompt = game.current_prompt().prompt
     context = {"current_prompt": current_prompt, "current_game": game, "current_player": game.current_player()}
     return render_to_response(template, context, context_instance=RequestContext(request))
@@ -127,9 +117,6 @@ def choice(request, game_id):
 @login_required
 def play(request, game_id, choice):
     """Displays the prompt with the given choice and a form for finishing the prompt
-
-    TODO - test that the correct prompt is displayed for the choice given
-    TODO - test that a form is displayed to wimp out or complete
     """
     game = get_object_or_404(Game, pk=game_id)
     template = "game/play.html"
@@ -141,8 +128,6 @@ def play(request, game_id, choice):
 @login_required
 def wimp_out(request, game_id):
     """Finishes the prompt without adding to the score
-
-    TODO - test that the prompt is finished and the score of the player is not changed
     """
     game = get_object_or_404(Game, pk=game_id)
     game.resolve_current_prompt("wimp out")
@@ -151,8 +136,6 @@ def wimp_out(request, game_id):
 @login_required
 def complete(request, game_id):
     """Finishes the prompt and updates the player's score
-
-    TODO - test that the prompt is finished and the score of the player is changed
     """
     game = get_object_or_404(Game, pk=game_id)
     game.resolve_current_prompt("complete")

@@ -6,9 +6,9 @@
             "name": "one", 
             "private": true, 
             "difficulty": 1, 
-            "truth": "1", 
+            "truth": "I am a truth", 
             "owner": 2, 
-            "dare": "1"
+            "dare": "I am a dare"
         }
     }, 
     {
