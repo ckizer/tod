@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.test.client import Client
 from django.db import IntegrityError
 from django.contrib.auth.models import User
-from tod.prompt.models import Prompt
+from tod.prompt.models import Prompt, TaggedItem
 from tod.player.models import Player
 from tod.game.models import Game
 from tod.game.forms import GameForm
@@ -47,7 +47,7 @@ class GameTest(TestCase):
         self.failUnlessEqual(game.user, self.laura)
         self.failUnlessEqual(game.get_absolute_url(), '/game/%d/' % game.id)
 
-    def test_create_maximal(self):
+    def test_createMaximal(self):
         """Test game creation with all possible data
         """
         datum = GAME_DATA[2]
@@ -186,6 +186,8 @@ class GameFormTest(TestCase):
         """Test game creation with all possible data
         """
         game = self.submit_form(GAME_DATA[2])
+        for name in ['one', 'two', 'three']:
+            game.tags.create(tag=name)
         self.failUnlessEqual(game.max_difficulty, 7)
         self.failUnlessEqual(game.tags.count(), 3)
 
@@ -279,10 +281,12 @@ class TaggedItemTest(TestCase):
     A game with tags for nudity and adult
     """
     fixtures = ["tagged_items"]
-    def setUp(self):
-        pass
     def test_tagged_item(self):
         self.game = Game.objects.get(name="TagsGame")
+        p9 = Prompt.objects.get(id=9)
+        p9.tags.create(tag="nudity")
+        p10 = Prompt.objects.get(id=10)
+        p10.tags.create(tag="mature content")
         prompts = self.game.availablePrompts()
         self.failUnlessEqual(Prompt.objects.count(), 10)
         #test that the available prompts for the game is 8
@@ -348,6 +352,9 @@ class GameCreateViewTest(TestCase):
         response = self.client.get('/game/create/')
         self.assertContains(response, "Name:")
         self.assertContains(response, "Create Game")
+        self.assertContains(response, "tags")
+        self.assertContains(response, "nudity")
+
 
 class GameViewTest(TestCase):
     """Test that rendered pages display correctly

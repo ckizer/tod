@@ -30,6 +30,8 @@ def create_object(request):
     else:
         form = GameForm()
     template = "game/game_form.html"
+    tag_file = file('prompt/tags.txt')
+    tags = [tag.strip() for tag in tag_file]
     return render_to_response(template, locals(), context_instance=RequestContext(request))
 
 @login_required

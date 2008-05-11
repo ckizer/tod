@@ -5,6 +5,11 @@
   {% if form.errors %}{{ form.errors }}{% endif %}
   <form action="." method="post">
 	<p><label for="id_name">Name:</label> {{ form.name }}</p>
+	<ul>
+	  {% for tag in tags %}
+	  <li><input type="checkbox" name="tags" value="{{tag}}"/>{{tag}}</li>
+	  {% endfor %}
+	</ul>
 	<div class="button_dock">
 	  <input type="image" src="/media/images/create_game.png" alt="Create Game" />
 	</div>

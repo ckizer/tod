@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.contenttypes.models import ContentType
 
 from tod.prompt.models import Prompt, TaggedItem, generic
 
@@ -32,17 +33,14 @@ class Game(models.Model):
 
     def availablePrompts(self):
         """Provides the available prompts for a game based on chosen preferences
-
-        TODO - (defer) test that prompts with tags selected for exclusion from the game are excluded
         """
         availablePrompts = Prompt.objects.all()
         #exclude other people's private prompts
         availablePrompts = Prompt.objects.exclude(private=True) | Prompt.objects.filter(owner=self.user)
         #exclude prompts with tagged items selected for the game
-        tags = self.tags.all()
-        if tags:
-            for tag in tags:
-                availablePrompts = availablePrompts.exclude(tags = tag)
+        tags = [t.tag for t in self.tags.all()]
+        prompt_ct = ContentType.objects.get_for_model(Prompt.objects.all()[0])
+        availablePrompts = availablePrompts.exclude(tags__tag__in = tags, tags__content_type=prompt_ct)
         #exclude prompts with difficulty levels greater than the max_difficulty
         if self.max_difficulty:
             availablePrompts = availablePrompts.filter(difficulty__lte=self.max_difficulty)

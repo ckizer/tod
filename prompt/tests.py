@@ -103,7 +103,7 @@ class PromptViewTest(TestCase):
     def test_promptOwnerFilter(self):
         """Tests that a user's prompt list displays public prompts and only that user's private prompts
         """
-        management.call_command('loaddata', 'all_difficulties.json')
+        management.call_command('loaddata', 'all_difficulties.json', verbosity=0)
         self.failUnlessEqual(Prompt.objects.count(), 16)
         response = self.client.get('/prompt/')
         prompts = response.context.get('prompts')
