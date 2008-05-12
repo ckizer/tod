@@ -145,13 +145,11 @@ def complete(request, game_id):
 @login_required
 def game_over(request, game_id):
     """Displays the game over page and the winner
-
     TODO - (defer) test that the winner is displayed
     """
     game = get_object_or_404(Game, pk=game_id)
-    template = "game/over.html"
-    context = {"players": game.players.all(), "game": game}
-    return render_to_response(template, context, context_instance=RequestContext(request))
+    winners = game.getWinners()
+    return render_to_response('game/over.html', locals(), context_instance=RequestContext(request))
 
 @login_required
 def players_added(request, game_id):

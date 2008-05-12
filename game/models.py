@@ -142,12 +142,27 @@ class Game(models.Model):
         return player
 
     def resolve_current_prompt(self, resolution = "complete"):
+        """Complete a prompt and update score accodingly
+        """
         current_prompt = self.current_prompt()
         if current_prompt:
             score = current_prompt.complete()
             if resolution == "complete":
                 self.current_player().update_score(score)
         return score
+
+    def getWinners(self):
+        """Defines the winner to list when the is game over
+        """
+        winners = []
+        max_score = None
+        for player in self.players.all().order_by("-score"):
+            if not max_score:
+                max_score = player.score
+            if player.score < max_score:
+                break
+            winners.append(player)
+        return winners
 
 class GamePrompt(models.Model):
     """Many-To-Many relationship between Game and Prompt
