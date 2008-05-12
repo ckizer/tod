@@ -354,6 +354,7 @@ class GameCreateViewTest(TestCase):
         self.assertContains(response, "Create Game")
         self.assertContains(response, "tags")
         self.assertContains(response, "nudity")
+        self.assertContains(response, "Maximum Difficulty:")
 
 
 class GameViewTest(TestCase):

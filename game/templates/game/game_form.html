@@ -5,6 +5,7 @@
   {% if form.errors %}{{ form.errors }}{% endif %}
   <form action="." method="post">
 	<p><label for="id_name">Name:</label> {{ form.name }}</p>
+	<p><label for="id_max_difficulty">Maximum Difficulty:</label>{{form.max_difficulty}} (Choose a number between 1 and 10)</p>
 	<ul>
 	  {% for tag in tags %}
 	  <li><input type="checkbox" name="tags" value="{{tag}}"/>{{tag}}</li>
