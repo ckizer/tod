@@ -75,6 +75,16 @@ class PromptViewTest(TestCase):
         self.user = User.objects.get(username="laura")
         self.client.login(username="laura", password='laura')
 
+    def test_viewPromptIndex(self):
+        """User goes to the prompt index. They should...
+        """
+        # See a list of prompts
+        response = self.client.get('/prompt/')
+        self.assertTemplateUsed(response, 'prompt/index.html')
+        self.assertContains(response, 'prompt_list')
+        # See the name of a prompt in the list
+        self.assertContains(response, 'one')
+
     def test_promptDelete(self):
         prompt=Prompt.objects.get()
         self.failUnlessEqual(Prompt.objects.count(), 1)
