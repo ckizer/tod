@@ -111,6 +111,8 @@ def choice(request, game_id):
     """
     game = get_object_or_404(Game, pk=game_id)
     template = "game/choice.html"
+    if not game.current_prompt():
+        return HttpResponseRedirect(game.get_absolute_url())
     current_prompt = game.current_prompt().prompt
     context = {"current_prompt": current_prompt, "current_game": game, "current_player": game.current_player()}
     return render_to_response(template, context, context_instance=RequestContext(request))

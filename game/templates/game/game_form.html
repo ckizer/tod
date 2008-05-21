@@ -4,9 +4,9 @@
 <div id="create_game">
   {% if form.errors %}{{ form.errors }}{% endif %}
   <form action="." method="post">
-	<p><label for="id_name">Name:</label> {{ form.name }}</p>
-	<p><label for="id_max_difficulty">Maximum Difficulty:</label>{{form.max_difficulty}} (Choose a number between 1 and 10)</p>
+    {{ form.as_p }}
 	<ul>
+<p class="help_text">Select any of the types of prompts that you wish to exclude from your game.  For example, selecting the nudity box will exclude any nudity-containing prompts from your game.</p>
 	  {% for tag in tags %}
 	  <li><input type="checkbox" name="tags" value="{{tag}}"/>{{tag}}</li>
 	  {% endfor %}

@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
+<p class="help_text">This is the form for creating your own prompts for your Truth or Dare games.</p>
 <div id="create_prompt">
 	<form action="." method="post" class="detail_form">
 {{ form.as_p }}
+<p class="help_text">Check any boxes that apply to your prompt.  When you create a game, you have the option of excluding prompts with certain content for squeamish players (or wimps)</p>
 {% for tag in tags %}
 <p><label>{{tag}}</label><input type="checkbox" class="checkbox" name="{{tag}}" /></p>
 {% endfor %}

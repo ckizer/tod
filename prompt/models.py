@@ -19,14 +19,18 @@ class TaggedItem(models.Model):
     
     def __unicode__(self):
         return self.tag
+name_help = "Give your prompt a descriptive and unique name, since the name will be displayed in the game"
+truth_help = "Provide a challenge where the player has to tell the truth about something for when a player gets your prompt and chooses Truth"
+dare_help = "Provide a challenge where the player has to do something potentially embarassing or difficult for when a player gets your prompt and chooses Dare"
+difficulty_help = "Assign a difficulty to the prompt.  Click the 'View Difficulty Rubric' if you need help assigning a difficulty"
 
 class Prompt(models.Model):
     """Provides logic for truth and dare object used in gameplay
     """
-    name = models.CharField(max_length=50, unique = True)
-    truth = models.TextField()
-    dare = models.TextField()
-    difficulty = models.IntegerField()
+    name = models.CharField(max_length=50, unique = True, help_text=name_help)
+    truth = models.TextField(help_text=truth_help)
+    dare = models.TextField(help_text=dare_help)
+    difficulty = models.IntegerField(help_text=difficulty_help)
     private = models.BooleanField(default=True, editable = False)
     owner = models.ForeignKey(User, editable = False)
 

@@ -12,6 +12,9 @@ STATUS_CHOICES = (
     ('completed', 'Completed'),
     )
 
+name_help = "Choose a name for your game."
+max_difficulty_help = "Assign a maximum difficulty level to the game.  For help in assigning a maximum difficulty level, click on the 'View Difficulty Rubric' button for help.  The maximum difficulty is inclusive, so if you choose 7, you will get prompts with difficulties of 1 through 7."
+
 class Game(models.Model):
     """object to contain logic for grouping prompts and players into a game unit
 
@@ -22,9 +25,9 @@ class Game(models.Model):
     track a status to maintain persistent state
     determine relative player scores
     """
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, help_text=name_help)
     status = models.CharField(max_length=50, choices = STATUS_CHOICES, editable = False, default='created')
-    max_difficulty = models.IntegerField(default=10, null=True, blank=True)
+    max_difficulty = models.IntegerField(default=10, null=True, blank=True, help_text=max_difficulty_help)
     user = models.ForeignKey(User)
     tags = generic.GenericRelation(TaggedItem)
 
