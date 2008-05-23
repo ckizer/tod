@@ -8,6 +8,18 @@ class PromptForm(ModelForm):
     """
     class Meta:
         model = Prompt
+
+    def __init__(self, *args, **kwargs):
+        self.owner = kwargs.pop('owner') if kwargs.has_key('owner') else None
+        super(PromptForm, self).__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        prompt = super(PromptForm, self).save(commit=False)
+        prompt.owner = self.owner
+        if commit:
+            prompt.save()
+        return prompt
+
     def clean_name(self):
         """Ensures that prompt names are unique
         """

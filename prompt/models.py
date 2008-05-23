@@ -27,7 +27,7 @@ difficulty_help = "Assign a difficulty to the prompt.  Click the 'View Difficult
 class Prompt(models.Model):
     """Provides logic for truth and dare object used in gameplay
     """
-    name = models.CharField(max_length=50, unique = True, help_text=name_help)
+    name = models.CharField(max_length=100, unique = True, help_text=name_help)
     truth = models.TextField(help_text=truth_help)
     dare = models.TextField(help_text=dare_help)
     difficulty = models.IntegerField(help_text=difficulty_help)

@@ -1,0 +1,788 @@
+[
+    {
+        "pk": 21, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "athletic", 
+            "object_id": 26, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "athletic", 
+            "object_id": 27, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "contact", 
+            "object_id": 10, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "contact", 
+            "object_id": 12, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "contact", 
+            "object_id": 13, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "contact", 
+            "object_id": 14, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "contact", 
+            "object_id": 15, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "contact", 
+            "object_id": 16, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "contact", 
+            "object_id": 22, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "contact", 
+            "object_id": 23, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "contact", 
+            "object_id": 24, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "contact", 
+            "object_id": 25, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "contact", 
+            "object_id": 26, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "contact", 
+            "object_id": 27, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "exhibitionism", 
+            "object_id": 10, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "exhibitionism", 
+            "object_id": 15, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "exhibitionism", 
+            "object_id": 21, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "exhibitionism", 
+            "object_id": 29, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "exhibitionism", 
+            "object_id": 31, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "exhibitionism", 
+            "object_id": 33, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "exhibitionism", 
+            "object_id": 38, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "exhibitionism", 
+            "object_id": 40, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "internet", 
+            "object_id": 8, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "internet", 
+            "object_id": 9, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "messy", 
+            "object_id": 16, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "messy", 
+            "object_id": 22, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "messy", 
+            "object_id": 24, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "messy", 
+            "object_id": 25, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "nudity", 
+            "object_id": 29, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "nudity", 
+            "object_id": 30, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "nudity", 
+            "object_id": 31, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "nudity", 
+            "object_id": 33, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "nudity", 
+            "object_id": 34, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "prompt.taggeditem", 
+        "fields": {
+            "tag": "nudity", 
+            "object_id": 37, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Hell on Earth", 
+            "private": true, 
+            "difficulty": 1, 
+            "truth": "What was your most embarassing high school or jr high moment?", 
+            "owner": 2, 
+            "dare": "Have the other players help you re-enact your most embarassing moment in mime."
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Pucker Up", 
+            "private": true, 
+            "difficulty": 1, 
+            "truth": "Who was your first kiss and how did it happen?", 
+            "owner": 2, 
+            "dare": "Put on lipstick and kiss a mirror."
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Pumpkin Eater", 
+            "private": true, 
+            "difficulty": 1, 
+            "truth": "What was your worst nickname?", 
+            "owner": 2, 
+            "dare": "Write your worst nickname on a name tag.  Wear it for the rest of the game."
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Mr Potato Head", 
+            "private": true, 
+            "difficulty": 1, 
+            "truth": "If you could adopt the bodypart of a single famous person for your own body, what would it be?", 
+            "owner": 2, 
+            "dare": "Find a magazine or print out a picture of a famous person's body part.  Tape it on to your clothing at the appropriate place."
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Hangin Tough", 
+            "private": true, 
+            "difficulty": 2, 
+            "truth": "What is your biggest guilty pleasure?", 
+            "owner": 2, 
+            "dare": "Go to the iTunes store and purchase a cheesy pop song that you love - but would never admit to loving"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Dressed to the 69's", 
+            "private": true, 
+            "difficulty": 2, 
+            "truth": "What outfit makes you feel the sexiest?", 
+            "owner": 2, 
+            "dare": "Strut across the room for the other players"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Paparazzi", 
+            "private": true, 
+            "difficulty": 2, 
+            "truth": "What is the most embarassing moment for which there is photographic evidence?", 
+            "owner": 2, 
+            "dare": "Have another player take a picture of you making a funny face"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Piranah in the Pond", 
+            "private": true, 
+            "difficulty": 2, 
+            "truth": "What is the best urban legend you know is true?", 
+            "owner": 2, 
+            "dare": "Send an email to someone you know warning them of something that is actually an urban legend made up by you and the group"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Hot or not", 
+            "private": true, 
+            "difficulty": 3, 
+            "truth": "Rate everyone else in the room on a scale of 1 to 10", 
+            "owner": 2, 
+            "dare": "Take an unidentifiable (no face included) digital picture of yourself and post it on Am I Hot Or Not (or equivalent site)."
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Booty Smack", 
+            "private": true, 
+            "difficulty": 3, 
+            "truth": "Describe your perfect ass.", 
+            "owner": 2, 
+            "dare": "Stick your booty out in front of the other players.  Each player will give it a little smack"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Nose Nuzzle", 
+            "private": true, 
+            "difficulty": 3, 
+            "truth": "Tell us something you find attractive about another player.", 
+            "owner": 2, 
+            "dare": "Give another player a nose nuzzle."
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Bear Hug", 
+            "private": true, 
+            "difficulty": 3, 
+            "truth": "Tell us something you really like about another player.", 
+            "owner": 2, 
+            "dare": "Give a huge hug to another player"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Foot graze", 
+            "private": true, 
+            "difficulty": 4, 
+            "truth": "Describe a harmless turn-on or fetish that you have.", 
+            "owner": 2, 
+            "dare": "Drag a finger slowly across another player's foot while giving them a flirty, sexy look"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Straddle", 
+            "private": true, 
+            "difficulty": 4, 
+            "truth": "Tell us something that turns you on.", 
+            "owner": 2, 
+            "dare": "Sit on another player's lap, facing and straddling them.  Give them a little grind before getting up."
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Lap Dance", 
+            "private": true, 
+            "difficulty": 4, 
+            "truth": "Tell about one of your most romantic songs, and what memory is associated with it.", 
+            "owner": 2, 
+            "dare": "Start playing a sexy song and give another player a lap dance for the entire song."
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Tattoo", 
+            "private": true, 
+            "difficulty": 4, 
+            "truth": "If you had to get a tattoo, what would it be and where would you want it?", 
+            "owner": 2, 
+            "dare": "Choose another player to give you a temporary tattoo (with a pen if necessary).  The tattoo needs to be somewhere visible even with a shirt and shorts."
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "I'll call", 
+            "private": true, 
+            "difficulty": 5, 
+            "truth": "What was the most successful lie you've ever told?", 
+            "owner": 2, 
+            "dare": "Say something about each person in the room.  2 of them must be a lie.  You don't have to tell anyone which ones are lies."
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Looks like someone's having a party", 
+            "private": true, 
+            "difficulty": 5, 
+            "truth": "Tell about the strangest thing you've purchased for \"purposes\" other than the standard ones.", 
+            "owner": 2, 
+            "dare": "Wearing only pajamas or bathrobes travel to the nearest grocery store with the player in the other couple of the opposite gender and purchase 1 zuchinni, 1 bottle of non-dairy whipped cream and 1 bottle of cherries.  Purchase no other items."
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Coture on a shoestring", 
+            "private": true, 
+            "difficulty": 5, 
+            "truth": "Tell about the skimpiest thing you've worn in public.  Why did you wear it, and what were people's reactions?", 
+            "owner": 2, 
+            "dare": "You have 60 seconds to design a fashion line for the others in the group using only paper towels and duct tape.  You get to choose who wears which outfit."
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "I'm not as think as you drunk I am!", 
+            "private": true, 
+            "difficulty": 5, 
+            "truth": "What was your most infamous drunken moment?", 
+            "owner": 2, 
+            "dare": "Take 3 shots."
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "The Moan", 
+            "private": true, 
+            "difficulty": 6, 
+            "truth": "Tell the other players about a time when you faked.", 
+            "owner": 2, 
+            "dare": "Let out a loud moan for the other players."
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Friend Sundae", 
+            "private": true, 
+            "difficulty": 6, 
+            "truth": "Tell the other players what foods you find sexy, and why", 
+            "owner": 2, 
+            "dare": "Make a sundae on a friend using whipped cream, nuts, two scoops of ice cream and a cherry.  The other players must eat it off."
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Blind Taste Test", 
+            "private": true, 
+            "difficulty": 6, 
+            "truth": "Close your eyes (first).  Describe in detail one member of the opposite sex. (clothing, jewelry etc.)", 
+            "owner": 2, 
+            "dare": "Choose a body part.  Have each player put that body part in your mouth.  You have to correctly identify which player is which based on the body part."
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Cold as Ice", 
+            "private": true, 
+            "difficulty": 6, 
+            "truth": "Reveal your most ticklish spot.", 
+            "owner": 2, 
+            "dare": "Give an ice cube to each player.  You lie down and they each choose a place to put the ice cube.  You have to remain still for 10 seconds."
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "I love Mom", 
+            "private": true, 
+            "difficulty": 7, 
+            "truth": "Describe the most outrageous thing you've ever considered doing.  Tattoo, piercing, etc.", 
+            "owner": 2, 
+            "dare": "Choose another player to give you a salacious tattoo somewhere your bathing suit covers."
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "I get around", 
+            "private": true, 
+            "difficulty": 7, 
+            "truth": "What was the craziest place you've had sex?", 
+            "owner": 2, 
+            "dare": "Demonstrate a way to have sex on a non-traditional surface (e.g., on a counter)"
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Bracketing", 
+            "private": true, 
+            "difficulty": 7, 
+            "truth": "What was your shortest and longest sexual experience?", 
+            "owner": 2, 
+            "dare": "Demonstrate an acrobatic sexual position, using another player for support."
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Muhahaha", 
+            "private": true, 
+            "difficulty": 7, 
+            "truth": "Have you ever plotted the death of an enemy?  Describe the plot.", 
+            "owner": 2, 
+            "dare": "Draw up a 5 step plan for taking over the world, or exacting revenge on your nemesis."
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Striptease", 
+            "private": true, 
+            "difficulty": 8, 
+            "truth": "What is the most naked you've ever been seen by someone else?  Or seen someone else?", 
+            "owner": 2, 
+            "dare": "Start some sexy music and slowly strip down to your underwear in front of the other players."
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Clothing Exchange", 
+            "private": true, 
+            "difficulty": 8, 
+            "truth": "Tell us what kind of underwear you're wearing.", 
+            "owner": 2, 
+            "dare": "Switch clothes with another player while remaining in the room.  All clothes must be worn as close to their appropriate use as possible without damaging the clothes or the players."
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Plenty of support, but synthetics just don't breathe", 
+            "private": true, 
+            "difficulty": 8, 
+            "truth": "Tell about the hottest thing you've done to get sexual attention from someone else.", 
+            "owner": 2, 
+            "dare": "Construct a garment out of plastic wrap given only 10 seconds.  Wear nothing else."
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Shooting Stars", 
+            "private": true, 
+            "difficulty": 8, 
+            "truth": "Who is the number 1 movie star for whom illicit sex would be justified?", 
+            "owner": 2, 
+            "dare": "Deliver a pick up line to another player with the MO of a famous person.  (ie. I think she's lost that lovin' feelin Goose.)"
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Streak", 
+            "private": true, 
+            "difficulty": 9, 
+            "truth": "Describe an aspect of your genitals in detail.", 
+            "owner": 2, 
+            "dare": "Strip down naked and run to an object outside that another player names.  The object must be at least 20 but no more than 100 feet away."
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Skinny Dip", 
+            "private": true, 
+            "difficulty": 9, 
+            "truth": "Who was the last person (not the person you're currently attached to) to see you nude?", 
+            "owner": 2, 
+            "dare": "Swim laps nude.  Your choice of 4 freestyle, 3 breast stroke or 2 backstroke."
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "That's the spot", 
+            "private": true, 
+            "difficulty": 9, 
+            "truth": "What is your most sensitive erogenous zone?", 
+            "owner": 2, 
+            "dare": "Have another player stroke you briefly in your most sensitive erogenous zone"
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "I plead the fifth", 
+            "private": true, 
+            "difficulty": 9, 
+            "truth": "What is the most illegal action you've committed?", 
+            "owner": 2, 
+            "dare": "Either shoplift something from a store, or hop a movie. Or...if time is at a crunch...download a song!!!  You're helping the terrorists win."
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Cleanliness is next to everyone else", 
+            "private": true, 
+            "difficulty": 10, 
+            "truth": "Describe in detail a fantasy that you have that revolves around an everyday action.  (ie. showering, cooking dinner, cleaning)", 
+            "owner": 2, 
+            "dare": "Take a shower.  The other players draw straws to see who will shower with you.  Non-showering players get to name 1 body part each that must be washed."
+        }
+    }, 
+    {
+        "pk": 38, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Move along folks, nothing to see here", 
+            "private": true, 
+            "difficulty": 10, 
+            "truth": "Tell something funny or embarrassing about your partner's sexual habits.  If single, tell something embarrassing about your own.", 
+            "owner": 2, 
+            "dare": "Using only 1 sheet for privacy, have sex with your own partner in the same room with the other participants until at least one of you climaxes.  Other participants must give encouragement."
+        }
+    }, 
+    {
+        "pk": 39, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "You complete me", 
+            "private": true, 
+            "difficulty": 10, 
+            "truth": "Tell your current partner about the most detailed fantasy you've had about someone else in the room.", 
+            "owner": 2, 
+            "dare": "Go kiss the person in the room you'd most like to have sex with...who is not your partner."
+        }
+    }, 
+    {
+        "pk": 40, 
+        "model": "prompt.prompt", 
+        "fields": {
+            "name": "Walk the dog", 
+            "private": true, 
+            "difficulty": 10, 
+            "truth": "Describe your self-pleasuring schedule.  Include locations, stimulating materials, and frequency.", 
+            "owner": 2, 
+            "dare": "Turn the lights off.  You have 3 minutes to attempt to bring yourself to orgasm any way you like.  Feel free to ask other players to help."
+        }
+    }
+]
