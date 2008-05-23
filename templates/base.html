@@ -25,6 +25,14 @@
 	  {% endif %}
 	</div>
 
+	<div id="comment_form">
+	  <form action="/comment/create/" method="post">
+	    <fieldset>
+	      {{ comment_form.as_p }}
+	      <input type="submit" name="submit" value="Submit Comment" />
+	    </fieldset>
+	  </form>
+	</div>
 {% comment %}
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

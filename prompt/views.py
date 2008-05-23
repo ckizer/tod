@@ -7,6 +7,7 @@ from django.template import RequestContext
 
 from tod.prompt.models import Prompt
 from tod.prompt.forms import PromptForm
+from tod.comment.forms import CommentForm
 
 @login_required
 def limited_object_list(*args, **kwargs):
@@ -30,6 +31,7 @@ def index(request):
     TODO - (defer) decide between object list and index to display prompts
     """
     prompts = Prompt.objects.exclude(private=True) | Prompt.objects.filter(owner=request.user)
+    comment_form = CommentForm(initial={'page': '/prompt/'})
     return render_to_response("prompt/index.html", locals(), context_instance=RequestContext(request))
 
 @login_required

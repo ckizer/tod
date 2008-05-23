@@ -5,6 +5,7 @@ from django.template import RequestContext
 from django.views.generic.create_update import delete_object
 
 from tod.game.forms import GameForm
+from tod.comment.forms import CommentForm
 from tod.game.models import Game
 from tod.prompt.models import Prompt
 
@@ -13,7 +14,8 @@ def object_list(request):
     """displays a list of game objects
     """
     template = "game/game_list.html"
-    context = {'object_list':request.user.game_set.all()}
+    
+    context = {'object_list':request.user.game_set.all(), 'comment_form': CommentForm(initial={'page': '/game/'})}
     return render_to_response(template, context, context_instance=RequestContext(request))
 
 @login_required

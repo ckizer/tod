@@ -84,6 +84,7 @@ INSTALLED_APPS = (
     'tod.prompt',
     'tod.game',
     'tod.player',
+    'tod.comment',
 )
 
 LOGIN_REDIRECT_URL = "/"
