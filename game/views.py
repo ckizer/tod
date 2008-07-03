@@ -73,9 +73,8 @@ def select_prompts(request, game_id):
     template = "game/select_prompts.html"
     player_count = game.players.count()
     error = ""
-    #TODO - (defer) availablePrompts instead of Prompt.objects.count()
     if player_count:
-        maximum_rounds = Prompt.objects.count() / player_count
+        maximum_rounds = game.availablePrompts / player_count
     else:
         maximum_rounds = 0
         error = "MINIMUM_PLAYERS_EXCEEDED"
