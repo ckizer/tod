@@ -2,10 +2,10 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-from django.newforms import form_for_model
 
 from tod.player.models import Player
 from tod.game.models import Game
+from tod.player.forms import PlayerForm
 
 @login_required
 def player_list(request, game_id):
@@ -26,8 +26,8 @@ def create(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     template = "player/player_form.html"
     #TODO (defer) use model form for player form
-    PlayerForm = form_for_model(Player)
     if request.method == "POST":
+        form = PlayerForm()
         values = request.POST.copy()
         form = PlayerForm(values)
         if form.is_valid():
@@ -39,8 +39,9 @@ def create(request, game_id):
         else:
             errors = form.errors
             assert False
-    context = {"game": game, "form": PlayerForm()}
-    return render_to_response(template, context, context_instance=RequestContext(request))
+    else:
+        form = PlayerForm()
+    return render_to_response(template, locals(), context_instance=RequestContext(request))
 
 @login_required
 def delete(request, player_id):

@@ -466,5 +466,5 @@ class GameViewTest(TestCase):
         #testing that the game over page announces a winner
         response = self.client.get('/game/2/game_over/')
         self.assertContains(response, "The Winner Is bob")
-        
+        self.assertContains(response, "Alice:")
 
