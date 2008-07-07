@@ -4,10 +4,29 @@
 <p class="help_text">This is the form for creating your own prompts for your Truth or Dare games.</p>
 <div id="create_prompt">
 	<form action="." method="post" class="detail_form">
-{{ form.as_p }}
-<p class="help_text">Check any boxes that apply to your prompt.  When you create a game, you have the option of excluding prompts with certain content for squeamish players (or wimps)</p>
+	  <div class="prompt_form">
+		<p class="prompt_text">Name: </p> 
+		{{ form.name }}
+	  </div>
+	  <p class="help_text">{{ form.name.help_text }}</p>
+	  <div class="prompt_form">
+		<p class="prompt_text">Truth: </p>
+		{{ form.truth }}
+	  </div>
+	  <p class="help_text">{{ form.truth.help_text }}</p>
+	  <div class="prompt_form">
+		<p class="prompt_text">Dare: </p>
+		{{ form.dare }}
+	  </div>
+	  <p class="help_text">{{ form.dare.help_text }}</p>
+	  <div class="prompt_form">
+		<p class="prompt_text">Difficulty: </p>
+		{{ form.difficulty }}
+	  </div>
+	  <p class="help_text">{{ form.difficulty.help_text }}</p>
+<p class="help_text">Check any boxes that apply to your prompt.  When you create a game, you have the option of excluding prompts with certain content for squeamish players.</p>
 {% for tag in tags %}
-<p><label>{{tag}}</label><input type="checkbox" class="checkbox" name="{{tag}}" /></p>
+	  <li class="tags"><input type="checkbox" name="tags" value="{{tag}}"/>{{tag}}</li>
 {% endfor %}
 	<p id="prompt_buttons">
 	  <input type="image" src="/media/images/prompt_create.png" name="create" value="create" />

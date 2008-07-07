@@ -302,6 +302,46 @@ margin-bottom: 10px;
 margin-top: 6px;
 }
 
+.help_text
+{
+text-align: center;
+width: 500px;
+margin: auto;
+padding: 1em;
+font-size: 0.8em;
+}
+
+.tags
+{
+list-style-type: none;
+width: 130px;
+margin: auto;
+text-align: left;
+padding-bottom: 0.5em;
+}
+
+.tags input
+{
+margin: auto;
+}
+
+.prompt_form
+{
+width: 400px;
+margin: auto;
+text-align: center;
+}
+
+.prompt_form input
+{
+width: 300px;
+}
+
+.prompt_text
+{
+float: left;
+}
+
 #login_text
 {
 margin: 20px;
