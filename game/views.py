@@ -74,7 +74,7 @@ def select_prompts(request, game_id):
     player_count = game.players.count()
     error = ""
     if player_count:
-        maximum_rounds = game.availablePrompts / player_count
+        maximum_rounds = game.availablePrompts() / player_count
     else:
         maximum_rounds = 0
         error = "MINIMUM_PLAYERS_EXCEEDED"

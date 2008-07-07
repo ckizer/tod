@@ -73,7 +73,7 @@ class Game(models.Model):
         #determine the number of players
         player_count = self.players.count()
         #populate a two-dimensional list of prompts
-        prompts=self.availablePrompts
+        prompts=self.availablePrompts()
         rounds_assigned = 0
         game_prompts = []
         current_difficulty = 0

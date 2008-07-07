@@ -353,3 +353,11 @@ text-align: center;
 text-align: center;
 margin: 50px;
 }
+
+#authentication
+{
+width: 200px;
+float: right;
+text-align: right;
+margin-right: 160px;
+}
