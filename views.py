@@ -27,6 +27,7 @@ def register(request):
             user = form.save(commit=False)
             user.set_password(values['password'])
             user.save()
+            login(request, user)
             return HttpResponseRedirect("/")
     else:
         form = UserForm()
