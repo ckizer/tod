@@ -203,6 +203,11 @@ bottom: 0px;
 width:363px;
 }
 
+#rules
+{
+font-size: 0.9em;
+}
+
 #complete, #truth
 {
 width: 35%;
