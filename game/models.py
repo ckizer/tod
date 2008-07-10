@@ -13,7 +13,7 @@ STATUS_CHOICES = (
     )
 
 name_help = "Choose a name for your game."
-max_difficulty_help = "Assign a maximum difficulty level to the game.  For help in assigning a maximum difficulty level, click on the 'View Difficulty Rubric' button for help.  The maximum difficulty is inclusive, so if you choose 7, you will get prompts with difficulties of 1 through 7."
+max_difficulty_help = "Assign a maximum difficulty level to the game.  The maximum difficulty is inclusive, so if you choose 7, you will get prompts with difficulties of 1 through 7."
 
 class Game(models.Model):
     """object to contain logic for grouping prompts and players into a game unit
@@ -73,9 +73,7 @@ class Game(models.Model):
         #determine the number of players
         player_count = self.players.count()
         #populate a two-dimensional list of prompts
-        prompts=[]
-        for difficulty in range(1,self.max_difficulty+1):
-            prompts.append([prompt for prompt in Prompt.objects.filter(difficulty=difficulty)])
+        prompts=self.availablePrompts()
         rounds_assigned = 0
         game_prompts = []
         current_difficulty = 0

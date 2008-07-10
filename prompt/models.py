@@ -22,7 +22,7 @@ class TaggedItem(models.Model):
 name_help = "Give your prompt a descriptive and unique name, since the name will be displayed in the game"
 truth_help = "Provide a challenge where the player has to tell the truth about something for when a player gets your prompt and chooses Truth"
 dare_help = "Provide a challenge where the player has to do something potentially embarassing or difficult for when a player gets your prompt and chooses Dare"
-difficulty_help = "Assign a difficulty to the prompt.  Click the 'View Difficulty Rubric' if you need help assigning a difficulty"
+difficulty_help = "Assign a difficulty to the prompt."
 
 class Prompt(models.Model):
     """Provides logic for truth and dare object used in gameplay

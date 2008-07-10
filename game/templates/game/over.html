@@ -1,3 +1,5 @@
+
+
 {% extends "game/stage.html" %}
 {% block stage_detail %}
 
@@ -7,7 +9,7 @@
   <div id="final_scores">
 	<dl id="player_list">
 	  {% for player in players %}
-	  <dt class="players">{{ player }}</dt>
+	  <dt class="players">{{ player }}: </dt>
 	  <dd class="score">{{ player.score }}</dd>
 	  {% endfor %}
 	</dl>

@@ -48,6 +48,7 @@ left: -1000px;
 
 #authentication
 {
+font-size: 0.8em;
 text-align: right;
 margin-right: 110px;
 }
@@ -302,6 +303,46 @@ margin-bottom: 10px;
 margin-top: 6px;
 }
 
+.help_text
+{
+text-align: center;
+width: 500px;
+margin: auto;
+padding: 1em;
+font-size: 0.8em;
+}
+
+.tags
+{
+list-style-type: none;
+width: 130px;
+margin: auto;
+text-align: left;
+padding-bottom: 0.5em;
+}
+
+.tags input
+{
+margin: auto;
+}
+
+.prompt_form
+{
+width: 400px;
+margin: auto;
+text-align: center;
+}
+
+.prompt_form input
+{
+width: 300px;
+}
+
+.prompt_text
+{
+float: left;
+}
+
 #login_text
 {
 margin: 20px;
@@ -312,4 +353,12 @@ text-align: center;
 {
 text-align: center;
 margin: 50px;
+}
+
+#authentication
+{
+width: 200px;
+float: right;
+text-align: right;
+margin-right: 160px;
 }

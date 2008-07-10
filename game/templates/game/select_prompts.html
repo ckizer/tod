@@ -2,9 +2,7 @@
 {% block content %}
 
 <div id="select_prompts">
-
   <form action="." method="post">
-	<p>How many rounds would you like to play?  A round includes one prompt for each player. You have {{ maximum_rounds }} available.</p>
 	<p class="error">
 	  {% ifequal error "MINIMUM_PLAYERS_EXCEEDED" %}
 	  Please <a href="/player/{{ game.id }}/"> add players </a>to this game
@@ -16,6 +14,7 @@
 	  Please either select fewer rounds, <a href="/prompt/create"> create</a> new prompts, or <a href="/player/{{ game.id}}/">select </a>fewer players.
 	  {% endifequal %}
 	</p>
+	<p class="help_text">How many rounds would you like to play?  A round includes one prompt for each player. You have {{ maximum_rounds }} available.</p>
 	<p><label for="id_name">Number of Rounds: </label> <input type="text" name="rounds" value="{{ rounds }}" /></p>
 	<div class="button_dock">
 	  <input type="image" src="/media/images/select_rounds.png" alt="submit" value="Select Number of Rounds" />

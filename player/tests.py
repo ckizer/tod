@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 from tod.game.models import Game
 from tod.player.models import Player
+from tod.player.forms import PlayerForm
 
 class PlayerTest(TestCase):
     """Tests the creation of a player object with blank, minimal, and maximal inputs
