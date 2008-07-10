@@ -8,7 +8,9 @@
     {% for prompt in prompts %}
 	<li>
 	  {{ prompt.difficulty }}: {{prompt.name}}: {{prompt.truth}} // {{prompt.dare}} 
+	  {% ifequal prompt.owner request.user %}
 	  <form action="/prompt/{{prompt.id}}/delete/" method="post"><input type="image" src="/media/images/delete.png" alt="delete" /></form> 
+	  {% endifequal %}
 	</li>
 	{% endfor%}
   </ul>
