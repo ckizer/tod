@@ -21,6 +21,8 @@ def limited_object_list(*args, **kwargs):
 def limited_delete_object(*args, **kwargs):
     """Deletes prompt object
     """
+    if request.user != prompt.owner:
+        return HttpResponseRedirect('/prompt/')
     return delete_object(*args, **kwargs)
 
 @login_required
