@@ -118,7 +118,7 @@ class PromptViewTest(TestCase):
         self.failUnlessEqual(Prompt.objects.count(), 16)
         response = self.client.get('/prompt/')
         prompts = response.context[0].get('prompts')
-        self.failUnlessEqual(len(prompts), 13)
+        self.failUnlessEqual(len(prompts), 14)
         self.assertTemplateUsed(response, 'prompt/index.html')
 
 class PromptFormTest(TestCase):
@@ -177,7 +177,6 @@ class ImmutablePromptTest(TestCase):
 
     def setUp(self):
         self.client = Client()
-        print """User.objects.all():""", User.objects.all()
         self.user = User.objects.get(username="laura")
         self.client.login(username="laura", password='laura')
 

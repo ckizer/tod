@@ -21,6 +21,9 @@ def limited_object_list(*args, **kwargs):
 def limited_delete_object(*args, **kwargs):
     """Deletes prompt object
     """
+    request = args[0]
+    prompt_id = kwargs['object_id']
+    prompt = Prompt.objects.get(id = prompt_id)
     if request.user != prompt.owner:
         return HttpResponseRedirect('/prompt/')
     return delete_object(*args, **kwargs)

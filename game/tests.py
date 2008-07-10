@@ -262,7 +262,7 @@ class MaxDifficultyTest(TestCase):
         #test that the prompt count equals the total number of prompts 
         #excluding those private to the other users
         #With 3 prompts private to the other user the prompt count for the game is thirteen
-        self.failUnlessEqual(prompts.count(), 13)
+        self.failUnlessEqual(prompts.count(), 14)
 
     def test_max_difficulty(self):
         """Test that only sub-max prompts are displayed if a max difficulty is set
@@ -270,7 +270,7 @@ class MaxDifficultyTest(TestCase):
         self.game = Game.objects.get(name='WimpyGame')
         prompts = self.game.availablePrompts()
         #test that the prompt count is 9
-        self.failUnlessEqual(prompts.count(), 9)
+        self.failUnlessEqual(prompts.count(), 10)
         for prompt in prompts:
             self.failUnless(prompt.difficulty <= self.game.max_difficulty)
 
