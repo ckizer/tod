@@ -204,4 +204,14 @@ class ImmutablePromptTest(TestCase):
     def test_postingOnlyDeletesOwnPrompts(self):
         """Tests that a post can only delete the user's own prompts
         """
-        pass
+        #Get one prompt owned by the current user and one owned by another user
+        deleteable_prompt = Prompt.objects.get(id=10)
+        immutable_prompt = Prompt.objects.get(id=11)
+        #Send a post to delete the current user's prompt
+        self.client.post(deleteable_prompt.get_absolute_url()+'delete/')
+        #Confirm that the prompt is deleted
+        self.failUnless(not Prompt.objects.filter(id=deleteable_prompt.id), 'users own prompt %s was not successfully deleted' % deleteable_prompt)
+        #Send a post to delete a prompt that does not belong to the current user
+        self.client.post(immutable_prompt.get_absolute_url()+'delete/')
+        #Confirm that the prompt is not deleted
+        self.failUnless(Prompt.objects.filter(id=immutable_prompt.id), 'public prompt %s was deleted by user' % immutable_prompt)
