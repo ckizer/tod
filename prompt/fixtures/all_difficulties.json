@@ -124,7 +124,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "prv1", 
-            "private": true, 
+            "private": false, 
             "difficulty": 1, 
             "truth": "1", 
             "owner": 1, 

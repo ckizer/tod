@@ -3,6 +3,7 @@ from django.test.client import Client
 from django.db import IntegrityError
 from django.contrib.auth.models import User
 from django.core import management
+from BeautifulSoup import BeautifulSoup
 
 from tod.prompt.models import Prompt
 from tod.prompt.forms import PromptForm
@@ -116,7 +117,7 @@ class PromptViewTest(TestCase):
         management.call_command('loaddata', 'all_difficulties.json', verbosity=0)
         self.failUnlessEqual(Prompt.objects.count(), 16)
         response = self.client.get('/prompt/')
-        prompts = response.context.get('prompts')
+        prompts = response.context[0].get('prompts')
         self.failUnlessEqual(len(prompts), 13)
         self.assertTemplateUsed(response, 'prompt/index.html')
 
@@ -169,4 +170,38 @@ class PromptFormTest(TestCase):
             self.assertRaises(forms.ValidationError, form.save)
         
 
+class ImmutablePromptTest(TestCase):
+    """Tests that users can only delete their own prompts
+    """
+    fixtures = ['all_difficulties']
 
+    def setUp(self):
+        self.client = Client()
+        print """User.objects.all():""", User.objects.all()
+        self.user = User.objects.get(username="laura")
+        self.client.login(username="laura", password='laura')
+
+    def test_appropriateDeleteButtons(self):
+        """Tests that user only sees delete buttons next to their own prompts
+        """
+        #Get list of prompts from the database
+        prompts = Prompt.objects.exclude(private=True) | Prompt.objects.filter(owner=self.user)
+        #Get list of prompt rows from the page
+        response = self.client.get('/prompt/')
+        doc = BeautifulSoup(response.content)
+        prompt_rows = doc.find(id = "prompt_list").findAll("li")
+        #Loop over the zipped prompts and prompt rows
+        self.failUnlessEqual(prompts.count(), len(prompt_rows))
+        for prompt, row in zip(prompts, prompt_rows):
+            #Determine if the prompt rows are appropriately displaying delete buttons
+            delete_input = row.find("input", {'alt': 'delete'})
+            if prompt.owner == self.user:
+                self.failUnless(delete_input, 'delete button not shown for %s but prompt belongs to user %s' % (row, self.user))
+            else:
+                self.failUnless(not delete_input, 'delete button shown for %s but does not belong to user %s' % (row, self.user))
+
+
+    def test_postingOnlyDeletesOwnPrompts(self):
+        """Tests that a post can only delete the user's own prompts
+        """
+        pass

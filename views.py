@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from tod.forms import UserForm
 from django.http import HttpResponseRedirect
-from django.contrib.auth import logout
+from django.contrib.auth import logout, login
 
 def test(request):
     template = "test.html"

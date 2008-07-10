@@ -310,7 +310,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Hell on Earth", 
-            "private": true, 
+            "private": false, 
             "difficulty": 1, 
             "truth": "What was your most embarassing high school or jr high moment?", 
             "owner": 2, 
@@ -322,7 +322,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Pucker Up", 
-            "private": true, 
+            "private": false, 
             "difficulty": 1, 
             "truth": "Who was your first kiss and how did it happen?", 
             "owner": 2, 
@@ -334,7 +334,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Pumpkin Eater", 
-            "private": true, 
+            "private": false, 
             "difficulty": 1, 
             "truth": "What was your worst nickname?", 
             "owner": 2, 
@@ -346,7 +346,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Mr Potato Head", 
-            "private": true, 
+            "private": false, 
             "difficulty": 1, 
             "truth": "If you could adopt the bodypart of a single famous person for your own body, what would it be?", 
             "owner": 2, 
@@ -358,7 +358,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Hangin Tough", 
-            "private": true, 
+            "private": false, 
             "difficulty": 2, 
             "truth": "What is your biggest guilty pleasure?", 
             "owner": 2, 
@@ -370,7 +370,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Dressed to the 69's", 
-            "private": true, 
+            "private": false, 
             "difficulty": 2, 
             "truth": "What outfit makes you feel the sexiest?", 
             "owner": 2, 
@@ -382,7 +382,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Paparazzi", 
-            "private": true, 
+            "private": false, 
             "difficulty": 2, 
             "truth": "What is the most embarassing moment for which there is photographic evidence?", 
             "owner": 2, 
@@ -394,7 +394,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Piranah in the Pond", 
-            "private": true, 
+            "private": false, 
             "difficulty": 2, 
             "truth": "What is the best urban legend you know is true?", 
             "owner": 2, 
@@ -406,7 +406,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Hot or not", 
-            "private": true, 
+            "private": false, 
             "difficulty": 3, 
             "truth": "Rate everyone else in the room on a scale of 1 to 10", 
             "owner": 2, 
@@ -418,7 +418,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Booty Smack", 
-            "private": true, 
+            "private": false, 
             "difficulty": 3, 
             "truth": "Describe your perfect ass.", 
             "owner": 2, 
@@ -430,7 +430,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Nose Nuzzle", 
-            "private": true, 
+            "private": false, 
             "difficulty": 3, 
             "truth": "Tell us something you find attractive about another player.", 
             "owner": 2, 
@@ -442,7 +442,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Bear Hug", 
-            "private": true, 
+            "private": false, 
             "difficulty": 3, 
             "truth": "Tell us something you really like about another player.", 
             "owner": 2, 
@@ -454,7 +454,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Foot graze", 
-            "private": true, 
+            "private": false, 
             "difficulty": 4, 
             "truth": "Describe a harmless turn-on or fetish that you have.", 
             "owner": 2, 
@@ -466,7 +466,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Straddle", 
-            "private": true, 
+            "private": false, 
             "difficulty": 4, 
             "truth": "Tell us something that turns you on.", 
             "owner": 2, 
@@ -478,7 +478,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Lap Dance", 
-            "private": true, 
+            "private": false, 
             "difficulty": 4, 
             "truth": "Tell about one of your most romantic songs, and what memory is associated with it.", 
             "owner": 2, 
@@ -490,7 +490,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Tattoo", 
-            "private": true, 
+            "private": false, 
             "difficulty": 4, 
             "truth": "If you had to get a tattoo, what would it be and where would you want it?", 
             "owner": 2, 
@@ -502,7 +502,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "I'll call", 
-            "private": true, 
+            "private": false, 
             "difficulty": 5, 
             "truth": "What was the most successful lie you've ever told?", 
             "owner": 2, 
@@ -514,7 +514,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Looks like someone's having a party", 
-            "private": true, 
+            "private": false, 
             "difficulty": 5, 
             "truth": "Tell about the strangest thing you've purchased for \"purposes\" other than the standard ones.", 
             "owner": 2, 
@@ -526,7 +526,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Coture on a shoestring", 
-            "private": true, 
+            "private": false, 
             "difficulty": 5, 
             "truth": "Tell about the skimpiest thing you've worn in public.  Why did you wear it, and what were people's reactions?", 
             "owner": 2, 
@@ -538,7 +538,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "I'm not as think as you drunk I am!", 
-            "private": true, 
+            "private": false, 
             "difficulty": 5, 
             "truth": "What was your most infamous drunken moment?", 
             "owner": 2, 
@@ -550,7 +550,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "The Moan", 
-            "private": true, 
+            "private": false, 
             "difficulty": 6, 
             "truth": "Tell the other players about a time when you faked.", 
             "owner": 2, 
@@ -562,7 +562,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Friend Sundae", 
-            "private": true, 
+            "private": false, 
             "difficulty": 6, 
             "truth": "Tell the other players what foods you find sexy, and why", 
             "owner": 2, 
@@ -574,7 +574,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Blind Taste Test", 
-            "private": true, 
+            "private": false, 
             "difficulty": 6, 
             "truth": "Close your eyes (first).  Describe in detail one member of the opposite sex. (clothing, jewelry etc.)", 
             "owner": 2, 
@@ -586,7 +586,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Cold as Ice", 
-            "private": true, 
+            "private": false, 
             "difficulty": 6, 
             "truth": "Reveal your most ticklish spot.", 
             "owner": 2, 
@@ -598,7 +598,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "I love Mom", 
-            "private": true, 
+            "private": false, 
             "difficulty": 7, 
             "truth": "Describe the most outrageous thing you've ever considered doing.  Tattoo, piercing, etc.", 
             "owner": 2, 
@@ -610,7 +610,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "I get around", 
-            "private": true, 
+            "private": false, 
             "difficulty": 7, 
             "truth": "What was the craziest place you've had sex?", 
             "owner": 2, 
@@ -622,7 +622,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Bracketing", 
-            "private": true, 
+            "private": false, 
             "difficulty": 7, 
             "truth": "What was your shortest and longest sexual experience?", 
             "owner": 2, 
@@ -634,7 +634,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Muhahaha", 
-            "private": true, 
+            "private": false, 
             "difficulty": 7, 
             "truth": "Have you ever plotted the death of an enemy?  Describe the plot.", 
             "owner": 2, 
@@ -646,7 +646,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Striptease", 
-            "private": true, 
+            "private": false, 
             "difficulty": 8, 
             "truth": "What is the most naked you've ever been seen by someone else?  Or seen someone else?", 
             "owner": 2, 
@@ -658,7 +658,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Clothing Exchange", 
-            "private": true, 
+            "private": false, 
             "difficulty": 8, 
             "truth": "Tell us what kind of underwear you're wearing.", 
             "owner": 2, 
@@ -670,7 +670,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Plenty of support, but synthetics just don't breathe", 
-            "private": true, 
+            "private": false, 
             "difficulty": 8, 
             "truth": "Tell about the hottest thing you've done to get sexual attention from someone else.", 
             "owner": 2, 
@@ -682,7 +682,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Shooting Stars", 
-            "private": true, 
+            "private": false, 
             "difficulty": 8, 
             "truth": "Who is the number 1 movie star for whom illicit sex would be justified?", 
             "owner": 2, 
@@ -694,7 +694,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Streak", 
-            "private": true, 
+            "private": false, 
             "difficulty": 9, 
             "truth": "Describe an aspect of your genitals in detail.", 
             "owner": 2, 
@@ -706,7 +706,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Skinny Dip", 
-            "private": true, 
+            "private": false, 
             "difficulty": 9, 
             "truth": "Who was the last person (not the person you're currently attached to) to see you nude?", 
             "owner": 2, 
@@ -718,7 +718,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "That's the spot", 
-            "private": true, 
+            "private": false, 
             "difficulty": 9, 
             "truth": "What is your most sensitive erogenous zone?", 
             "owner": 2, 
@@ -730,7 +730,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "I plead the fifth", 
-            "private": true, 
+            "private": false, 
             "difficulty": 9, 
             "truth": "What is the most illegal action you've committed?", 
             "owner": 2, 
@@ -742,7 +742,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Cleanliness is next to everyone else", 
-            "private": true, 
+            "private": false, 
             "difficulty": 10, 
             "truth": "Describe in detail a fantasy that you have that revolves around an everyday action.  (ie. showering, cooking dinner, cleaning)", 
             "owner": 2, 
@@ -754,7 +754,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Move along folks, nothing to see here", 
-            "private": true, 
+            "private": false, 
             "difficulty": 10, 
             "truth": "Tell something funny or embarrassing about your partner's sexual habits.  If single, tell something embarrassing about your own.", 
             "owner": 2, 
@@ -766,7 +766,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "You complete me", 
-            "private": true, 
+            "private": false, 
             "difficulty": 10, 
             "truth": "Tell your current partner about the most detailed fantasy you've had about someone else in the room.", 
             "owner": 2, 
@@ -778,7 +778,7 @@
         "model": "prompt.prompt", 
         "fields": {
             "name": "Walk the dog", 
-            "private": true, 
+            "private": false, 
             "difficulty": 10, 
             "truth": "Describe your self-pleasuring schedule.  Include locations, stimulating materials, and frequency.", 
             "owner": 2, 
