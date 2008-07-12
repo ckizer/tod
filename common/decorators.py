@@ -20,6 +20,6 @@ def http_response(view):
             template = context.pop('template')
         except KeyError:
             raise KeyError("You forgot to specify a template in the context returned by your view")
-        context['comment_form'] = CommentForm(initial={'page': request.META['PATH_INFO']})
+        context['comment_form'] = CommentForm()
         return render_to_response(template, context, context_instance=RequestContext(request))
     return _handle_response

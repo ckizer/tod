@@ -24,18 +24,19 @@ class CommentTestCase(TestCase):
             '/game/',
             '/prompt/',
             ]
+        comment_count = 0
         for page in pages:
             response = self.client.get(page)
             self.findTextarea('#comment_form', response.content, 'description')
             self.findInput('#comment_form', response.content, 'email')
-            self.findInput('#comment_form', response.content, 'page', page)
 
             # submit the form
             form = self.get_section('#comment_form', response.content).form
             action = form.get('action')
-            self.failUnlessEqual(Comment.objects.filter(page=page).count(), 0)
-            self.client.post(action, {'description': 'testing', 'page': page, 'email': 'test@emlprime.com'})
-            self.failUnlessEqual(Comment.objects.filter(page=page).count(), 1)
+            self.failUnlessEqual(Comment.objects.all().count(), comment_count)
+            self.client.post(action, {'description': 'testing', 'email': 'test@emlprime.com'})
+            comment_count += 1
+            self.failUnlessEqual(Comment.objects.all().count(), comment_count)
         
             
     def get_section(self, selector, content):

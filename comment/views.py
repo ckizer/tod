@@ -12,10 +12,11 @@ def create(request):
     """
     if request.method == "POST":
         values = request.POST.copy()
-        form = CommentForm(values)
+        page = request.META['PATH_INFO']
+        form = CommentForm(values, page=page)
         if form.is_valid():
             comment = form.save()
-            return HttpResponseRedirect(str(values['page']).strip())
+            return HttpResponseRedirect(page)
         else:
             errors = form.errors
 
