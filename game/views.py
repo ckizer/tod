@@ -8,17 +8,19 @@ from tod.game.forms import GameForm
 from tod.comment.forms import CommentForm
 from tod.game.models import Game
 from tod.prompt.models import Prompt
+from tod.common.decorators import http_response
 
 @login_required
+@http_response
 def object_list(request):
     """displays a list of game objects
     """
     template = "game/game_list.html"
-    
-    context = {'object_list':request.user.game_set.all(), 'comment_form': CommentForm(initial={'page': '/game/'})}
-    return render_to_response(template, context, context_instance=RequestContext(request))
+    object_list = request.user.game_set.all()
+    return locals()
 
 @login_required
+@http_response
 def create_object(request):
     """creates a game object if there is a post, otherwise displays the game form
     """
@@ -34,13 +36,14 @@ def create_object(request):
     template = "game/game_form.html"
     tag_file = file('prompt/tags.txt')
     tags = [tag.strip() for tag in tag_file]
-    return render_to_response(template, locals(), context_instance=RequestContext(request))
+    return locals()
 
 @login_required
 def limited_delete_object(*args, **kwargs):
     """generic delete limited by login
     """
     return delete_object(*args, **kwargs)
+
 
 @login_required
 def detail(request, game_id):
@@ -60,6 +63,7 @@ def detail(request, game_id):
     return HttpResponseRedirect(game_status[game.status])
 
 @login_required
+@http_response
 def select_prompts(request, game_id):
     """chooses which prompts are assigned to the game
     
@@ -89,9 +93,10 @@ def select_prompts(request, game_id):
                 error = "MINIMUM_ROUNDS_EXCEEDED"
             else:
                 error = "MAXIMUM_ROUNDS_EXCEEDED"
-    return render_to_response(template, locals(), context_instance=RequestContext(request))
+    return locals()
 
 @login_required
+@http_response
 def begin_game(request, game_id):
     """Displays game rules and gives a form to start the game
 
@@ -100,13 +105,13 @@ def begin_game(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     rules = file("game/rules.txt").read()
     template = "game/begin_game.html"
-    context = {"game": game, "rules": rules}
     if request.method == "POST":
         game.in_progress()
         return HttpResponseRedirect(game.get_absolute_url())
-    return render_to_response(template, context, context_instance=RequestContext(request))
+    return locals()
 
 @login_required
+@http_response
 def choice(request, game_id):
     """Displays the truth or dare choice
     """
@@ -115,10 +120,12 @@ def choice(request, game_id):
     if not game.current_prompt():
         return HttpResponseRedirect(game.get_absolute_url())
     current_prompt = game.current_prompt().prompt
-    context = {"current_prompt": current_prompt, "current_game": game, "current_player": game.current_player()}
-    return render_to_response(template, context, context_instance=RequestContext(request))
+    current_game = game
+    current_player = game.current_player()
+    return locals()
     
 @login_required
+@http_response
 def play(request, game_id, choice):
     """Displays the prompt with the given choice and a form for finishing the prompt
     """
@@ -126,8 +133,9 @@ def play(request, game_id, choice):
     template = "game/play.html"
     current_prompt = game.current_prompt().prompt
     description = current_prompt.truth if choice == "truth" else current_prompt.dare
-    context = {"current_prompt": current_prompt, "current_game": game, "current_player": game.current_player(), "description": description}
-    return render_to_response(template, context, context_instance=RequestContext(request))
+    current_game = game
+    current_player = game.current_player()
+    return locals()
 
 @login_required
 def wimp_out(request, game_id):
@@ -146,14 +154,15 @@ def complete(request, game_id):
     return HttpResponseRedirect(game.get_absolute_url())
 
 @login_required
+@http_response
 def game_over(request, game_id):
     """Displays the game over page and the winner
-    TODO - (defer) test that the winner is displayed
     """
     game = get_object_or_404(Game, pk=game_id)
     players = game.players.all()
     winners = game.getWinners()
-    return render_to_response('game/over.html', locals(), context_instance=RequestContext(request))
+    template = "game/over.html"
+    return locals()
 
 @login_required
 def players_added(request, game_id):

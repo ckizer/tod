@@ -46,11 +46,39 @@ position: fixed;
 left: -1000px;
 }
 
+#comment_area
+{
+position: fixed;
+bottom: 0px;
+right: 0px;
+}
+
+#comment_form
+{
+width: 420px;
+height: 250px;
+background-color: black;
+border: 2px solid white;
+display: none;
+}
+
+#comment_form label
+{
+vertical-align: top;
+position: absolute;
+}
+
+#comment_form input,
+#comment_form textarea
+{
+margin-left: 110px;
+}
+
 #authentication
 {
-font-size: 0.8em;
-text-align: right;
-margin-right: 110px;
+position: fixed;
+bottom: 50px;
+right: 0px;
 }
 
 #index_buttons
@@ -358,12 +386,4 @@ text-align: center;
 {
 text-align: center;
 margin: 50px;
-}
-
-#authentication
-{
-width: 200px;
-float: right;
-text-align: right;
-margin-right: 160px;
 }

@@ -4,20 +4,28 @@ from tod.forms import UserForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth import logout, login
 
+from tod.common.decorators import http_response
+
+@http_response
+def index(request):
+    template = "home.html"
+    return locals()
+
+@http_response
 def test(request):
     template = "test.html"
-    context = {'status':'very, very bad'}
-    return render_to_response(template, context, context_instance=RequestContext(request))
+    status='very, very bad'
+    return locals()
 
+@http_response
 def mockups(request):
     template = "mockups.html"
-    
     mockups = []
     for mock in file("mockups.txt"):
         mockups.append(mock.strip())
-    context = {'mockups': mockups}
-    return render_to_response(template, context, context_instance=RequestContext(request))
+    return locals()
 
+@http_response
 def register(request):
     template = "registration/register.html"
     if request.method == "POST":
@@ -31,8 +39,7 @@ def register(request):
             return HttpResponseRedirect("/")
     else:
         form = UserForm()
-    context = {'form': form}
-    return render_to_response(template, context, context_instance=RequestContext(request))
+    return locals()
 
 def logout_view(request):
     logout(request)

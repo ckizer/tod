@@ -2,10 +2,10 @@ from django.conf.urls.defaults import *
 from tod.settings import MEDIA_ROOT
 
 urlpatterns = patterns('django.views.generic.simple',
-    (r'^$', 'direct_to_template', {'template': 'home.html'}),
 )
 
 urlpatterns += patterns('',
+    (r"^$", "tod.views.index"),
     (r"^test/$", "tod.views.test"),
     (r"^accounts/login/$", "django.contrib.auth.views.login"),
     (r"^accounts/register/$", "tod.views.register"),

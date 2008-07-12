@@ -126,7 +126,7 @@ class GamePromptTest(TestCase):
         score = player.score
         additional_score = self.game.current_prompt().prompt.difficulty
         self.game.resolve_current_prompt()
-        player = Player.objects.get(id=2)
+        player = Player.objects.get(id=1)
         self.failUnlessEqual(player.score, additional_score + score)
 
     def test_wimpOut(self):
@@ -135,7 +135,7 @@ class GamePromptTest(TestCase):
         player = self.game.players.all()[0] 
         score = player.score
         self.game.resolve_current_prompt("wimp out")
-        player = Player.objects.get(id=2)
+        player = Player.objects.get(id=1)
         self.failUnlessEqual(player.score, score)
 
     def test_incrementPlayer(self):
@@ -428,7 +428,7 @@ class GameViewTest(TestCase):
         """Test that the prompt is finished and the score of the player is changed
         """
         response = self.client.post(self.game.get_absolute_url()+'complete/')
-        player = Player.objects.get(id=2)
+        player = Player.objects.get(id=1)
         self.failUnlessEqual(player.score, 1)
         
 

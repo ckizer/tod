@@ -5,6 +5,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 
+from tod.common.decorators import http_response
 from tod.prompt.models import Prompt
 from tod.prompt.forms import PromptForm
 from tod.comment.forms import CommentForm
@@ -29,6 +30,7 @@ def limited_delete_object(*args, **kwargs):
     return delete_object(*args, **kwargs)
 
 @login_required
+@http_response
 def index(request):
     """Index of prompt objects
 
@@ -36,10 +38,11 @@ def index(request):
     TODO - (defer) decide between object list and index to display prompts
     """
     prompts = Prompt.objects.exclude(private=True) | Prompt.objects.filter(owner=request.user)
-    comment_form = CommentForm(initial={'page': '/prompt/'})
-    return render_to_response("prompt/index.html", locals(), context_instance=RequestContext(request))
+    template = "prompt/index.html"
+    return locals()
 
 @login_required
+@http_response
 def detail(request):
     """Creates a prompt object using form input
 
@@ -49,7 +52,6 @@ def detail(request):
     template = "prompt/prompt_detail.html"
     tag_file = file('prompt/tags.txt')
     tags = [tag.strip() for tag in tag_file]
-    context = {'tags':tags}
     if request.method == 'POST':
         values = request.POST.copy()
         form = PromptForm(values)
@@ -62,9 +64,7 @@ def detail(request):
                     current_prompt.tags.create(tag=tag)
             return HttpResponseRedirect("/prompt/")
         else:
-            context['errors']=form.errors
+           errors=form.errors
     else:
         form = PromptForm()
-        
-    context['form']=form
-    return render_to_response(template, context, context_instance=RequestContext(request))
+    return locals()
