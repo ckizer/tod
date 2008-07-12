@@ -151,6 +151,7 @@ def game_over(request, game_id):
     TODO - (defer) test that the winner is displayed
     """
     game = get_object_or_404(Game, pk=game_id)
+    players = game.players.all()
     winners = game.getWinners()
     return render_to_response('game/over.html', locals(), context_instance=RequestContext(request))
 

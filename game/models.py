@@ -150,9 +150,10 @@ class Game(models.Model):
         """
         current_prompt = self.current_prompt()
         if current_prompt:
+            current_player = self.current_player()
             score = current_prompt.complete()
             if resolution == "complete":
-                self.current_player().update_score(score)
+                current_player.update_score(score)
         return score
 
     def getWinners(self):

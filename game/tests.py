@@ -465,6 +465,6 @@ class GameViewTest(TestCase):
         self.assertRedirects(response, 'game/2/game_over/', status_code=302, target_status_code=200)
         #testing that the game over page announces a winner
         response = self.client.get('/game/2/game_over/')
-        self.assertContains(response, "The Winner Is bob")
-        self.assertContains(response, "Alice:")
+        self.assertContains(response, "The Winner Is alice")
+        self.assertContains(response, "alice:")
 
