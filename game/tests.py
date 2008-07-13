@@ -191,6 +191,27 @@ class GameFormTest(TestCase):
         self.failUnlessEqual(game.max_difficulty, 7)
         self.failUnlessEqual(game.tags.count(), 3)
 
+class MaximumRoundsTest(TestCase):
+    fixtures = ["maximum_rounds"]
+    def setUp(self):
+        self.game = Game.objects.get(name="TestGame")
+    def test_maximumRounds(self):
+        """Comprehensively tests combinations of player count and rounds
+        in difficulty levels to make sure rounds available returns a reasonable number
+        """
+        # confirm that game has 1 player and 15 prompts, {'1': 5, '2': 4, '3':3, '4': 2, '5': 1}
+        test_tuple = [(1, 5), (2, 4), (3, 3), (4, 2), (5, 1), (6,0), (7,0), (8,0), (9,0), (10, 0)]
+        existing_prompts = [(difficulty+1, len(prompts)) for difficulty, prompts in enumerate(self.game.segmentedPrompts())]
+        self.failUnlessEqual(test_tuple, existing_prompts)
+        
+        # assert that with player count of 1 through 6, we get 15, 6, 3, 2, 1, 0 respectively
+        test_maximum_rounds = [15, 6, 3, 2, 1, 0]
+        for i in range(6):
+            Player.objects.create(name='player_%d' % (i + 1), game=self.game)
+            self.failUnlessEqual(self.game.maximumRounds(), test_maximum_rounds[i])
+
+
+
 class GameCreateTest(TestCase):
     """Test that a created game with prompts available assigns the selected number of rounds
     

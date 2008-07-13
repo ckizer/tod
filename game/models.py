@@ -34,6 +34,24 @@ class Game(models.Model):
     def __unicode__(self):
         return self.name
 
+    def maximumRounds(self):
+        """
+        """
+        player_count = self.players.count()
+        if not player_count:
+            return False
+        return sum([int(round(len(prompts)/player_count)) for prompts in self.segmentedPrompts()])
+    def segmentedPrompts(self):
+        """ return the available prompts broken out by difficulty
+        """
+        if not self.max_difficulty:
+            self.max_difficulty = 10
+            self.save()
+        prompts=[]
+        for difficulty in range(1,self.max_difficulty+1):
+            prompts.append([prompt for prompt in self.availablePrompts().filter(difficulty=difficulty)])
+        return prompts
+
     def availablePrompts(self):
         """Provides the available prompts for a game based on chosen preferences
         """
@@ -67,16 +85,11 @@ class Game(models.Model):
         Stops when there are not enough prompts of any one difficulty to fill
         a whole round or when the rounds selected have been filled
         """
-        if not self.max_difficulty:
-            self.max_difficulty = 10
-            self.save()
         #determine the number of players
         player_count = self.players.count()
         #populate a two-dimensional list of prompts
         available_prompts=self.availablePrompts()
-        prompts=[]
-        for difficulty in range(1,self.max_difficulty+1):
-            prompts.append([prompt for prompt in available_prompts.filter(difficulty=difficulty)])
+        prompts = self.segmentedPrompts()
         rounds_assigned = 0
         game_prompts = []
         current_difficulty = 0

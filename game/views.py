@@ -77,11 +77,9 @@ def select_prompts(request, game_id):
     template = "game/select_prompts.html"
     player_count = game.players.count()
     error = ""
-    if player_count:
-        maximum_rounds = game.availablePrompts().count() / player_count
-    else:
-        maximum_rounds = 0
+    if player_count < 1:
         error = "MINIMUM_PLAYERS_EXCEEDED"
+    maximum_rounds = game.maximumRounds()
     if request.method == "POST":
         values = request.POST.copy()
         rounds = int(values['rounds'])
@@ -89,10 +87,8 @@ def select_prompts(request, game_id):
             game.create_game(rounds)
             return HttpResponseRedirect(game.get_absolute_url())
         else:
-            if rounds<1:
-                error = "MINIMUM_ROUNDS_EXCEEDED"
-            else:
-                error = "MAXIMUM_ROUNDS_EXCEEDED"
+            error = "MINIMUM_ROUNDS_EXCEEDED" if rounds < 1 else "MAXIMUM_ROUNDS_EXCEEDED"
+
     return locals()
 
 @login_required
