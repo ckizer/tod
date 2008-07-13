@@ -191,6 +191,18 @@ class GameFormTest(TestCase):
         self.failUnlessEqual(game.max_difficulty, 7)
         self.failUnlessEqual(game.tags.count(), 3)
 
+class RoundsAvailableTest(TestCase):
+    fixtures = ["beginning_prompts", "user"]
+    def setUp(self):
+        laura = User.objects.get(username="laura")
+        self.game = Game.objects.create(name="TestGame", user=laura)
+    def test_maximumRounds(self):
+        """Tests that the number of rounds listed as available on the select_rounds page is accurate
+        """
+        Player.objects.create(name='Alice', game=self.game)
+        self.failUnlessEqual(self.game.availablePrompts().count(), 40)
+        self.failUnlessEqual(self.game.maximumRounds(), 40)
+
 class MaximumRoundsTest(TestCase):
     fixtures = ["maximum_rounds"]
     def setUp(self):

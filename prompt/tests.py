@@ -214,3 +214,15 @@ class ImmutablePromptTest(TestCase):
         self.client.post(immutable_prompt.get_absolute_url()+'delete/')
         #Confirm that the prompt is not deleted
         self.failUnless(Prompt.objects.filter(id=immutable_prompt.id), 'public prompt %s was deleted by user' % immutable_prompt)
+
+
+class BeginningPromptTest(TestCase):
+    """Tests the creation of the prompt objects
+    """
+    fixtures = ["beginning_prompts"]
+
+    def test_beginningPrompts(self):
+        all_prompts = Prompt.objects.all()
+        self.failUnlessEqual(all_prompts.count(), 40)
+        for prompt in all_prompts:
+            self.failUnlessEqual(prompt.private, False, "%s prompt (id=%d) is private but should be public" % (prompt, prompt.id))
