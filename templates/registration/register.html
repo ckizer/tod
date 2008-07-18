@@ -2,10 +2,12 @@
 
 {% block content %}
 <div id="register">
-<form method="post" action=".">
+<form id="registration_form" name="registration_form" method="post" action=".">
 <fieldset>
-<p><label> Username:</label> {{ form.username }}</p>
-<p><label> Password:</label> {{ form.password }}</p>
+{{ registration_form.username.errors }}
+<p><label> Username:</label> {{ registration_form.username }}</p>
+{{ registration_form.password.errors }}
+<p><label> Password:</label> {{ registration_form.password }}</p>
 <div class="button_dock">
 <input type="image" src="/media/images/register.png" alt="Register" />
 </div>
