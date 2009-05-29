@@ -11,7 +11,7 @@ def create(request):
     """
     if request.method == "POST":
         values = request.POST.copy()
-        page = request.META['PATH_INFO']
+        page = request.META['HTTP_REFERER'] if request.META.has_key('HTTP_REFERER') else '/'
         form = CommentForm(values, page=page)
         if form.is_valid():
             comment = form.save()
@@ -21,12 +21,11 @@ def create(request):
                 mail_admins('Project Request Submitted', message, fail_silently=False)
             except:
                 print "Error: could not send mail to admins"
-
+            print page
             return HttpResponseRedirect(page)
         else:
             errors = form.errors
-
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect(page)
 
 
 def delete(request, comment_id):
