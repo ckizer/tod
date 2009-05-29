@@ -6,7 +6,6 @@ from django.template import RequestContext
 from tod.comment.models import Comment
 from tod.comment.forms import CommentForm
 
-@login_required
 def create(request):
     """Creates the comment object
     """
@@ -16,6 +15,13 @@ def create(request):
         form = CommentForm(values, page=page)
         if form.is_valid():
             comment = form.save()
+            message =  "%s\n%s\n%s\n%s" % (comment.page, comment.description, comment.email, comment.created)
+            # try to send mail. If it fails print out an error
+            try:
+                mail_admins('Project Request Submitted', message, fail_silently=False)
+            except:
+                print "Error: could not send mail to admins"
+
             return HttpResponseRedirect(page)
         else:
             errors = form.errors
@@ -23,7 +29,6 @@ def create(request):
     return HttpResponseRedirect('/')
 
 
-@login_required
 def delete(request, comment_id):
     """Deletes a comment object
     """

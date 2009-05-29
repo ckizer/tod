@@ -41,6 +41,7 @@ class Game(models.Model):
         if not player_count:
             return False
         return sum([int(round(len(prompts)/player_count)) for prompts in self.segmentedPrompts()])
+
     def segmentedPrompts(self):
         """ return the available prompts broken out by difficulty
         """
@@ -60,8 +61,10 @@ class Game(models.Model):
         availablePrompts = Prompt.objects.exclude(private=True) | Prompt.objects.filter(owner=self.user)
         #exclude prompts with tagged items selected for the game
         tags = [t.tag for t in self.tags.all()]
+        print "tags: ", tags
         if tags:
             prompt_ct = ContentType.objects.get_for_model(Prompt.objects.all()[0])
+            print "tags: ", tags
             availablePrompts = availablePrompts.exclude(tags__tag__in = tags, tags__content_type=prompt_ct)
         #exclude prompts with difficulty levels greater than the max_difficulty
         if self.max_difficulty:

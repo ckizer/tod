@@ -5,13 +5,13 @@
   <form action="." method="post">
 	<p class="error">
 	  {% ifequal error "MINIMUM_PLAYERS_EXCEEDED" %}
-	  Please <a href="/player/{{ game.id }}/"> add players </a>to this game
+	  Please <a href="/player/{{ game.id }}/create/"> add players </a>to this game
 	  {% endifequal %}
 	  {% ifequal error "MINIMUM_ROUNDS_EXCEEDED" %}
 	  Please select a number greater than zero
 	  {% endifequal %}
 	  {% ifequal error "MAXIMUM_ROUNDS_EXCEEDED" %}
-	  Please either select fewer rounds, <a href="/prompt/create"> create</a> new prompts, or <a href="/player/{{ game.id}}/">select </a>fewer players.
+	  Please either select fewer rounds, <a href="/prompt/create"> create</a> new prompts, or <a href="/player/{{ game.id}}/create/">select </a>fewer players.
 	  {% endifequal %}
 	</p>
 	<p class="help_text">How many rounds would you like to play?  A round includes one prompt for each player. You have {{ maximum_rounds }} available.</p>

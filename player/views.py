@@ -10,23 +10,12 @@ from tod.common.decorators import http_response
 
 @login_required
 @http_response
-def player_list(request, game_id):
-    """Lists the player objects
-    """
-    game = get_object_or_404(Game, pk=game_id)
-    players = game.players.all()
-    if not players:
-        return HttpResponseRedirect('/player/%d/create/' % game.id)
-    template = "player/player_list.html"
-    object_list = players
-    return locals()
-
-@login_required
-@http_response
 def create(request, game_id):
     """Creates the player object
     """
     game = get_object_or_404(Game, pk=game_id)
+    players = game.players.all()
+    object_list = players
     template = "player/player_form.html"
     if request.method == "POST":
         form = PlayerForm()
@@ -37,7 +26,7 @@ def create(request, game_id):
             player.score = 0
             player.game = game
             player.save()
-            return HttpResponseRedirect('/player/%d/' % game.id)
+            return HttpResponseRedirect('/player/%d/create/' % game.id)
         else:
             errors = form.errors
             assert False
@@ -52,6 +41,6 @@ def delete(request, player_id):
     player = get_object_or_404(Player, pk=player_id)
     game = player.game
     player.delete()
-    return HttpResponseRedirect('/player/%d/' % game.id)
+    return HttpResponseRedirect('/player/%d/create/' % game.id)
 
     

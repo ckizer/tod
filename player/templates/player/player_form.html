@@ -1,13 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div id="create_player">
+<div class="grid_4 prefix_1 alpha about">
   <form action="." method="post">
 	<p><label for="id_name">Name:</label> {{ form.name }}</p>
 	<p class="help_text">Enter the name of a player</p>
 	<div class="button_dock">
-	  <input type="image" src="/media/images/create_player.png" alt="create" value="create" />
+	  <input type="image" src="/media/images/create.png" alt="create" value="create" />
 	</div>
   </form>
 </div>
+
+<div class="clear">
+  &nbsp;
+</div>
+
+<div class="grid_4 prefix_1 alpha about">
+  <ul class="object_list">
+	{% for object in object_list %}
+	<li>
+	  <form action="/player/{{ object.id }}/delete/" method="post"><input type="image" src="/media/images/delete.png" alt="delete" /></form> 
+	  {{ object.name }}
+	</li>
+	{% endfor%}
+  </ul>
+<p class="help_text">Once you've added all the players for this game, click 'All Players Added'</p>
+<form action="/game/{{ game.id }}/players_added/" method="post">
+<input type="image" src="/media/images/players_added.png" alt="All Players Added" />
+</form>
+</div>
+
+<div class="clear">
+  &nbsp;
+</div>
+
 {% endblock %}

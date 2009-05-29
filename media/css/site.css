@@ -4,6 +4,10 @@
     margin: 0;
     border: 0;
 }
+.about, .prompt {
+    padding:1em;
+}
+
 
 #content fieldset, #content p {
     margin-bottom: 0px;
@@ -15,6 +19,10 @@ body
     background-color: black;
     font-family: arial;
     color: white;
+}
+
+.prompt li p {
+    float:left;
 }
 
 #content
@@ -30,7 +38,7 @@ a
     color: white;	
 }
 
-#header h1{
+#header h1 {
   position: absolute;
   left:-1000px;
 }
@@ -53,8 +61,7 @@ a
 
 #comment_form
 {
-    width: 420px;
-    height: 250px;
+    width: 450px;
     background-color: black;
     border: 2px solid white;
     display: none;
@@ -95,9 +102,9 @@ a
     color: white;
 }
 
-#begin_game
-{
-    text-align: center;
+.no_space {
+    padding:0px;
+    margin-bottom:0px;
 }
 
 #rules
@@ -109,19 +116,14 @@ a
 {
     color: white;
     outline: 1px solid white;
-    margin-bottom: 1em;
+    margin-bottom: 1em;margin-left:0px;
     list-style-type: none;
-    padding: 10px;
+    padding: 10px;position:relative;
 }
 
 .object_list input
 {
     float: right;
-}
-
-#create_prompt
-{
-    color: white;
 }
 
 #players
@@ -136,12 +138,6 @@ a
 
 #exit
 {
-    text-align: center;
-}
-
-#prompt_buttons
-{
-    clear: both;
     text-align: center;
 }
 
@@ -164,4 +160,3 @@ a
   text-align: justify;
   padding: 0 1em;
 }
-

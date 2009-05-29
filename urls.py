@@ -2,6 +2,7 @@ from django.conf.urls.defaults import *
 from tod.settings import MEDIA_ROOT
 
 urlpatterns = patterns('django.views.generic.simple',
+    (r'^about/$', 'direct_to_template', {'template': 'about.html'}),
 )
 
 urlpatterns += patterns('',

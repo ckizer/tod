@@ -322,7 +322,7 @@ class TaggedItemTest(TestCase):
         p10.tags.create(tag="mature content")
         prompts = self.game.availablePrompts()
         self.failUnlessEqual(Prompt.objects.count(), 10)
-        #test that the available prompts for the game is 8
+        # test that the available prompts for the game is 8
         self.failUnlessEqual(prompts.count(), 8)
 
 class GameAuthenticationTest(TestCase):

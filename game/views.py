@@ -54,7 +54,7 @@ def detail(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     #define a dictionary of redirects depending on the status of the game
     game_status = {
-        'created': "/player/%s/" % game_id,
+        'created': "/player/%s/create/" % game_id,
         'players_added': '/game/%s/select_prompts/' % game_id,
         'prompts_selected': '/game/%s/begin_game/' % game_id,
         'in_progress': '/game/%s/choice/' % game_id,
