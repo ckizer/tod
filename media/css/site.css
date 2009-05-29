@@ -1,148 +1,162 @@
 *
 {
-padding: 0;
-margin: 0;
-border: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 
 body
 {
-		background-image: url("/media/images/masks.png");
-		background-color: black;
-		font-family: arial;
-		color: white;
+    background-image: url("/media/images/masks.png");
+    background-color: black;
+    font-family: arial;
+    color: white;
 }
 
 #content
 {
-		background-color: black;
-		color: white;
-		outline: 1px solid white;
+    background-color: black;
+    color: white;
+    outline: 1px solid white;
+    text-align:center;
 }
 
 a
 {
-		color: white;	
+    color: white;	
+}
+
+#header h1{
+  position: absolute;
+  left:-1000px;
 }
 
 #header
 {
-background-image: url("/media/images/title.png");
-background-repeat: no-repeat;
-color: white;
+    background-image: url("/media/images/title.png");
+    background-repeat: no-repeat;
+    margin-top:2em;
+    height: 70px;
+    color: white;
 }
 
 #comment_area
 {
-position: fixed;
-bottom: 0px;
-right: 0px;
+    position: relative;
+    bottom: 0px;
+    right: 0px;
 }
 
 #comment_form
 {
-width: 420px;
-height: 250px;
-background-color: black;
-border: 2px solid white;
-display: none;
+    width: 420px;
+    height: 250px;
+    background-color: black;
+    border: 2px solid white;
+    display: none;
 }
 
 #comment_form label
 {
-vertical-align: top;
-position: absolute;
+    vertical-align: top;
+    position: absolute;
 }
 
 #comment_form input,
 #comment_form textarea
 {
-margin-left: 110px;
+    margin-left: 110px;
 }
 
 #curtain
 {
-background-image: url("/media/images/background.png");
-background-repeat: no-repeat;
-background-color: #d63d35;
+    background-image: url("/media/images/background.png");
+    background-repeat: no-repeat;
+    background-color: #d63d35;
 }
 
 #difficulty, #score
 {
-background-image: url("/media/images/score.png");
-background-repeat: no-repeat;
-color: white;
-text-align: center;
-font-size: 30px;
+    background-image: url("/media/images/score.png");
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    font-size: 30px;
 }
 
 #prompt_card, #game_detail, #end_game
 {
-background-image: url("/media/images/prompt_card.png");
-background-repeat: no-repeat;
-color: white;
+    background-image: url("/media/images/prompt_card.png");
+    background-repeat: no-repeat;
+    color: white;
 }
 
 #begin_game
 {
-text-align: center;
+    text-align: center;
 }
 
 #rules
 {
-font-size: 0.9em;
+    font-size: 0.9em;
 }
 
 .object_list li
 {
-color: white;
-outline: 1px solid white;
-margin-bottom: 1em;
-list-style-type: none;
-padding: 10px;
+    color: white;
+    outline: 1px solid white;
+    margin-bottom: 1em;
+    list-style-type: none;
+    padding: 10px;
 }
 
 .object_list input
 {
-float: right;
+    float: right;
 }
 
 #create_prompt
 {
-color: white;
+    color: white;
 }
 
 #players
 {
-background-image: url("/media/images/current_player.png");
-background-repeat: no-repeat;
-margin: auto;
-text-align: center;
-clear: both;
-font-size: 30px;
+    background-image: url("/media/images/current_player.png");
+    background-repeat: no-repeat;
+    margin: auto;
+    text-align: center;
+    clear: both;
+    font-size: 30px;
 }
 
 #exit
 {
-text-align: center;
+    text-align: center;
 }
 
 #prompt_buttons
 {
-clear: both;
-text-align: center;
+    clear: both;
+    text-align: center;
 }
 
 .help_text
 {
-text-align: center;
-padding: 1em;
-font-size: 0.8em;
+    text-align: center;
+    padding: 1em;
+    font-size: 0.8em;
 }
 
 .tags
 {
-list-style-type: none;
-text-align: left;
-padding-bottom: 0.5em;
+    list-style-type: none;
+    text-align: left;
+    padding-bottom: 0.5em;
+}
+
+.home p{
+  font-weight: bold;
+  text-align: justify;
+  padding: 0 1em;
 }
