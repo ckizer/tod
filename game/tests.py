@@ -389,7 +389,22 @@ class GameCreateViewTest(TestCase):
         self.assertContains(response, "nudity")
         self.assertContains(response, "Maximum Difficulty:")
 
-
+class GameCreateAnonymousViewTest(TestCase):
+    """Test that we can create a game anonymously
+    """
+    def setUp(self):
+        self.client = Client()
+    
+    def test_createAnonymousGame(self):
+        """Test that a user can create a game without logging in.
+        """
+        game_name = "AnonymousTestGame"
+        games = Game.objects.filter(name=game_name)
+        self.failUnlessEqual(games.count(), 0)
+        response = self.client.post('/game/create/', {"name": game_name})
+        games = Game.objects.filter(name=game_name)
+        self.failUnlessEqual(games.count(), 1)
+        
 class GameViewTest(TestCase):
     """Test that rendered pages display correctly
     """

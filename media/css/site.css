@@ -79,16 +79,19 @@ a
     margin-left: 110px;
 }
 
-#curtain
-{
-    background-image: url("/media/images/background.png");
-    background-repeat: no-repeat;
-    background-color: #d63d35;
+#difficulty{
+  background-image:url("/media/images/difficulty.png");
+}
+
+#score{
+  background-image: url("/media/images/score.png");
 }
 
 #difficulty, #score
 {
-    background-image: url("/media/images/score.png");
+    margin-top: 0.5em;
+    padding-top: 1em;
+    height: 200px;
     background-repeat: no-repeat;
     color: white;
     text-align: center;
@@ -136,6 +139,17 @@ a
     font-size: 30px;
 }
 
+#curtain_top{
+  height: 20px;
+  border-bottom:2px solid black;
+  background-image: url("/media/images/curtain_top.png");
+}
+
+.side{
+  height:300px;
+  background-image:url("/media/images/curtain_side.png");
+}
+
 #exit
 {
     text-align: center;
@@ -146,6 +160,27 @@ a
     text-align: center;
     padding: 1em;
     font-size: 0.8em;
+}
+
+#stage{
+  background-color: black;
+  position:relative;
+}
+
+.player_name{
+  background-image:url("/media/images/current_player.png");
+  background-repeat:no-repeat;
+  height: 40px;
+  position: absolute;
+  bottom:0px;
+  right:120px;
+}
+
+.player_name p{
+  font-size:1.4em;
+  position: absolute;
+  bottom: 0px;
+  padding-left: 3em;
 }
 
 .tags
@@ -159,4 +194,13 @@ a
   font-weight: bold;
   text-align: justify;
   padding: 0 1em;
+}
+
+.players{
+  float: left;
+  margin-left:80px;
+}
+
+.score{
+  padding-right:80px;
 }

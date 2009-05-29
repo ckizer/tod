@@ -1,3 +1,6 @@
+from datetime import datetime
+
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect
@@ -19,17 +22,21 @@ def object_list(request):
     object_list = request.user.game_set.all()
     return locals()
 
-@login_required
+
 @http_response
 def create_object(request):
     """creates a game object if there is a post, otherwise displays the game form
     """
     if request.method == "POST":
-        form = GameForm(user=request.user, data=request.POST.copy())
+        if not request.user.is_anonymous():
+            user = request.user
+        else:
+            #TODO: generate a random unique name for the anonymous user
+            user = User.objects.create_user("anonymous_%s" % str(datetime.now()), "password")
+
+        form = GameForm(data=request.POST.copy(),user=user)
         if form.is_valid():
-            game = form.save(commit=False)
-            game.user = request.user
-            game.save()
+            game = form.save()
             return HttpResponseRedirect(game.get_absolute_url())
     else:
         form = GameForm()

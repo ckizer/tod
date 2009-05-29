@@ -1,16 +1,17 @@
-{% extends "game/stage.html" %}
-{% block content %}
-<div id="curtain">
-	<div id="difficulty">{{ current_prompt.difficulty }}</div>
-	<div id="score">{{ current_player.score }}</div>
-	<div id="prompt_card">
-		<h2>{{current_prompt.name}}</h2>
-		<p id="description">{{ description }}</p>
-	</div>
-	<div id="buttons">
-	<div id="wimp_out"><form action="/game/{{current_game.id}}/wimp_out/" method="post"><input type="image" src="/media/images/wimp_out.png" alt="wimp_out" /></form></div>
-	<div id="complete"><form action="/game/{{current_game.id}}/complete/" method="post"><input type="image" src="/media/images/complete.png" alt="complete" /></form></div>
-	</div>
-	<div id="players"><p>{{current_player}}</p></div>
+{% extends "game/choice.html" %}
+{% block stage_detail %}
+
+<div id="prompt_card" class="grid_4 alpha omega">
+<h2>{{current_prompt.name}}</h2>
+<p id="description">{{ description }}</p>
 </div>
+<div class="clear">&nbsp;</div>
+
+<div class="grid_2 alpha"><form action="/game/{{current_game.id}}/wimp_out/" method="post"><input type="image" src="/media/images/wimp_out.png" alt="wimp_out" /></form></div>
+<div class="grid_2 omega"><form action="/game/{{current_game.id}}/complete/" method="post"><input type="image" src="/media/images/complete.png" alt="complete" /></form></div>
+
+<div class="clear">&nbsp;</div>
+
+	<div class="grid_3 alpha omega player_name"><p>{{current_player}}</p></div>
+
 {% endblock %}
