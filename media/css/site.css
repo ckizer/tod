@@ -16,10 +16,6 @@ body
 #content
 {
 		background-color: black;
-		width: 800px;
-		padding-bottom: 50px;
-		padding-top:50px;
-		margin: auto;
 		color: white;
 		outline: 1px solid white;
 }
@@ -33,17 +29,7 @@ a
 {
 background-image: url("/media/images/title.png");
 background-repeat: no-repeat;
-width: 500px;
-height: 110px;
-margin: auto;
-margin-top: 20px;
 color: white;
-}
-
-#header h1
-{
-position: fixed;
-left: -1000px;
 }
 
 #comment_area
@@ -74,113 +60,18 @@ position: absolute;
 margin-left: 110px;
 }
 
-#authentication
-{
-position: fixed;
-bottom: 50px;
-right: 0px;
-}
-
-#index_buttons
-{
-width: 600px;
-padding-top: 100px;
-padding-bottom: 100px;
-margin: auto;
-}
-
-#index_create_game
-{
-float: left;
-}
-
-#index_create_prompt
-{
-float: right;
-}
-
-#index_view_games
-{
-text-align: center;
-}
-
-.button_dock
-{
-position: relative;
-text-align: center;
-padding: 10px;
-}
-
-#create_game
-{
-text-align: center;
-margin-bottom: 50px;
-margin-top: 50px;
-}
-
-#list
-{
-width: 600px;
-position: relative;
-padding: 20px;
-margin: auto;
-}
-
-#create_player
-{
-text-align: center;
-padding: 20px;
-}
-
-#select_prompts
-{
-text-align: center;
-padding: 20px;
-}
-
-#create_prompt
-{
-width: 600px;
-padding-bottom: 50px;
-margin: auto;
-}
-
 #curtain
 {
 background-image: url("/media/images/background.png");
 background-repeat: no-repeat;
 background-color: #d63d35;
-position: relative;
-width: 800px;
-height: 600px;
 }
 
-#difficulty
-{
-background-image: url("/media/images/difficulty.png");
-background-repeat: no-repeat;
-width: 75px;
-height: 124px;
-position:absolute;
-left: 80px;
-top: 130px;
-color: white;
-padding-top: 50px;
-text-align: center;
-font-size: 30px;
-}
-
-#score
+#difficulty, #score
 {
 background-image: url("/media/images/score.png");
 background-repeat: no-repeat;
-width: 75px;
-height: 124px;
-position:absolute;
-right: 80px;
-top: 130px;
 color: white;
-padding-top: 50px;
 text-align: center;
 font-size: 30px;
 }
@@ -189,75 +80,17 @@ font-size: 30px;
 {
 background-image: url("/media/images/prompt_card.png");
 background-repeat: no-repeat;
-margin: auto;
-position: relative;
-top: 50px;
-width: 363px;
-height: 354px;
 color: white;
 }
 
 #begin_game
 {
-width: 200px;
-margin: auto;
 text-align: center;
-margin-bottom: 150px;
-position: relative;
-}
-
-#end_game
-{
-margin-bottom: 250px;
-}
-
-#prompt_card h2, #game_detail h2, #end_game h2
-{
-padding: 20px;
-text-align: center;
-}
-
-#prompt_card p, #game_detail p
-{
-padding: 20px;
-}
-
-#buttons
-{
-margin: auto;
-text-align: center;
-position: relative;
-bottom: 0px;
-width:363px;
 }
 
 #rules
 {
 font-size: 0.9em;
-}
-
-#complete, #truth
-{
-width: 35%;
-float: left;
-}
-
-#wimp_out, #dare
-{
-width: 40%;
-float: right;
-}
-
-#final_scores dt
-{
-float: left;
-margin-left: 40px;
-}
-
-#final_scores dd
-{
-text-align: right;
-margin-right: 40px;
 }
 
 .object_list li
@@ -285,10 +118,6 @@ background-image: url("/media/images/current_player.png");
 background-repeat: no-repeat;
 margin: auto;
 text-align: center;
-width: 220px;
-height: 60px;
-padding-top: 15px;
-margin-top: 15px;
 clear: both;
 font-size: 30px;
 }
@@ -304,43 +133,9 @@ clear: both;
 text-align: center;
 }
 
-#prompt_buttons input
-{
-margin-bottom: 0;
-}
-
-#login_form
-{
-width: 300px;
-margin: auto;
-text-align: center;
-}
-
-.detail_form label, #login_form label
-{
-width: 100px;
-margin-bottom: 10px;
-float: left;
-clear: left;
-text-align: right;
-padding-right: 10px;
-}
-
-.detail_form input, .detail_form textarea, #login_form input
-{
-margin-bottom: 10px;
-}
-
-.detail_form input.checkbox
-{
-margin-top: 6px;
-}
-
 .help_text
 {
 text-align: center;
-width: 500px;
-margin: auto;
 padding: 1em;
 font-size: 0.8em;
 }
@@ -348,42 +143,6 @@ font-size: 0.8em;
 .tags
 {
 list-style-type: none;
-width: 130px;
-margin: auto;
 text-align: left;
 padding-bottom: 0.5em;
-}
-
-.tags input
-{
-margin: auto;
-}
-
-.prompt_form
-{
-width: 400px;
-margin: auto;
-text-align: center;
-}
-
-.prompt_form input
-{
-width: 300px;
-}
-
-.prompt_text
-{
-float: left;
-}
-
-#login_text
-{
-margin: 20px;
-text-align: center;
-}
-
-#register
-{
-text-align: center;
-margin: 50px;
 }

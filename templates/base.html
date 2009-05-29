@@ -1,21 +1,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD/ XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/html">
   <head>
-	<title>Play Truth or Dare</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-859-1" />
-	<link rel="stylesheet" type="text/css" href="/media/css/site.css" />
-	<link rel="icon" type="image/png" href="/media/images/favicon.png" />
-        <script type="text/javascript" src="/media/scripts/jquery-1.2.6.js"></script>
-        <script type="text/javascript" src="/media/scripts/base.js"></script>
+    <title>Play Truth or Dare</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-859-1" />
+    <link rel="stylesheet" type="text/css" href="/media/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/media/css/text.css" />
+    <link rel="stylesheet" type="text/css" href="/media/css/960.css" />
+    <link rel="stylesheet" type="text/css" href="/media/css/site.css" />
+    <link rel="icon" type="image/png" href="/media/images/favicon.png" />
+    <script type="text/javascript" src="/media/scripts/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="/media/scripts/base.js"></script>
   </head>
   <body>
-	<a href="/">
+    <div class="container_12">
+      <div class="grid_3">
+	&nbsp;
+      </div>
+
+      <div class="grid_6">
+	{% block header %}
 	<div id="header">
-	  {% block header %}
-	  <h1>Truth or Dare</h1>
-	  {% endblock header %}
+	  <a href="/">
+	    <h1>Truth or Dare</h1>
+	  </a>
 	</div>
-	</a>
+	{% endblock header %}
 	<div id="content">
 	  {% block content %}
 	  {% endblock content %}
@@ -40,16 +49,25 @@
 	    </form>
 	  </div>
 	</div>
-{% comment %}
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-88241-6");
-pageTracker._initData();
-pageTracker._trackPageview();
-</script>
-{% endcomment %}
+	{% comment %}
+	<script type="text/javascript">
+	  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	  var pageTracker = _gat._getTracker("UA-88241-6");
+	  pageTracker._initData();
+	  pageTracker._trackPageview();
+	</script>
+	{% endcomment %}
+      </div>
+
+
+      <div class="grid_3">
+	&nbsp;
+      </div>
+
+
+    </div>
   </body>
 </html>
