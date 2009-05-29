@@ -1,5 +1,5 @@
-from django.newforms import ModelForm
-from django import newforms as forms
+from django.forms import ModelForm
+from django import forms
 
 from tod.player.models import Player
 

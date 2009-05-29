@@ -1,6 +1,6 @@
-from django.newforms import ModelForm
+from django.forms import ModelForm
 from django.contrib.auth.models import User
-from django import newforms as forms
+from django import forms
 
 class UserForm(ModelForm):
     password = forms.CharField(max_length=100, widget=forms.PasswordInput())
