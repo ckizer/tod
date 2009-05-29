@@ -5,6 +5,10 @@
     border: 0;
 }
 
+#content fieldset, #content p {
+    margin-bottom: 0px;
+}
+
 body
 {
     background-image: url("/media/images/masks.png");
@@ -160,3 +164,4 @@ a
   text-align: justify;
   padding: 0 1em;
 }
+

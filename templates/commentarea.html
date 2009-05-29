@@ -1,0 +1,13 @@
+<div id="comment_area">
+  <p><a href="{{ current_page_comment_url }}">Submit a Comment</a></p>
+  <div id="comment_form">
+    <form action="/comment/create/" method="post">
+      <fieldset>
+	<p>{{ comment_form.description.help_text }}</p>
+	<p><label for="id_description">Description:</label> {{ comment_form.description }}</p>
+	<p><label for="id_email">Email:</label> {{ comment_form.email }}</p>
+	<input type="submit" name="submit" value="Submit Comment" />
+      </fieldset>
+    </form>
+  </div>
+</div>

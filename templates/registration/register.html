@@ -1,18 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="register">
-<form id="registration_form" name="registration_form" method="post" action=".">
-<fieldset>
-{{ registration_form.username.errors }}
-<p><label> Username:</label> {{ registration_form.username }}</p>
-{{ registration_form.password.errors }}
-<p><label> Password:</label> {{ registration_form.password }}</p>
-<div class="button_dock">
-<input type="image" src="/media/images/register.png" alt="Register" />
+<div class="grid_4 prefix_1">
+  <form id="registration_form" name="registration_form" method="post" action=".">
+    <div class="grid_4"> &nbsp; </div>
+    <div class="clear"> &nbsp; </div>
+    <fieldset>
+      {{ registration_form.username.errors }}
+      <p><label> Username:</label> {{ registration_form.username }}</p>
+      {{ registration_form.password.errors }}
+      <p><label> Password:</label> {{ registration_form.password }}</p>
+      <div class="button_dock">
+	<input type="image" src="/media/images/register.png" alt="Register" />
+      </div>
+    </fieldset>
+  </form>
 </div>
-</fieldset>
-</form>
+
+<div class="clear"> &nbsp; </div>
+
+<div class="grid_6">
+  <p>Already registered?  <a href="/accounts/login/">Login</a></p>
 </div>
+
+<div class="clear"> &nbsp; </div>
 
 {% endblock %}
