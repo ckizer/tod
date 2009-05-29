@@ -134,20 +134,16 @@ class PromptFormTest(TestCase):
     def test_promptUniqueName(self):
         """Tests that making two prompts with different names does not give an error
         """
-        form = PromptForm({'name': 'TestName', 'truth': 'TestTruth', 'dare': 'TestDare', 'difficulty': 1})
+        form = PromptForm({'name': 'TestName', 'truth': 'TestTruth', 'dare': 'TestDare', 'difficulty': 1}, owner=self.user)
         if form.is_valid():
-            current_prompt=form.save(commit=False)
-            current_prompt.owner=self.user
-            current_prompt.save()
+            current_prompt=form.save()
         prompt = Prompt.objects.get(name = "TestName")
         self.failUnlessEqual(prompt.truth, "TestTruth")
         self.failUnlessEqual(prompt.dare, "TestDare")
         self.failUnlessEqual(prompt.difficulty, 1)
-        form = PromptForm({'name': 'TestName2', 'truth': 'TestTruth', 'dare': 'TestDare', 'difficulty': 1})
+        form = PromptForm({'name': 'TestName2', 'truth': 'TestTruth', 'dare': 'TestDare', 'difficulty': 1}, owner=self.user)
         if form.is_valid():
-            current_prompt=form.save(commit=False)
-            current_prompt.owner=self.user
-            current_prompt.save()
+            current_prompt=form.save()
         prompt = Prompt.objects.get(name = "TestName2")
         self.failUnlessEqual(prompt.truth, "TestTruth")
         self.failUnlessEqual(prompt.dare, "TestDare")
@@ -156,7 +152,7 @@ class PromptFormTest(TestCase):
     def test_promptDuplicateName(self):
         """Tests that making two prompts with the same name gives an error
         """
-        form = PromptForm({'name': 'TestName', 'truth': 'TestTruth', 'dare': 'TestDare', 'difficulty': 1})
+        form = PromptForm({'name': 'TestName', 'truth': 'TestTruth', 'dare': 'TestDare', 'difficulty': 1}, owner=self.user)
         if form.is_valid():
             current_prompt=form.save(commit=False)
             current_prompt.owner=self.user
@@ -165,7 +161,7 @@ class PromptFormTest(TestCase):
         self.failUnlessEqual(prompt.truth, "TestTruth")
         self.failUnlessEqual(prompt.dare, "TestDare")
         self.failUnlessEqual(prompt.difficulty, 1)
-        form = PromptForm({'name': 'TestName', 'truth': 'TestTruth', 'dare': 'TestDare', 'difficulty': 1})
+        form = PromptForm({'name': 'TestName', 'truth': 'TestTruth', 'dare': 'TestDare', 'difficulty': 1}, owner=self.user)
         if form.is_valid():
             self.assertRaises(forms.ValidationError, form.save)
         

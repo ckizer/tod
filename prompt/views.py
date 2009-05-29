@@ -54,17 +54,15 @@ def detail(request):
     tags = [tag.strip() for tag in tag_file]
     if request.method == 'POST':
         values = request.POST.copy()
-        form = PromptForm(values)
+        form = PromptForm(values, owner=request.user)
         if form.is_valid():
-            current_prompt=form.save(commit=False)
-            current_prompt.owner=request.user
-            current_prompt.save()
+            current_prompt=form.save()
             for tag in tags:
                 if values.get(tag,None):
                     current_prompt.tags.create(tag=tag)
             return HttpResponseRedirect("/prompt/")
         else:
-           errors=form.errors
+            errors=form.errors
     else:
         form = PromptForm()
     return locals()
