@@ -8,6 +8,17 @@ class UserForm(ModelForm):
         model = User
         fields = ('username', 'password')
 
+    def __init__(self, *args, **kwargs):
+        self.password = kwargs.pop('password') if kwargs.has_key('password') else None
+        super(UserForm, self).__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        user = super(UserForm, self).save(commit=False)
+        user.set_password(self.password)
+        if commit:
+            user.save()
+        return user
+
     def clean_username(self):
         """ Username must be unique
         """

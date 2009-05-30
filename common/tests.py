@@ -4,6 +4,8 @@ from django.db import IntegrityError
 from django.contrib.auth.models import User
 from django.core import management
 from BeautifulSoup import BeautifulSoup
+import pdb
+
 
 
 class UserTestCase(TestCase):
@@ -16,16 +18,16 @@ class UserTestCase(TestCase):
         """ Alice is new and wants to play truth or dare.  She doesn't have an account yet
         She should...
         """
-        # come to the home page and click teh create a new game link
+        # come to the home page and click teh create a new prompt
         response = self.client.get("/")
         doc = BeautifulSoup(response.content)
-        create_game_href = doc.find(id="index_create_game").find("a")["href"]
-        test_href = "/game/create/"
-        self.failUnlessEqual(create_game_href, test_href, "Could not find create game link on the home page (%s != %s)" % (create_game_href, test_href))
-        response = self.client.get(create_game_href)
+        create_prompt_href = doc.find(id="create_prompts").find("a")["href"]
+        test_href = "/prompt/"
+        self.failUnlessEqual(create_prompt_href, test_href, "Could not find create game link on the home page (%s != %s)" % (create_prompt_href, test_href))
+        response = self.client.get(create_prompt_href)
 
         # see a login page, but realize she doesn't have an account, so she clicks the register link
-        self.assertRedirects(response, "/accounts/login/?next=%s" % create_game_href, status_code=302, target_status_code=200)
+        self.assertRedirects(response, "/accounts/login/?next=%s" % create_prompt_href, status_code=302, target_status_code=200)
         response = self.client.get("/accounts/login/")
         self.assertContains(response, "/accounts/register/")
 
@@ -36,6 +38,7 @@ class UserTestCase(TestCase):
         self.failUnless(register_div, "Could not find the register form.")
         for input in [input for input in register_div.findAll("input") if input.get("name", None)]:
             self.failUnless(input["name"] in ["username", "password"])
+
         response = self.client.post("/accounts/register/")
         self.assertFormError(response, "registration_form", "username", "This field is required.")
         self.assertFormError(response, "registration_form", "password", "This field is required.")

@@ -30,11 +30,9 @@ def register(request):
     template = "registration/register.html"
     if request.method == "POST":
         values = request.POST.copy()
-        registration_form = UserForm(values)
+        registration_form = UserForm(values, password=values["password"])
         if registration_form.is_valid():
-            user = registration_form.save(commit=False)
-            user.set_password(values['password'])
-            user.save()
+            user = registration_form.save()
             user = authenticate(username=values["username"], password=values['password'])
             login(request, user)
             return HttpResponseRedirect("/")
