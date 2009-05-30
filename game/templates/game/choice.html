@@ -9,7 +9,7 @@
 
   <div class="clear">&nbsp;</div>
 
-  <div class="grid_1 alpha side">
+  <div class="grid_1 alpha left_side">
     <div id="difficulty">{{ current_prompt.difficulty }}</div>
   </div>
 
@@ -22,8 +22,9 @@
 	</div>
 	<div class="clear">&nbsp;</div>
 
-	<div id="dare" class="grid_2 alpha omega"><form action="/game/{{current_game.id}}/play/dare/" method="post"><input type="image" src="/media/images/dare.png" alt="dare" /></form></div>
-	<div id="truth" class="grid_2 alpha omega"><form action="/game/{{current_game.id}}/play/truth/" method="post"><input type="image" src="/media/images/truth.png" alt="truth" /></form></div>
+	<div id="truth" class="grid_2 alpha"><form action="/game/{{current_game.id}}/play/truth/" method="post"><input type="image" class="stated_button" src="/media/images/truth_up.png" alt="truth" /></form></div>
+
+	<div id="dare" class="grid_2 omega"><form action="/game/{{current_game.id}}/play/dare/" method="post"><input type="image" class="stated_button" src="/media/images/dare_up.png" alt="dare" /></form></div>
 
 
 <div class="clear">&nbsp;</div>
@@ -34,7 +35,7 @@
 
 </div>
 
-  <div class="grid_1 omega side">
+  <div class="grid_1 omega right_side">
 	<div id="score">{{ current_player.score }}</div>
   </div>
 
