@@ -18,10 +18,9 @@ def create(request):
             message =  "%s\n%s\n%s\n%s" % (comment.page, comment.description, comment.email, comment.created)
             # try to send mail. If it fails print out an error
             try:
-                mail_admins('Project Request Submitted', message, fail_silently=False)
+                mail_admins('Truth or Dare Comment Submitted', message, fail_silently=False)
             except:
                 print "Error: could not send mail to admins"
-            print page
             return HttpResponseRedirect(page)
         else:
             errors = form.errors

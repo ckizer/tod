@@ -3,6 +3,7 @@ from tod.settings import MEDIA_ROOT
 
 urlpatterns = patterns('django.views.generic.simple',
     (r'^about/$', 'direct_to_template', {'template': 'about.html'}),
+    (r'^terms/$', 'direct_to_template', {'template': 'termsofuse.html'}),
 )
 
 urlpatterns += patterns('',
