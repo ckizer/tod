@@ -36,26 +36,29 @@
 
 	<div class="grid_2 prefix_2 omega">
 	  <a href="/terms/">Terms of Use</a>
-	<div id="authentication">
-	  {% if user.is_authenticated %}
-	  <p class="no_space">Welcome, {{ user }}</p>
-	  <a href="/accounts/logout/">Logout</a>
-	  {% else %}
-	  <a href="/accounts/login/">Login</a>
-	  {% endif %}
-	</div>
-	{% include "commentarea.html" %}
-	{% comment %}
-	<script type="text/javascript">
-	  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-	  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-	</script>
-	<script type="text/javascript">
-	  var pageTracker = _gat._getTracker("UA-88241-6");
-	  pageTracker._initData();
-	  pageTracker._trackPageview();
-	</script>
-	{% endcomment %}
+	  <div id="authentication">
+	    {% if user.is_authenticated %}
+	    <p class="no_space">Welcome, {{ user }}</p>
+	    <a href="/accounts/logout/">Logout</a>
+	    {% else %}
+	    <a href="/accounts/login/">Login</a>
+	    {% endif %}
+	  </div>
+	  
+	  {% include "commentarea.html" %}
+	  
+	  {% comment %}
+	  <script type="text/javascript">
+	    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	  </script>
+	  <script type="text/javascript">
+	    var pageTracker = _gat._getTracker("UA-88241-6");
+	    pageTracker._initData();
+	    pageTracker._trackPageview();
+	  </script>
+	  {% endcomment %}
+
 	</div>
 
       </div>
