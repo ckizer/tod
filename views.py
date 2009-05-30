@@ -30,7 +30,7 @@ def register(request):
     template = "registration/register.html"
     if request.method == "POST":
         values = request.POST.copy()
-        registration_form = UserForm(values, password=values["password"])
+        registration_form = UserForm(values, password=values.get("password"))
         if registration_form.is_valid():
             user = registration_form.save()
             user = authenticate(username=values["username"], password=values['password'])

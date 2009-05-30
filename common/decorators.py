@@ -13,7 +13,7 @@ def http_response(view):
     def _handle_response(request, *args, **kwargs):
         result = view(request, *args, **kwargs)
         # if this is a redirect, just pass it through
-        if not isinstance(result, dict):
+        if isinstance(result, HttpResponseRedirect):
             return result
         context = result
         try:
