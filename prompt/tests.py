@@ -184,6 +184,7 @@ class ImmutablePromptTest(TestCase):
         #Get list of prompt rows from the page
         response = self.client.get('/prompt/')
         doc = BeautifulSoup(response.content)
+
         prompt_rows = doc.find(id = "prompt_list").findAll("li")
         #Loop over the zipped prompts and prompt rows
         self.failUnlessEqual(prompts.count(), len(prompt_rows))
