@@ -60,7 +60,7 @@ def detail(request):
             for tag in tags:
                 if values.get(tag,None):
                     current_prompt.tags.create(tag=tag)
-            message =  "%s\n%s\n%s\n%d" % (current_prompt.title, current_prompt.truth, current_prompt.dare, current_prompt.difficulty)
+            message =  "%s\n%s\n%s\n%d" % (current_prompt.name, current_prompt.truth, current_prompt.dare, current_prompt.difficulty)
             # try to send mail. If it fails print out an error
             try:
                 mail_admins('Private Prompt Created', message, fail_silently=False)
