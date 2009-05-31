@@ -8,4 +8,9 @@ urlpatterns = patterns('tod.player.views',
     (r'^(?P<player_id>\d+)/delete/$','delete'),
 )
 
+urlpatterns += patterns('django.views.generic.simple',
+                        ('^(?P<id>\d+)/$', 'redirect_to', {'url': '/player/%(id)s/create/'}),
+)
+
+
 

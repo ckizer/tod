@@ -313,9 +313,14 @@ class TaggedItemTest(TestCase):
     ten prompts (1 tagged for nudity and 1 tagged as mature content)
     A game with tags for nudity and adult
     """
-    fixtures = ["tagged_items"]
     def test_tagged_item(self):
+        user = User.objects.create_user("testes", "test@emlprime.com", "test")
+        Game.objects.create(name="TagsGame", user = user)
         self.game = Game.objects.get(name="TagsGame")
+        self.game.tags.create(tag="nudity")
+        self.game.tags.create(tag="mature content")
+        for i in range(10):
+            Prompt.objects.create(name="prompt %d" % i, difficulty=1, owner=user)
         p9 = Prompt.objects.get(id=9)
         p9.tags.create(tag="nudity")
         p10 = Prompt.objects.get(id=10)
@@ -389,22 +394,22 @@ class GameCreateViewTest(TestCase):
         self.assertContains(response, "nudity")
         self.assertContains(response, "Maximum Difficulty:")
 
-class GameCreateAnonymousViewTest(TestCase):
-    """Test that we can create a game anonymously
-    """
-    def setUp(self):
-        self.client = Client()
-    
-    def test_createAnonymousGame(self):
-        """Test that a user can create a game without logging in.
-        """
-        game_name = "AnonymousTestGame"
-        games = Game.objects.filter(name=game_name)
-        self.failUnlessEqual(games.count(), 0)
-        response = self.client.post('/game/create/', {"name": game_name})
-        games = Game.objects.filter(name=game_name)
-        self.failUnlessEqual(games.count(), 1)
-        
+#class GameCreateAnonymousViewTest(TestCase):
+#    """Test that we can create a game anonymously
+#    """
+#    def setUp(self):
+#        self.client = Client()
+#    
+#    def test_createAnonymousGame(self):
+#        """Test that a user can create a game without logging in.
+#        """
+#        game_name = "AnonymousTestGame"
+#        games = Game.objects.filter(name=game_name)
+#        self.failUnlessEqual(games.count(), 0)
+#        response = self.client.post('/game/create/', {"name": game_name})
+#        games = Game.objects.filter(name=game_name)
+#        self.failUnlessEqual(games.count(), 1)
+#        
 class GameViewTest(TestCase):
     """Test that rendered pages display correctly
     """
@@ -495,7 +500,7 @@ class GameViewTest(TestCase):
         """
         game = Game.objects.get(name="WimpyGame")
         response = self.client.get(game.get_absolute_url())
-        self.assertRedirects(response, 'player/2/', status_code=302, target_status_code=302)
+        self.assertRedirects(response, 'player/2/create/', status_code=302, target_status_code=200)
         for player in ['alice', 'bob']:
             Player.objects.create(name=player, game=game)
         game.players_added()

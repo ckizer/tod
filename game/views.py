@@ -23,18 +23,13 @@ def object_list(request):
     return locals()
 
 
+@login_required
 @http_response
 def create_object(request):
     """creates a game object if there is a post, otherwise displays the game form
     """
     if request.method == "POST":
-        if not request.user.is_anonymous():
-            user = request.user
-        else:
-            #TODO: generate a random unique name for the anonymous user
-            user = User.objects.create_user("anonymous_%s" % str(datetime.now()), "password")
-
-        form = GameForm(data=request.POST.copy(),user=user)
+        form = GameForm(data=request.POST.copy(), user=request.user)
         if form.is_valid():
             game = form.save()
             return HttpResponseRedirect(game.get_absolute_url())

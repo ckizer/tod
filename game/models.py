@@ -60,11 +60,11 @@ class Game(models.Model):
         #exclude other people's private prompts
         availablePrompts = Prompt.objects.exclude(private=True) | Prompt.objects.filter(owner=self.user)
         #exclude prompts with tagged items selected for the game
+
         tags = [t.tag for t in self.tags.all()]
-        print "tags: ", tags
+
         if tags:
             prompt_ct = ContentType.objects.get_for_model(Prompt.objects.all()[0])
-            print "tags: ", tags
             availablePrompts = availablePrompts.exclude(tags__tag__in = tags, tags__content_type=prompt_ct)
         #exclude prompts with difficulty levels greater than the max_difficulty
         if self.max_difficulty:
