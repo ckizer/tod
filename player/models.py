@@ -5,7 +5,7 @@ from tod.game.models import Game
 class Player(models.Model):
     """Provides functionality for the player object
     """
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=20)
     game = models.ForeignKey(Game, related_name="players", blank=True)
     score = models.IntegerField(default=0, null=False, blank=True)
     

@@ -25,7 +25,7 @@ class Game(models.Model):
     track a status to maintain persistent state
     determine relative player scores
     """
-    name = models.CharField(max_length=50, help_text=name_help)
+    name = models.CharField(max_length=20, help_text=name_help)
     status = models.CharField(max_length=50, choices = STATUS_CHOICES, editable = False, default='created')
     max_difficulty = models.IntegerField(default=10, null=True, blank=True, help_text=max_difficulty_help)
     user = models.ForeignKey(User)

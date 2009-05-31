@@ -98,7 +98,7 @@ a
 #prompt_card, #end_game
 {
     color: white;
-    height: 120px;
+    min-height: 120px;
 }
 
 .no_space {
@@ -173,17 +173,16 @@ a
   background-image:url("/media/images/current_player.png");
   background-repeat:no-repeat;
   height: 40px;
-  position: absolute;
-  bottom:0px;
-  right:120px;
+  position: relative;
+  margin-left:50px;
 }
 
 .player_name p{
   font-size:1.4em;
-  position: absolute;
-  bottom: 0px;
-  padding-left: 3em;
+  margin-top: 0.7em;
 }
+
+
 
 .tags
 {
