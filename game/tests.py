@@ -1,3 +1,5 @@
+from BeautifulSoup import BeautifulSoup
+
 from django.test import TestCase
 from django.test.client import Client
 from django.db import IntegrityError
@@ -438,22 +440,38 @@ class GameCreateViewTest(TestCase):
         self.assertContains(response, "nudity")
         self.assertContains(response, "Maximum Difficulty:")
 
-#class GameCreateAnonymousViewTest(TestCase):
-#    """Test that we can create a game anonymously
-#    """
-#    def setUp(self):
-#        self.client = Client()
-#    
-#    def test_createAnonymousGame(self):
-#        """Test that a user can create a game without logging in.
-#        """
-#        game_name = "AnonymousTestGame"
-#        games = Game.objects.filter(name=game_name)
-#        self.failUnlessEqual(games.count(), 0)
-#        response = self.client.post('/game/create/', {"name": game_name})
-#        games = Game.objects.filter(name=game_name)
-#        self.failUnlessEqual(games.count(), 1)
-#        
+class GameCreateAnonymousViewTest(TestCase):
+    """Test that we can create a game anonymously
+    """
+    def setUp(self):
+        self.client = Client()
+    
+    def test_createAnonymousGame(self):
+        """Test that a user can create a game without logging in.
+        """
+        # given I don't have a game
+        # and I am not logged in
+        game_name = "AnonymousTestGame"
+        games = Game.objects.filter(name=game_name)
+        self.failUnlessEqual(games.count(), 0)
+
+        # when I try to access the create page
+        response = self.client.get('/game/create/')
+        self.assertRedirects(response, '/game/quickstart/', status_code=302, target_status_code=200)
+
+        # I should see the quickstart page
+        response = self.client.get('/game/quickstart/')
+        doc = BeautifulSoup(response.content)
+        quickstart = doc.find(id="quickstart")
+        self.failUnless(quickstart, "Could not find quickstart")
+
+    def test_quickstart(self):
+        """Test that a user who submits the quickstart game has an anonymous user created
+        """ 
+        response = self.client.post("/game/quickstart/")
+        self.assertRedirects(response, '/game/create/', status_code=302, target_status_code=200)
+        
+        
 class GameViewTest(TestCase):
     """Test that rendered pages display correctly
     """

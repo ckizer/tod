@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, authenticate
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
@@ -11,6 +12,7 @@ from tod.game.forms import GameForm
 from tod.comment.forms import CommentForm
 from tod.game.models import Game
 from tod.prompt.models import Prompt
+from tod.common.forms import UserForm
 from tod.common.decorators import http_response, active_game
 
 @login_required
@@ -23,13 +25,15 @@ def object_list(request):
     return locals()
 
 
-@login_required
 @http_response
 def create_object(request):
     """creates a game object if there is a post, otherwise displays the game form
     """
+    user = request.user
+    if user.is_anonymous():
+        return HttpResponseRedirect("/game/quickstart/")
     if request.method == "POST":
-        form = GameForm(data=request.POST.copy(), user=request.user)
+        form = GameForm(data=request.POST.copy(), user=user)
         if form.is_valid():
             game = form.save()
             return HttpResponseRedirect(game.get_absolute_url())
@@ -40,6 +44,33 @@ def create_object(request):
     tags = [tag.strip() for tag in tag_file]
     return locals()
 
+@http_response
+def quickstart(request):
+    """gives the user a choice between login in and creating an anonymous game
+    """
+    if request.method == "POST":
+        anonymous_users = User.objects.filter(username__startswith="anonymous").order_by("-username")
+        if anonymous_users.count():
+            last_number = anonymous_users[0].username.split("_")[-1]
+            if last_number.isdigit():
+                username = "anonymous_%04d" % (int(last_number) + 1)
+            else:
+                username = "anonymous_0010"
+        else:
+            username = "anonymous_0010"
+        values = {
+            "username": username,
+            "password": "ilovelaura"
+            }
+        form = UserForm(values, password=values.get("password"))
+        if form.is_valid():
+            user = form.save()
+            user = authenticate(username=values["username"], password=values['password'])
+            login(request, user)
+        return HttpResponseRedirect("/game/create/")
+        
+    template = "game/quickstart.html"
+    return locals()
 @login_required
 def limited_delete_object(*args, **kwargs):
     """generic delete limited by login
