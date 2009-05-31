@@ -21,10 +21,6 @@ body
     color: white;
 }
 
-.prompt li p {
-    float:left;
-}
-
 #content
 {
     background-color: black;
@@ -99,7 +95,7 @@ a
     font-size: 30px;
 }
 
-#prompt_card, #game_detail, #end_game
+#prompt_card, #end_game
 {
     color: white;
     height: 120px;
@@ -119,9 +115,10 @@ a
 {
     color: white;
     outline: 1px solid white;
-    margin-bottom: 1em;margin-left:0px;
+    margin-bottom: 1em;
+    margin-left:0px;
     list-style-type: none;
-    padding: 10px;position:relative;
+    padding: 10px;
 }
 
 .object_list input

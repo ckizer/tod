@@ -4,13 +4,13 @@
 <p class="help_text">These are the prompts you have available for your game.  They are the prompts that have been approved for general use, plus any that you have already created.  If you would like to make up some prompts for your own games only, click 'Create A New Dare' </p>
 <p class="button_dock"><a href="/prompt/create/"><img class="stated_button" src="/media/images/index_prompt_create_up.png" alt="Create a New Dare" /></a></p>
 <div class="grid_4 prefix_1 alpha prompt">
-  <ul id="prompt_list" class="object_list">
+  <ul class="object_list">
     {% for prompt in prompts %}
 	<li>
-	  <p>{{ prompt.difficulty }}: {{prompt.name}}: {{prompt.truth}} // {{prompt.dare}}</p>
 	  {% ifequal prompt.owner request.user %}
-	  <form action="{{ prompt.get_absolute_url}}delete/" method="post"><input type="image" src="/media/images/delete.png" alt="delete" /></form> 
+	  <form action="{{ prompt.get_absolute_url}}delete/" method="post"><p><input type="image" src="/media/images/delete.png" alt="delete" /></p></form> 
 	  {% endifequal %}
+	  <p>{{ prompt.difficulty }}: {{prompt.name}}: {{prompt.truth}} // {{prompt.dare}}</p>
 	</li>
 	{% endfor%}
   </ul>

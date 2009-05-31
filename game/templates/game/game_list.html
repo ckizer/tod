@@ -8,7 +8,7 @@
   <ul class="object_list">
 	{% for object in object_list %}
 	<li>
-	  <form action="/game/{{object.id}}/delete/" method="post"><input type="image" src="/media/images/delete.png" alt="delete" /></form> 
+	  <form action="/game/{{object.id}}/delete/" method="post"><p><input type="image" src="/media/images/delete.png" alt="delete" /></p></form> 
 	  <a href="{{ object.get_absolute_url }}">{{ object.name }}</a>
 	</li>
 	{% endfor%}
