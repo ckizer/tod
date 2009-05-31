@@ -11,7 +11,7 @@ from tod.game.forms import GameForm
 from tod.comment.forms import CommentForm
 from tod.game.models import Game
 from tod.prompt.models import Prompt
-from tod.common.decorators import http_response
+from tod.common.decorators import http_response, active_game
 
 @login_required
 @http_response
@@ -120,6 +120,7 @@ def choice(request, game_id):
     current_prompt = game.current_prompt().prompt
     current_game = game
     current_player = game.current_player()
+    current_round = game.current_round()
     return locals()
     
 @login_required
@@ -143,12 +144,14 @@ def wimp_out(request, game_id):
     game.resolve_current_prompt("wimp out")
     return HttpResponseRedirect(game.get_absolute_url())
 
+@active_game
 @login_required
 def complete(request, game_id):
     """Finishes the prompt and updates the player's score
     """
     game = get_object_or_404(Game, pk=game_id)
     game.resolve_current_prompt("complete")
+    
     return HttpResponseRedirect(game.get_absolute_url())
 
 @login_required

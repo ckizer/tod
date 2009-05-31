@@ -270,6 +270,50 @@ class GameCreateTest(TestCase):
                     self.failUnlessEqual(difficulty, current_prompt.prompt.difficulty)
                 current_prompt.complete()
             difficulty = None
+
+class AvailableSegmentedPromptsTestCase(TestCase):
+    """ walk through different prompt hierarchy scenarios and make sure 
+        the right number of prompts get assinged
+    """
+    def setUp(self):
+        user = User.objects.create_user("peter", "peter@emlprime.com", "test")
+        self.game = Game.objects.create(name="TestGame", user=user)
+        player_names = ['alice', 'bob']
+        for player in player_names:
+            Player.objects.create(name=player, game=self.game)
+        self.player_count = len(player_names)
+
+    def test_noPrompts(self):
+        self.assertEqual(self.game.available_segmented_prompts([], self.player_count), False)
+    
+    def test_enoughPrompts(self):
+        self.assertEqual(self.game.available_segmented_prompts([range(self.player_count)], self.player_count), False)
+    
+class CurrentRoundTestCase(TestCase):
+    """ Find out the current round
+    """
+    def setUp(self):
+        user = User.objects.create_user("peter", "peter@emlprime.com", "test")
+        self.game = Game.objects.create(name="TestGame", user=user)
+        player_names = ['alice', 'bob']
+        for player in player_names:
+            Player.objects.create(name=player, game=self.game)
+        self.player_count = len(player_names)
+        game_prompts = [Prompt.objects.create(name="foo_%d" % i, difficulty=1, owner=user) for i in range(10)]
+        self.game.assign_prompts(game_prompts)
+
+    def test_firstRound(self):
+        self.assertEqual(self.game.current_round(), 1)
+
+    def test_halfwayThroughFirstRound(self):
+        self.game.resolve_current_prompt()
+        self.assertEqual(self.game.current_round(), 1)
+
+    def test_SecondRound(self):
+        self.game.resolve_current_prompt()
+        self.game.resolve_current_prompt()
+        self.assertEqual(self.game.current_round(), 2)
+
             
 class MaxDifficultyTest(TestCase):
     """ test that max difficulty properly restricts prompts, also test that other user's private prompts are not included
