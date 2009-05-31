@@ -4,9 +4,6 @@ from django.db import IntegrityError
 from django.contrib.auth.models import User
 from django.core import management
 from BeautifulSoup import BeautifulSoup
-import pdb
-
-
 
 class UserTestCase(TestCase):
     """Tests that users can register, login and logout
@@ -23,11 +20,14 @@ class UserTestCase(TestCase):
         doc = BeautifulSoup(response.content)
         create_prompt_href = doc.find(id="create_prompts").find("a")["href"]
         test_href = "/prompt/"
-        self.failUnlessEqual(create_prompt_href, test_href, "Could not find create game link on the home page (%s != %s)" % (create_prompt_href, test_href))
+        self.failUnlessEqual(create_prompt_href, test_href, 
+                             "Could not find create game link on the home page (%s != %s)" % 
+                             (create_prompt_href, test_href))
         response = self.client.get(create_prompt_href)
 
         # see a login page, but realize she doesn't have an account, so she clicks the register link
-        self.assertRedirects(response, "/accounts/login/?next=%s" % create_prompt_href, status_code=302, target_status_code=200)
+        self.assertRedirects(response, "/accounts/login/?next=%s" % create_prompt_href, 
+                             status_code=302, target_status_code=200)
         response = self.client.get("/accounts/login/")
         self.assertContains(response, "/accounts/register/")
 
