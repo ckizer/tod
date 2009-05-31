@@ -187,6 +187,8 @@ class Game(models.Model):
             score = current_prompt.complete()
             if resolution == "complete":
                 current_player.update_score(score)
+        else:
+            score = 0
         return score
 
     def getWinners(self):
