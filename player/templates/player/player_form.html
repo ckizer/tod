@@ -16,17 +16,21 @@
 </div>
 
 <div class="grid_4 prefix_1 alpha about">
+
+{% if object_list %}
   <ul class="object_list">
 	{% for object in object_list %}
 	<li>
-	  <form action="/player/{{ object.id }}/delete/" method="post"><input type="image" src="/media/images/delete.png" alt="delete" /></form> 
+	  <form action="/player/{{ object.id }}/delete/" method="post"><p><input type="image" src="/media/images/delete.png" alt="delete" /></p></form> 
 	  {{ object.name }}
 	</li>
 	{% endfor%}
   </ul>
+{% endif %}
+
 <p class="help_text">Once you've added all the players for this game, click 'All Players Added'</p>
 <form action="/game/{{ game.id }}/players_added/" method="post">
-<input type="image" class="stated_button" src="/media/images/players_added_up.png" alt="All Players Added" />
+<p><input type="image" class="stated_button" src="/media/images/players_added_up.png" alt="All Players Added" /></p>
 </form>
 </div>
 
