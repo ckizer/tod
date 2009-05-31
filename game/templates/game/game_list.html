@@ -5,6 +5,7 @@
 <p class="button_dock"><a href="/game/create/"><img class="stated_button" src="/media/images/index_game_create_up.png" alt="Create a New Game" /></a></p>
 <p class="help_text">Click on any existing game to go to wherever you left off.  If a game is complete, you can click on it to see the winner.</p>
 <div class="grid_4 prefix_1 alpha about">
+{% if object_list %}
   <ul class="object_list">
 	{% for object in object_list %}
 	<li>
@@ -13,6 +14,7 @@
 	</li>
 	{% endfor%}
   </ul>
+{% endif %}
 </div>
 <div class="clear">&nbsp;</div>
 

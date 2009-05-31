@@ -4,6 +4,7 @@
 <p class="help_text">These are the prompts you have available for your game.  They are the prompts that have been approved for general use, plus any that you have already created.  If you would like to make up some prompts for your own games only, click 'Create A New Dare' </p>
 <p class="button_dock"><a href="/prompt/create/"><img class="stated_button" src="/media/images/index_prompt_create_up.png" alt="Create a New Dare" /></a></p>
 <div class="grid_4 prefix_1 alpha prompt">
+{% if prompts %}
   <ul class="object_list">
     {% for prompt in prompts %}
 	<li>
@@ -14,6 +15,7 @@
 	</li>
 	{% endfor%}
   </ul>
+{% endif %}
 </div>
 <div class="clear">
   &nbsp;
