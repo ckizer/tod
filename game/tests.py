@@ -1,3 +1,5 @@
+from BeautifulSoup import BeautifulSoup
+
 from django.test import TestCase
 from django.test.client import Client
 from django.db import IntegrityError
@@ -270,6 +272,50 @@ class GameCreateTest(TestCase):
                     self.failUnlessEqual(difficulty, current_prompt.prompt.difficulty)
                 current_prompt.complete()
             difficulty = None
+
+class AvailableSegmentedPromptsTestCase(TestCase):
+    """ walk through different prompt hierarchy scenarios and make sure 
+        the right number of prompts get assinged
+    """
+    def setUp(self):
+        user = User.objects.create_user("peter", "peter@emlprime.com", "test")
+        self.game = Game.objects.create(name="TestGame", user=user)
+        player_names = ['alice', 'bob']
+        for player in player_names:
+            Player.objects.create(name=player, game=self.game)
+        self.player_count = len(player_names)
+
+    def test_noPrompts(self):
+        self.assertEqual(self.game.available_segmented_prompts([], self.player_count), False)
+    
+    def test_enoughPrompts(self):
+        self.assertEqual(self.game.available_segmented_prompts([range(self.player_count)], self.player_count), False)
+    
+class CurrentRoundTestCase(TestCase):
+    """ Find out the current round
+    """
+    def setUp(self):
+        user = User.objects.create_user("peter", "peter@emlprime.com", "test")
+        self.game = Game.objects.create(name="TestGame", user=user)
+        player_names = ['alice', 'bob']
+        for player in player_names:
+            Player.objects.create(name=player, game=self.game)
+        self.player_count = len(player_names)
+        game_prompts = [Prompt.objects.create(name="foo_%d" % i, difficulty=1, owner=user) for i in range(10)]
+        self.game.assign_prompts(game_prompts)
+
+    def test_firstRound(self):
+        self.assertEqual(self.game.current_round(), 1)
+
+    def test_halfwayThroughFirstRound(self):
+        self.game.resolve_current_prompt()
+        self.assertEqual(self.game.current_round(), 1)
+
+    def test_SecondRound(self):
+        self.game.resolve_current_prompt()
+        self.game.resolve_current_prompt()
+        self.assertEqual(self.game.current_round(), 2)
+
             
 class MaxDifficultyTest(TestCase):
     """ test that max difficulty properly restricts prompts, also test that other user's private prompts are not included
@@ -394,22 +440,76 @@ class GameCreateViewTest(TestCase):
         self.assertContains(response, "nudity")
         self.assertContains(response, "Maximum Difficulty:")
 
-#class GameCreateAnonymousViewTest(TestCase):
-#    """Test that we can create a game anonymously
-#    """
-#    def setUp(self):
-#        self.client = Client()
-#    
-#    def test_createAnonymousGame(self):
-#        """Test that a user can create a game without logging in.
-#        """
-#        game_name = "AnonymousTestGame"
-#        games = Game.objects.filter(name=game_name)
-#        self.failUnlessEqual(games.count(), 0)
-#        response = self.client.post('/game/create/', {"name": game_name})
-#        games = Game.objects.filter(name=game_name)
-#        self.failUnlessEqual(games.count(), 1)
-#        
+class GameCreateAnonymousViewTest(TestCase):
+    """Test that we can create a game anonymously
+    """
+    def setUp(self):
+        self.client = Client()
+    
+    def test_createAnonymousGame(self):
+        """Test that a user can create a game without logging in.
+        """
+        # given I don't have a game
+        # and I am not logged in
+        game_name = "AnonymousTestGame"
+        games = Game.objects.filter(name=game_name)
+        self.failUnlessEqual(games.count(), 0)
+
+        # when I try to access the create page
+        response = self.client.get('/game/create/')
+        self.assertRedirects(response, '/game/quickstart/', status_code=302, target_status_code=200)
+
+        # I should see the quickstart page
+        response = self.client.get('/game/quickstart/')
+        doc = BeautifulSoup(response.content)
+        quickstart = doc.find(id="quickstart")
+        self.failUnless(quickstart, "Could not find quickstart")
+
+    def test_quickstart(self):
+        """Test that a user who submits the quickstart game has an anonymous user created
+        """ 
+        response = self.client.post("/game/quickstart/")
+        self.assertRedirects(response, '/game/create/', status_code=302, target_status_code=200)
+    
+    def test_clearAnonymousGame(self):
+        self.given_completed_game()
+        response = self.client.get(self.game.get_absolute_url() + "game_over/")
+        doc = BeautifulSoup(response.content)
+        element = doc.find(id="save_or_delete_anonymous_game")
+        self.failUnless(element, "Could not find save or delete.")
+
+        save_form = element.find(id="save_form")
+        self.failUnless(save_form, "Could not find save form")
+
+        delete_form = element.find(id="delete_form")
+        self.failUnless(delete_form, "Could not find delete form")
+
+    def test_saveAnonymousGame(self):
+        self.given_completed_game()
+        self.user.username.startswith("anonymous_")
+        values = {"username": "new_username", "password": "new_password"}
+        response = self.client.post(self.game.save_anonymous_game_url(), values)
+        self.assertRedirects(response, '/game/', status_code=302, target_status_code=200)
+
+        user = User.objects.get(id=self.user.id)
+        self.assertEqual(values["username"], user.username)
+
+    def test_failToSaveAnonymousGame(self):
+        self.given_completed_game()
+        self.user.username.startswith("anonymous_")
+        values = {"username": "", "password": ""}
+        response = self.client.post(self.game.save_anonymous_game_url(), values)
+        self.assertFormError(response, "save_user_form", "username", "This field is required.")
+        self.assertFormError(response, "save_user_form", "password", "This field is required.")
+        
+
+    def given_completed_game(self):
+        self.client.post("/game/quickstart/")
+        self.user = User.objects.get(username="anonymous_0010")
+        self.game = Game.objects.create(name="TestGame", user=self.user)
+        self.game.game_over()
+        
+        
 class GameViewTest(TestCase):
     """Test that rendered pages display correctly
     """

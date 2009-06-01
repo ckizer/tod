@@ -1,4 +1,5 @@
 from django.conf.urls.defaults import *
+from django.contrib import admin
 from tod.settings import MEDIA_ROOT
 
 urlpatterns = patterns('django.views.generic.simple',
@@ -7,6 +8,8 @@ urlpatterns = patterns('django.views.generic.simple',
 )
 
 urlpatterns += patterns('',
+    # Uncomment the next line to enable the admin:
+    (r'^admin/(.*)$', admin.site.root),
     (r"^$", "tod.views.index"),
     (r"^test/$", "tod.views.test"),
     (r"^accounts/login/$", "django.contrib.auth.views.login"),

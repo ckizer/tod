@@ -41,6 +41,10 @@ class Prompt(models.Model):
     class Meta:
         ordering = ['difficulty']
 
+    def publish(self):
+        self.private = False
+        self.save()
+
     def __unicode__(self):
         return self.name
 

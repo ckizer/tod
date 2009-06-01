@@ -98,6 +98,7 @@ class Game(models.Model):
         game_prompts = []
         current_difficulty = 0
         prompts_available = True
+
         #loop over the difficulty levels and assign prompts to the game
         while rounds_selected > rounds_assigned and prompts_available:
             prompt_count = len(prompts[current_difficulty])
@@ -107,20 +108,30 @@ class Game(models.Model):
                 rounds_assigned += 1
             #increments to the next highest difficulty up until 10, then sets back to 1
             current_difficulty = (current_difficulty + 1)%10
-            prompts_available = False
-            for difficulty in range(1,len(prompts)):
-                if len(prompts[difficulty]) >= player_count:
-                    prompts_available = True
-                if prompts_available:
-                    break
+            prompts_available = self.available_segmented_prompts(prompts, player_count)
             
         self.assign_prompts(game_prompts)
         return True
+
+    def available_segmented_prompts(self, prompts, player_count):
+        prompts_available = False
+        for difficulty in range(1,len(prompts)):
+            if len(prompts[difficulty-1]) >= player_count:
+                prompts_available = True
+            if prompts_available:
+                break
+        return prompts_available
+
 
     def get_absolute_url(self):
         """Return the absolute url for this object
         """
         return "/game/%d/" % self.id
+
+    def save_anonymous_game_url(self):
+        """Return the url to save the anonymous game
+        """
+        return self.get_absolute_url() + "save_anonymous_game/"
 
     def players_added(self):
         """Changes the status to players_added
@@ -140,7 +151,7 @@ class Game(models.Model):
     def game_over(self):
         """Changes the status from in_progress to completed
         """
-        self.status="completed"
+        self.status = "completed"
         self.save()
         return self.status
 
@@ -152,6 +163,16 @@ class Game(models.Model):
             return prompts[0]
         self.game_over()
         return False
+
+    def current_round(self):
+        prompts =self.gameprompt_set.all()
+        all_prompt_count = prompts.count()
+        remaining_prompt_count = prompts.filter(is_complete=False).count()
+        player_count = self.players.count()
+        total_rounds = all_prompt_count / player_count 
+        from math import ceil
+        current_round = int(ceil(remaining_prompt_count / float(player_count)))
+        return (total_rounds - current_round) + 1
     
     def current_player(self):
         """returns the next player in the list
@@ -171,6 +192,8 @@ class Game(models.Model):
             score = current_prompt.complete()
             if resolution == "complete":
                 current_player.update_score(score)
+        else:
+            score = 0
         return score
 
     def getWinners(self):
