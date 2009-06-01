@@ -470,6 +470,44 @@ class GameCreateAnonymousViewTest(TestCase):
         """ 
         response = self.client.post("/game/quickstart/")
         self.assertRedirects(response, '/game/create/', status_code=302, target_status_code=200)
+    
+    def test_clearAnonymousGame(self):
+        self.given_completed_game()
+        response = self.client.get(self.game.get_absolute_url() + "game_over/")
+        doc = BeautifulSoup(response.content)
+        element = doc.find(id="save_or_delete_anonymous_game")
+        self.failUnless(element, "Could not find save or delete.")
+
+        save_form = element.find(id="save_form")
+        self.failUnless(save_form, "Could not find save form")
+
+        delete_form = element.find(id="delete_form")
+        self.failUnless(delete_form, "Could not find delete form")
+
+    def test_saveAnonymousGame(self):
+        self.given_completed_game()
+        self.user.username.startswith("anonymous_")
+        values = {"username": "new_username", "password": "new_password"}
+        response = self.client.post(self.game.save_anonymous_game_url(), values)
+        self.assertRedirects(response, '/game/', status_code=302, target_status_code=200)
+
+        user = User.objects.get(id=self.user.id)
+        self.assertEqual(values["username"], user.username)
+
+    def test_failToSaveAnonymousGame(self):
+        self.given_completed_game()
+        self.user.username.startswith("anonymous_")
+        values = {"username": "", "password": ""}
+        response = self.client.post(self.game.save_anonymous_game_url(), values)
+        self.assertFormError(response, "save_user_form", "username", "This field is required.")
+        self.assertFormError(response, "save_user_form", "password", "This field is required.")
+        
+
+    def given_completed_game(self):
+        self.client.post("/game/quickstart/")
+        self.user = User.objects.get(username="anonymous_0010")
+        self.game = Game.objects.create(name="TestGame", user=self.user)
+        self.game.game_over()
         
         
 class GameViewTest(TestCase):

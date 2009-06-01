@@ -71,6 +71,7 @@ def quickstart(request):
         
     template = "game/quickstart.html"
     return locals()
+
 @login_required
 def limited_delete_object(*args, **kwargs):
     """generic delete limited by login
@@ -193,6 +194,29 @@ def game_over(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     players = game.players.all()
     winners = game.getWinners()
+    is_anonymous = True if request.user.username.startswith("anonymous_") else False
+    template = "game/over.html"
+    return locals()
+
+@login_required
+@http_response
+def save_anonymous_game(request, game_id):
+    """Saves the game with a new username and password
+    """
+    game = get_object_or_404(Game, pk=game_id)
+    if request.method == "POST":
+        values = request.POST.copy()
+
+        save_user_form = UserForm(values, instance=request.user, password=values.get("password"))
+        if save_user_form.is_valid():
+            user = save_user_form.save()
+            user = authenticate(username=values["username"], password=values['password'])
+            login(request, user)
+            return HttpResponseRedirect("/game/")
+        else:
+            players = game.players.all()
+            winners = game.getWinners()
+    is_anonymous = True if request.user.username.startswith("anonymous_") else False
     template = "game/over.html"
     return locals()
 

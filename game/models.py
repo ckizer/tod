@@ -128,6 +128,11 @@ class Game(models.Model):
         """
         return "/game/%d/" % self.id
 
+    def save_anonymous_game_url(self):
+        """Return the url to save the anonymous game
+        """
+        return self.get_absolute_url() + "save_anonymous_game/"
+
     def players_added(self):
         """Changes the status to players_added
         """

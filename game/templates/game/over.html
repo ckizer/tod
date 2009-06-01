@@ -14,6 +14,23 @@
 	  {% endfor %}
 	</dl>
   </div>
+  {% if is_anonymous %}
+  <div id="save_or_delete_anonymous_game">
+    <div class="grid_2 alpha">
+      <form method="POST" id="save_form" action="{{ game.save_anonymous_game_url }}">
+	<p class="help_text">Fill out a username and password to save this game.</p>
+	<input type="image" class="stated_button" src="/media/images/save_game_up.png" name="submit" value="Save Game" />
+	{{ save_user_form.as_p }}
+      </form>
+    </div>
+    <div class="grid_2 omega">
+      <form method="POST" id="delete_form" action="{{ game.save_anonymous_game_url }}">
+	<p class="help_text">Delete this game and make a puppy cry huge crocodile tears.</p>
+	<p><input type="image" class="stated_button" src="/media/images/delete_game_up.png" name="submit" value="Delete Game" /></p>
+      </form>
+    </div>
+  </div>
+  {% endif %}
 </div>
 
 {% endblock %}
