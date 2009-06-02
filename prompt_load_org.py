@@ -12,7 +12,6 @@ from tod.prompt.models import Prompt
 reader = open("prompts.org")
 print Prompt.objects.all().count()
 me = User.objects.get(username="laura")
-[p.delete() for p in Prompt.objects.all()]
 
 difficulty = 1
 prompts = []
