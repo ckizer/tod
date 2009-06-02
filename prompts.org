@@ -42,13 +42,12 @@
 ** Title: Battle of the Bands
 *** Truth: What is the sexiest instrument?  Why is it sexy to you?
 *** Dare: Have the other players hum a song whilst you play either Air Guitar, Air Drums or Air Upright Jazz Bass.
-*** Difficulty: 4
 ** Title: What They Don't Know
 *** Truth: Name at least 3 misconceptions your parents have about how pure you are.
 *** Dare: Send an email to your parents describing on thing you lied to them about that they don't yet know.
 ** Title: Crush Cakes
-*** What was the last crush you had that you never told anyone about?  What do yo wish you could have done with your crush?
-*** Find someone in the room that you've secretly admired.  Go up and whisper what you admired to them.
+*** Truth: What was the last crush you had that you never told anyone about?  What do yo wish you could have done with your crush?
+*** Dare: Find someone in the room that you've secretly admired.  Go up and whisper what you admired to them.
 ** Title: What's the Story Morning Glory?
 *** Dare: Ask the other players for a line.  Either in person or by telephone, you must use the line to attempt to get a date for tonight.
 *** Truth: If you could be on a date tonight with anyone who you have actually met, who would it be?
@@ -132,3 +131,5 @@
 ** Title: The Road Less Traveled By
 *** Truth: What is the one romantic choice you most regret.  Would you do it differently if you had a chance?
 *** Dare: Write a love letter to someone who got away.  If you still have contact info for them, send it.
+
+

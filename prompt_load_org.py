@@ -10,8 +10,10 @@ from tod.prompt.forms import PromptForm
 from tod.prompt.models import Prompt
 
 reader = open("prompts.org")
-print Prompt.objects.all().count()
 me = User.objects.get(username="laura")
+
+# for testing
+#[p.delete() for p in Prompt.objects.all()]
 
 difficulty = 1
 prompts = []
@@ -22,14 +24,12 @@ for row in reader:
     field, value = row.strip().split(":")
     if field.find("Difficulty") > 0:
         prompt_WIP["difficulty"] = int(value.strip())
-        continue
-    if field.find("Truth") > 0:
+    elif field.find("Truth") > 0:
         prompt_WIP["truth"] = value.strip()
-        continue
-    if field.find("Dare") > 0:
+    elif field.find("Dare") > 0:
         prompt_WIP["dare"] = value.strip()
-        continue
-    prompt_WIP["name"] = value.strip()
+    else:
+        prompt_WIP["name"] = value.strip()
 
     if prompt_WIP.has_key("truth") and prompt_WIP.has_key("dare"):
         prompts.append(prompt_WIP.copy())
@@ -37,7 +37,7 @@ for row in reader:
         del prompt_WIP["dare"]
         del prompt_WIP["name"]
 
-print prompts
+
     
 
 for prompt in prompts:
