@@ -146,6 +146,14 @@ a
   background-image:url("/media/images/curtain_side.png");
 }
 
+.right_side{
+    background-image:url("/media/images/curtain_right.png");
+}
+
+.left_side{
+    background-image:url("/media/images/curtain_left.png");
+}
+
 #exit
 {
     text-align: center;
