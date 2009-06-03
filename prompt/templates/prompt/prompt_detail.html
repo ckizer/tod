@@ -3,6 +3,9 @@
 
 <p class="help_text">This is the form for creating your own prompts for your Truth or Dare games.</p>
 <div id="create_prompt">
+
+  {% if form.errors %}{{ form.errors }}{% endif %}
+
 	<form action="." method="post" class="detail_form">
 	  <div class="prompt_form">
 		<p class="prompt_text">Name: </p> 
