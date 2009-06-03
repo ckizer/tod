@@ -29,7 +29,6 @@ def create(request, game_id):
             return HttpResponseRedirect('/player/%d/create/' % game.id)
         else:
             errors = form.errors
-            assert False
     else:
         form = PlayerForm()
     return locals()

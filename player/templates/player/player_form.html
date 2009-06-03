@@ -2,6 +2,8 @@
 {% block content %}
 
 <div class="grid_4 prefix_1 alpha about">
+  {% if form.errors %}{{ form.errors }}{% endif %}
+  
   <form action="." method="post" id="create_player">
 	<p><label for="id_name">Name:</label> {{ form.name }}</p>
 	<p class="help_text">Enter the name of a player</p>
