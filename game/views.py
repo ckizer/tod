@@ -133,7 +133,7 @@ def begin_game(request, game_id):
     a post will change the game status
     """
     game = get_object_or_404(Game, pk=game_id)
-    rules = file("game/rules.txt").read()
+    rules = file("/home/laura/tod/game/rules.txt").read()
     template = "game/begin_game.html"
     if request.method == "POST":
         game.in_progress()
