@@ -5,7 +5,7 @@
 <p class="button_dock"><a href="/prompt/create/"><img class="stated_button" src="/media/images/index_prompt_create_up.png" alt="Create a New Dare" /></a></p>
 <div class="grid_4 prefix_1 alpha prompt">
 {% if prompts %}
-  <ul class="object_list">
+  <ul id="prompt_list" class="object_list">
     {% for prompt in prompts %}
 	<li>
 	  {% ifequal prompt.owner request.user %}

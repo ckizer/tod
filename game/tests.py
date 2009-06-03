@@ -261,7 +261,7 @@ class GameCreateTest(TestCase):
         self.game.players_added()
         self.game.create_game(rounds_selected = 5)
         rounds_assigned = self.game.gameprompt_set.count()/self.game.players.count()
-        self.failUnlessEqual(rounds_assigned, 3)
+        self.failUnlessEqual(rounds_assigned, 2)
         difficulty = None
         while self.game.current_prompt():
             for player in self.game.players.all():
