@@ -40,7 +40,7 @@ def create_object(request):
     else:
         form = GameForm()
     template = "game/game_form.html"
-    tag_file = file('prompt/tags.txt')
+    tag_file = file('/home/laura/tod/prompt/tags.txt')
     tags = [tag.strip() for tag in tag_file]
     return locals()
 
