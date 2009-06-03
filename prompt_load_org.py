@@ -10,6 +10,8 @@ from tod.prompt.forms import PromptForm
 from tod.prompt.models import Prompt
 
 reader = open("prompts.org")
+tag_file = file('prompt/tags.txt')
+tags = [tag.strip() for tag in tag_file]
 me = User.objects.get(username="laura")
 
 # for testing
@@ -28,6 +30,9 @@ for row in reader:
         prompt_WIP["truth"] = value.strip()
     elif field.find("Dare") > 0:
         prompt_WIP["dare"] = value.strip()
+    elif field.find("Tags") > 0:
+        #get a list of tags or an empty list, if no tag_list is provided
+        prompt_WIP["tag_values"] = [v.strip() for v in value.split(",")] if value else []
     else:
         prompt_WIP["name"] = value.strip()
 
@@ -36,9 +41,8 @@ for row in reader:
         del prompt_WIP["truth"]
         del prompt_WIP["dare"]
         del prompt_WIP["name"]
-
-
-    
+        if prompt_WIP.has_key("tag_values"):
+            del prompt_WIP["tag_values"]
 
 for prompt in prompts:
     prompt_form = PromptForm(data=prompt, owner=me)
@@ -47,6 +51,12 @@ for prompt in prompts:
         #save the prompt if the form is valid
         current_prompt=prompt_form.save()
         current_prompt.publish()
+        #loop over the available tags and see if they are specified
+        if not prompt.has_key("tag_values"): continue
+        for tag_value in prompt["tag_values"]:
+            #if a tag is specified, add it to the prompt
+            if tag_value in tags:
+                current_prompt.tags.create(tag=tag_value)
     else:
         print row
         print prompt_form.errors
