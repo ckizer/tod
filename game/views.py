@@ -194,7 +194,12 @@ def game_over(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     players = game.players.all()
     winners = game.getWinners()
-    is_anonymous = True if request.user.username.startswith("anonymous_") else False
+    if request.user.username.startswith("anonymous_"):
+        is_anonymous = True  
+        request.user.password = ""
+        save_user_form = UserForm()
+    else:
+        is_anonymous = False
     template = "game/over.html"
     return locals()
 

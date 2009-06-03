@@ -7,20 +7,29 @@
   <h2> Congratulations, you have completed this game!</h2>
   <h2>The Winner Is {{winners|join:" + "}}</h2>
   <div id="final_scores" class="grid_2 prefix_1 alpha omega">
-	<dl id="player_list">
-	  {% for player in players %}
-	  <dt class="players">{{ player }}: </dt>
-	  <dd class="score">{{ player.score }}</dd>
-	  {% endfor %}
-	</dl>
+    <dl id="player_list">
+      {% for player in players %}
+      <dt class="players">{{ player }}: </dt>
+      <dd class="score">{{ player.score }}</dd>
+      {% endfor %}
+    </dl>
   </div>
   {% if is_anonymous %}
   <div id="save_or_delete_anonymous_game">
     <div class="grid_2 alpha">
-      <form method="POST" id="save_form" action="{{ game.save_anonymous_game_url }}">
-	<p class="help_text">Fill out a username and password to save this game.</p>
-	<input type="image" class="stated_button" src="/media/images/save_game_up.png" name="submit" value="Save Game" />
-	{{ save_user_form.as_p }}
+      <form id="save_user_form" method="post" action="{{ game.save_anonymous_game_url }} ">
+	<div class="grid_4"> &nbsp; </div>
+	<div class="clear"> &nbsp; </div>
+	<fieldset>
+	  <p class="help_text">Fill out a username and password to save this game.</p>
+	  {{ save_user_form.username.errors }}
+	  <p><label> Username:</label> {{ save_user_form.username }}</p>
+	  {{ save_user_form..password.errors }}
+	  <p><label> Password:</label> {{ save_user_form.password }}</p>
+	  <div class="button_dock">
+	    <input type="image" src="/media/images/register_up.png" alt="Register" class="stated_button" />
+	  </div>
+	</fieldset>
       </form>
     </div>
     <div class="grid_2 omega">
