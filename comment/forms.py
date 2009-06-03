@@ -1,4 +1,4 @@
-from django.newforms.models import ModelForm
+from django.forms.models import ModelForm
 
 from tod.comment.models import Comment
 

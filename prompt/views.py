@@ -54,17 +54,22 @@ def detail(request):
     tags = [tag.strip() for tag in tag_file]
     if request.method == 'POST':
         values = request.POST.copy()
-        form = PromptForm(values)
+        form = PromptForm(values, owner=request.user)
         if form.is_valid():
-            current_prompt=form.save(commit=False)
-            current_prompt.owner=request.user
-            current_prompt.save()
+            current_prompt=form.save()
             for tag in tags:
                 if values.get(tag,None):
                     current_prompt.tags.create(tag=tag)
+            message =  "%s\n%s\n%s\n%d" % (current_prompt.name, current_prompt.truth, current_prompt.dare, current_prompt.difficulty)
+            # try to send mail. If it fails print out an error
+            try:
+                mail_admins('Private Prompt Created', message, fail_silently=False)
+            except:
+                print "Error: could not send mail to admins"
+
             return HttpResponseRedirect("/prompt/")
         else:
-           errors=form.errors
+            errors=form.errors
     else:
         form = PromptForm()
     return locals()

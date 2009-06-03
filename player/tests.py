@@ -79,15 +79,8 @@ class PlayerViewTest(TestCase):
     def test_noPlayers(self):
         """Tests that it redirects to the player create page if there are no players
         """
-        response = self.client.get('/player/1/')        
-        self.assertRedirects(response, "/player/1/create/")
-
-    def test_playerList(self):
-        """Tests that the player list displays player objects
-        """
-        player = Player.objects.create(name="Alice", game=Game.objects.get(name="TestGame"))
         response = self.client.get('/player/1/')
-        self.assertContains(response, "Alice")
+        self.assertRedirects(response, "/player/1/create/", status_code=301)
 
     def test_playerCreate(self):
         """Tests that a post creates a player

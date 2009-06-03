@@ -6,24 +6,27 @@ from django.template import RequestContext
 from tod.comment.models import Comment
 from tod.comment.forms import CommentForm
 
-@login_required
 def create(request):
     """Creates the comment object
     """
     if request.method == "POST":
         values = request.POST.copy()
-        page = request.META['PATH_INFO']
+        page = request.META['HTTP_REFERER'] if request.META.has_key('HTTP_REFERER') else '/'
         form = CommentForm(values, page=page)
         if form.is_valid():
             comment = form.save()
+            message =  "%s\n%s\n%s\n%s" % (comment.page, comment.description, comment.email, comment.created)
+            # try to send mail. If it fails print out an error
+            try:
+                mail_admins('Truth or Dare Comment Submitted', message, fail_silently=False)
+            except:
+                print "Error: could not send mail to admins"
             return HttpResponseRedirect(page)
         else:
             errors = form.errors
+    return HttpResponseRedirect(page)
 
-    return HttpResponseRedirect('/')
 
-
-@login_required
 def delete(request, comment_id):
     """Deletes a comment object
     """

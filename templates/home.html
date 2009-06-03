@@ -1,9 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="index_buttons">
-<p id="index_create_game"><a href="/game/create/"><img src="/media/images/index_game_create.png" alt="Create Game"</a></p>
-<p id="index_create_prompt"><a href="/prompt/"><img src="/media/images/index_prompt_create.png" alt="Create Prompts"</a></p>
-<p id="index_view_games"><a href="/game/"><img src="/media/images/index_view_games.png" alt="View Games"</a></p>
+
+<h1>Welcome to Free Truth or Dare</h1>
+
+<div class="grid_3 alpha home">
+  <a href="/about/"><img class="stated_button" src="/media/images/index_about_up.png" alt="About Truth or Dare" /></a>
+<p>Read the rules of the game, see the truth and dare risk levels, and learn the benefits of creating a free account.</p>
 </div>
+
+
+<div class="grid_3 omega home">
+  <a href="/game/create/"><img class="stated_button" src="/media/images/index_game_create_up.png" alt="Create Game" /></a>
+  <p>Create a new game with the click of a button - or customize it to challenge your friends.</p>
+</div>
+
+<div class="clear">
+  &nbsp;
+</div>
+
+<div class="grid_3 alpha home">
+  <a href="/game/"><img class="stated_button" src="/media/images/index_view_games_up.png" alt="View Games" /></a>
+  <p>View your saved games and rankings.</p>
+</div>
+
+<div class="grid_3 omega home" id="create_prompts">
+  <a href="/prompt/"><img class="stated_button" src="/media/images/index_prompt_create_up.png" alt="Create Prompts" /></a>
+  <p>Create new truth and dare challenges to play with your friends.</p>
+</div>
+
+<div class="clear">
+  &nbsp;
+</div>
+
+{% endblock %}
+
+{% block exit %}
+&nbsp;
 {% endblock %}

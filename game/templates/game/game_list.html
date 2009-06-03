@@ -2,18 +2,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p class="button_dock"><a href="/game/create/"><img src="/media/images/list_game_create.png" alt="Create a New Game" /></a></p>
+<p class="button_dock"><a href="/game/create/"><img class="stated_button" src="/media/images/index_game_create_up.png" alt="Create a New Game" /></a></p>
 <p class="help_text">Click on any existing game to go to wherever you left off.  If a game is complete, you can click on it to see the winner.</p>
-<div id="list">
-  <ul id="game_list" class="object_list">
+<div class="grid_4 prefix_1 alpha about">
+{% if object_list %}
+  <ul class="object_list">
 	{% for object in object_list %}
 	<li>
-	  <form action="/game/{{object.id}}/delete/" method="post"><input type="image" src="/media/images/delete.png" alt="delete" /></form> 
+	  <form action="/game/{{object.id}}/delete/" method="post"><p><input type="image" src="/media/images/delete.png" alt="delete" /></p></form> 
 	  <a href="{{ object.get_absolute_url }}">{{ object.name }}</a>
 	</li>
 	{% endfor%}
   </ul>
+{% endif %}
 </div>
+<div class="clear">&nbsp;</div>
 
-{% include "exit.html" %}
 {% endblock %}

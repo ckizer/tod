@@ -1,5 +1,5 @@
-from django.newforms.models import ModelForm
-from django.newforms import forms
+from django.forms.models import ModelForm
+from django.forms import forms
 
 from tod.prompt.models import Prompt
 

@@ -1,15 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-<div id="curtain">
+
+<div class="grid_6 alpha omega" id="stage">
+
+  <div class="grid_6 alpha omega" id="curtain_top">
+    &nbsp;
+  </div>
+
+  <div class="clear">&nbsp;</div>
+
+  <div class="grid_1 alpha side">
+    <p><img src="/media/images/curtain_left.png" alt=" " /></p>
+  </div>
+
+<div class="grid_4">
+
 {% block stage_detail %}
-<div id="prompt_card">
-<h2>{{current_prompt.name}}</h2>
-<p id="description">{{ current_prompt.description }}</p>
-</div>
-<div id="buttons">
-<div id="wimp_out"><form action="/prompt/{{current_prompt.id}}/wimp_out/" method="post"><input type="image" src="/media/images/wimp_out.png" alt="wimp_out" /></form></div>
-<div id="complete"><form action="/prompt/{{current_prompt.id}}/complete/" method="post"><input type="image" src="/media/images/complete.png" alt="complete" /></form></div>
-</div>
+
 {% endblock %}
 </div>
+
+  <div class="grid_1 omega side">
+    <p><img src="/media/images/curtain_right.png" alt=" " /></p>
+  </div>
+
+</div>
+
+<div class="clear">&nbsp;</div>
+
 {% endblock %}

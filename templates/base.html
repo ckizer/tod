@@ -1,57 +1,76 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD/ XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/html">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  {% load comment_tags %}
   <head>
-	<title>Play Truth or Dare</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-859-1" />
-	<meta name="verify-v1" content="T6ZsonlWXy5jNgqi28DyTdvpaY0llsJtlBsorgcB+kI=" />
-	<link rel="stylesheet" type="text/css" href="/media/css/site.css" />
-	<link rel="icon" type="image/png" href="/media/images/favicon.png" />
-        <script type="text/javascript" src="/media/scripts/jquery-1.2.6.js"></script>
-        <script type="text/javascript" src="/media/scripts/base.js"></script>
+    <title>Play Truth or Dare</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="/media/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/media/css/text.css" />
+    <link rel="stylesheet" type="text/css" href="/media/css/960.css" />
+    <link rel="stylesheet" type="text/css" href="/media/css/site.css" />
+    <link rel="icon" type="image/png" href="/media/images/favicon.png" />
+    <script type="text/javascript" src="/media/scripts/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="/media/scripts/base.js"></script>
   </head>
   <body>
-	<a href="/">
-	<div id="header">
-	  {% block header %}
-	  <h1>Truth or Dare</h1>
-	  {% endblock header %}
-	</div>
-	</a>
+    <div class="container_12">
+      <div class="grid_3">
+	&nbsp;
+      </div>
+
+      <div class="grid_6" id="main">
+
+	{% block header %}
+	  <div id="header"><h1><a href="/">Truth or Dare</a></h1></div>
+	{% endblock header %}
+
 	<div id="content">
 	  {% block content %}
 	  {% endblock content %}
 	</div>
-	<div id="authentication">
-	  {% if user.is_authenticated %}
-	  <a href="/accounts/logout/">Logout</a> {{ user }}
-	  {% else %}
-	  <a href="/accounts/login/">Login</a>
-	  {% endif %}
+
+	<div class="grid_2 alpha">
+	  {% block exit %}
+	  {% include "exit.html" %}
+	  {% endblock %}
 	</div>
-	<div id="comment_area">
-	  <p><a href="{{ current_page_comment_url }}">Submit a Comment</a></p>
-	  <div id="comment_form">
-	    <form action="/comment/create/" method="post">
-	      <fieldset>
-		<p>{{ comment_form.description.help_text }}</p>
-		<p><label for="id_description">Description:</label> {{ comment_form.description }}</p>
-		<p><label for="id_email">Email:</label> {{ comment_form.email }}</p>
-		<input type="submit" name="submit" value="Submit Comment" />
-	      </fieldset>
-	    </form>
+
+	<div class="grid_2 prefix_2 omega">
+	  <a href="/terms/">Terms of Use</a>
+	  <div id="authentication">
+	    {% if user.is_authenticated %}
+	    <p class="no_space">Welcome, {{ user }}</p>
+	    <a href="/accounts/logout/">Logout</a>
+	    {% else %}
+	    <a href="/accounts/login/">Login</a>
+	    {% endif %}
 	  </div>
+	  
+	  {% display_comment_area %}
+	  
+	  {% comment %}
+	  <script type="text/javascript">
+	    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	  </script>
+	  <script type="text/javascript">
+	    var pageTracker = _gat._getTracker("UA-88241-6");
+	    pageTracker._initData();
+	    pageTracker._trackPageview();
+	  </script>
+	  {% endcomment %}
+
 	</div>
 
+      </div>
 
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-88241-6");
-pageTracker._trackPageview();
-} catch(err) {}</script>
+
+      <div class="grid_3">
+	&nbsp;
+      </div>
+
+
+    </div>
 
   </body>
 </html>
