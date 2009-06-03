@@ -9,6 +9,7 @@ urlpatterns = patterns('tod.game.views',
     (r'^create/$', 'create_object'),
     (r'^quickstart/$', 'quickstart'),
     (r'^(?P<game_id>\d+)/save_anonymous_game/$', 'save_anonymous_game'),
+    (r'^(?P<game_id>\d+)/delete_anonymous_game/$', 'delete_anonymous_game'),
     (r'^(?P<game_id>\d+)/players_added/$', 'players_added'),
     (r'^(?P<game_id>\d+)/select_prompts/$', 'select_prompts'),
 #gameplay flow

@@ -221,6 +221,17 @@ def save_anonymous_game(request, game_id):
     return locals()
 
 @login_required
+@http_response
+def delete_anonymous_game(request, game_id):
+    """Deletes the game with a new username and password
+    """
+    game = get_object_or_404(Game, pk=game_id)
+    if request.method == "POST":
+        request.user.delete()
+        return HttpResponseRedirect("/accounts/logout/")
+    return HttpResponseRedirect("/accounts/logout/")
+
+@login_required
 def players_added(request, game_id):
     """Changes game status to players_added
     """
