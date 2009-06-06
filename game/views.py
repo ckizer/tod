@@ -1,4 +1,5 @@
 from datetime import datetime
+from tod.settings import PROJECT_PATH
 
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -40,7 +41,7 @@ def create_object(request):
     else:
         form = GameForm()
     template = "game/game_form.html"
-    tag_file = file('/home/laura/tod/prompt/tags.txt')
+    tag_file = file(PROJECT_PATH + '/prompt/tags.txt')
     tags = [tag.strip() for tag in tag_file]
     return locals()
 
@@ -133,7 +134,7 @@ def begin_game(request, game_id):
     a post will change the game status
     """
     game = get_object_or_404(Game, pk=game_id)
-    rules = file("/home/laura/tod/game/rules.txt").read()
+    rules = file(PROJECT_PATH + "/game/rules.txt").read()
     template = "game/begin_game.html"
     if request.method == "POST":
         game.in_progress()
