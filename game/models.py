@@ -30,6 +30,7 @@ class Game(models.Model):
     max_difficulty = models.IntegerField(default=10, null=True, blank=True, help_text=max_difficulty_help)
     user = models.ForeignKey(User)
     tags = generic.GenericRelation(TaggedItem)
+    created = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
         return self.name
