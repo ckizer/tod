@@ -7,7 +7,7 @@
   <form action="." method="post" id="create_player">
 	<p><label for="id_name">Name:</label> {{ form.name }}</p>
 	<p class="help_text">Enter the name of a player</p>
-	<div class="button_dock">
+	<div class="grid_2 prefix_1 alpha omega button_dock">
 	  <input type="image" class="stated_button" src="/media/images/create_up.png" alt="create" value="create" />
 	</div>
   </form>
@@ -32,7 +32,7 @@
 
 <p class="help_text">Once you've added all the players for this game, click 'All Players Added'</p>
 <form action="/game/{{ game.id }}/players_added/" method="post">
-<p><input type="image" class="stated_button" src="/media/images/players_added_up.png" alt="All Players Added" /></p>
+<div class="grid_2 prefix_1 alpha omega"><input type="image" class="stated_button" src="/media/images/players_added_up.png" alt="All Players Added" /></div>
 </form>
 </div>
 
