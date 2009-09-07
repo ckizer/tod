@@ -162,6 +162,8 @@ def play(request, game_id, choice):
     """Displays the prompt with the given choice and a form for finishing the prompt
     """
     game = get_object_or_404(Game, pk=game_id)
+    if game.status=='completed':
+        return HttpResponseRedirect(game.get_absolute_url())        
     template = "game/play.html"
     current_prompt = game.current_prompt().prompt
     description = current_prompt.truth if choice == "truth" else current_prompt.dare

@@ -614,10 +614,16 @@ class GameViewTest(TestCase):
         self.assertRedirects(response, 'game/2/choice/', status_code=302, target_status_code=200)
         while game.current_prompt():
             game.resolve_current_prompt()
+        game_over_page='/game/2/game_over/'
         response = self.client.get(game.get_absolute_url())
-        self.assertRedirects(response, 'game/2/game_over/', status_code=302, target_status_code=200)
+        self.assertRedirects(response, game_over_page, status_code=302, target_status_code=200)
         #testing that the game over page announces a winner
-        response = self.client.get('/game/2/game_over/')
+        response = self.client.get(game_over_page)
         self.assertContains(response, "The Winner Is alice")
         self.assertContains(response, "alice:")
-
+        #testing that going back to any other game link will redirect to the game over page
+        response=self.client.get('/game/2/choice/')
+        self.assertRedirects(response, game.get_absolute_url(), status_code=302, target_status_code=302)
+        response=self.client.get('/game/2/play/truth/')
+        self.assertRedirects(response, game.get_absolute_url(), status_code=302, target_status_code=302)
+        
