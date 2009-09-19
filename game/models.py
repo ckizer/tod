@@ -183,8 +183,10 @@ class Game(models.Model):
     def current_player(self):
         """returns the next player in the list
         """
-        players = self.players.all()
-        player_count = players.count()
+        # TODO: Figure what is going on with using querysets with indexing.
+        # We had it returning the wrong player for the modulus
+        players = [player for player in self.players.all()]
+        player_count = len(players)
         completed_prompt_count = self.gameprompt_set.filter(is_complete=True).count()
         player=players[completed_prompt_count % player_count]
         return player
