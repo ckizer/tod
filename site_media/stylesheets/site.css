@@ -18,7 +18,7 @@
 
 body
 {
-    background-image: url("/media/images/masks.png");
+    background-image: url("/site_media/images/masks.png");
     background-color: black;
     font-family: arial;
     color: white;
@@ -78,11 +78,11 @@ a
 }
 
 #difficulty{
-  background-image:url("/media/images/difficulty.png");
+  background-image:url("/site_media/images/difficulty.png");
 }
 
 #score{
-  background-image: url("/media/images/score.png");
+  background-image: url("/site_media/images/score.png");
 }
 
 #difficulty, #score
@@ -129,7 +129,7 @@ a
 
 #players
 {
-    background-image: url("/media/images/current_player.png");
+    background-image: url("/site_media/images/current_player.png");
     background-repeat: no-repeat;
     margin: auto;
     text-align: center;
@@ -140,19 +140,19 @@ a
 #curtain_top{
   height: 20px;
   border-bottom:2px solid black;
-  background-image: url("/media/images/curtain_top.png");
+  background-image: url("/site_media/images/curtain_top.png");
 }
 
 .side{
-  background-image:url("/media/images/curtain_side.png");
+  background-image:url("/site_media/images/curtain_side.png");
 }
 
 .right_side{
-    background-image:url("/media/images/curtain_right.png");
+    background-image:url("/site_media/images/curtain_right.png");
 }
 
 .left_side{
-    background-image:url("/media/images/curtain_left.png");
+    background-image:url("/site_media/images/curtain_left.png");
 }
 
 #exit
@@ -173,7 +173,7 @@ a
 }
 
 .player_name{
-  background-image:url("/media/images/current_player.png");
+  background-image:url("/site_media/images/current_player.png");
   background-repeat:no-repeat;
   height: 40px;
   position: relative;

@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p class="button_dock"><a href="/prompt/create/"><img src="/media/images/prompt_create.png" class="stated_button" alt="Create a New Prompt" /></a></p>
+<p class="button_dock"><a href="/prompt/create/"><img src="/site_media/images/prompt_create.png" class="stated_button" alt="Create a New Prompt" /></a></p>
 <div id="list">
   <ul id="prompt_list" class="object_list">
 	{% for object in object_list %}
 	<li>
-	  <form action="/prompt/{{object.id}}/delete/" method="post"><input type="image" src="/media/images/delete.png" alt="delete" /></form> 
+	  <form action="/prompt/{{object.id}}/delete/" method="post"><input type="image" src="/site_media/images/delete.png" alt="delete" /></form> 
 	  {{ object.difficulty }}: {{object.name}}: {{object.truth}} // {{object.dare}} 
 	</li>
 	{% endfor%}

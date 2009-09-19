@@ -8,7 +8,7 @@
 	<p><label for="id_name">Name:</label> {{ form.name }}</p>
 	<p class="help_text">Enter the name of a player</p>
 	<div class="grid_2 prefix_1 alpha omega button_dock">
-	  <input type="image" class="stated_button" src="/media/images/create_up.png" alt="create" value="create" />
+	  <input type="image" class="stated_button" src="/site_media/images/create_up.png" alt="create" value="create" />
 	</div>
   </form>
 </div>
@@ -23,7 +23,7 @@
   <ul class="object_list">
 	{% for object in object_list %}
 	<li>
-	  <form action="/player/{{ object.id }}/delete/" method="post"><p><input type="image" src="/media/images/delete.png" alt="delete" /></p></form> 
+	  <form action="/player/{{ object.id }}/delete/" method="post"><p><input type="image" src="/site_media/images/delete.png" alt="delete" /></p></form> 
 	  {{ object.name }}
 	</li>
 	{% endfor%}
@@ -32,7 +32,7 @@
 
 <p class="help_text">Once you've added all the players for this game, click 'All Players Added'</p>
 <form action="/game/{{ game.id }}/players_added/" method="post">
-<div class="grid_2 prefix_1 alpha omega"><input type="image" class="stated_button" src="/media/images/players_added_up.png" alt="All Players Added" /></div>
+<div class="grid_2 prefix_1 alpha omega"><input type="image" class="stated_button" src="/site_media/images/players_added_up.png" alt="All Players Added" /></div>
 </form>
 </div>
 
