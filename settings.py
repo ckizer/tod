@@ -94,3 +94,5 @@ INSTALLED_APPS = (
 )
 
 LOGIN_REDIRECT_URL = "/"
+
+from local_settings import *
