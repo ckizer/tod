@@ -1,12 +1,13 @@
 # Django settings for tod project.
 import django 
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Laura', 'laura@emlprime.com'),
+    ('Laura', 'laura.m.madsen@gmail.com'),
 )
+SERVER_EMAIL = "laura.m.madsen@gmail.com"
 
 MANAGERS = ADMINS
 import os

@@ -2,7 +2,9 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
+from django.core.mail import send_mail
 
+from tod.settings import SERVER_EMAIL
 from tod.comment.models import Comment
 from tod.comment.forms import CommentForm
 
@@ -18,7 +20,7 @@ def create(request):
             message =  "%s\n%s\n%s\n%s" % (comment.page, comment.description, comment.email, comment.created)
             # try to send mail. If it fails print out an error
             try:
-                mail_admins('Truth or Dare Comment Submitted', message, fail_silently=False)
+                send_mail('Truth or Dare Comment Submitted', message, comment.email, [SERVER_EMAIL], fail_silently=False)
             except:
                 print "Error: could not send mail to admins"
             return HttpResponseRedirect(page)

@@ -4,8 +4,9 @@ from django.views.generic.list_detail import object_list
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
+from django.core.mail import send_mail
 
-from tod.settings import DEBUG, SITE_ROOT
+from tod.settings import DEBUG, SITE_ROOT, SERVER_EMAIL
 from tod.common.decorators import http_response
 from tod.prompt.models import Prompt
 from tod.prompt.forms import PromptForm
@@ -65,7 +66,7 @@ def detail(request):
             # try to send mail. If it fails print out an error
             if not DEBUG:
                 try:
-                    mail_admins('Private Prompt Created', message, fail_silently=False)
+                    send_mail('Private Prompt Created', message, "prompts@freetruthordare.com", [SERVER_EMAIL], fail_silently=False)
                 except:
                     print "Error: could not send mail to admins"
 
