@@ -20,6 +20,12 @@ class PromptForm(ModelForm):
             prompt.save()
         return prompt
 
+    def clean_difficulty(self):
+        data = self.cleaned_data['difficulty']
+        if not (1 <= data <= 10):
+            raise forms.ValidationError('Difficulty must be between 1 and 10.')
+        return data
+
     def clean_name(self):
         """Ensures that prompt names are unique
         """

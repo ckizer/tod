@@ -14,6 +14,7 @@ GAME_DATA = [
     {
         'name': 'TestGame',
         'status': 'completed',
+        'max_difficulty': 1,
         },
     {
         'name': 'TestGame',
@@ -450,7 +451,7 @@ class GameCreateViewTest(TestCase):
         """
         games = Game.objects.filter(name="TestGame2")
         self.failUnlessEqual(games.count(), 0)
-        response = self.client.post('/game/create/', {"name": "TestGame2"})
+        response = self.client.post('/game/create/', {"name": "TestGame2", "max_difficulty": 1})
         self.failUnlessEqual(games.count(), 1)
         
     def test_viewDetail(self):
