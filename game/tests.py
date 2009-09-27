@@ -193,6 +193,29 @@ class GameFormTest(TestCase):
         self.failUnlessEqual(game.max_difficulty, 7)
         self.failUnlessEqual(game.tags.count(), 3)
 
+    def test_createOutOfBounds(self):
+        """Test game creation with data out of valid bounds
+        """
+        upper_bound = {
+            'name': 'TestGame',
+            'status': 'completed',
+            'max_difficulty': 11
+        }
+        lower_bound = {
+            'name': 'TestGame',
+            'status': 'completed',
+            'max_difficulty': 0
+        }
+        non_int_bound = {
+            'name': 'TestGame',
+            'status': 'completed',
+            'max_difficulty': "bunny"
+        }
+        bounds = [upper_bound, lower_bound, non_int_bound]
+        for bound in bounds:
+            form = GameForm(user=self.user, data=bound)
+            self.failUnless(not form.is_valid())
+
 class RoundsAvailableTest(TestCase):
     fixtures = ["beginning_prompts", "user"]
     def setUp(self):
