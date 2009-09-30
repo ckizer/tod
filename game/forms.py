@@ -16,6 +16,12 @@ class GameForm(ModelForm):
         model = Game
         fields = ('name', 'max_difficulty')
 
+    def clean_max_difficulty(self):
+        data = self.cleaned_data['max_difficulty']
+        if not (1 <= data <= 10):
+            raise forms.ValidationError('Max Difficulty must be between 1 and 10.')
+        return data
+
     def save(self, commit=True):
         game = super(GameForm, self).save(commit=False)
         game.user = self.user

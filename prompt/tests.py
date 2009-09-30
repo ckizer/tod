@@ -164,6 +164,28 @@ class PromptFormTest(TestCase):
         form = PromptForm({'name': 'TestName', 'truth': 'TestTruth', 'dare': 'TestDare', 'difficulty': 1}, owner=self.user)
         if form.is_valid():
             self.assertRaises(forms.ValidationError, form.save)
+
+    def test_createOutOfBounds(self):
+        """Test game creation with data out of valid bounds
+        """
+        upper_bound = {
+                'name': 'Test Dare',
+                'truth': 'Tell something embarassing',
+                'dare': 'do something embarassing',
+                'difficulty': 11,
+                'owner': self.user,
+            }
+
+        lower_bound = upper_bound.copy()
+        lower_bound['difficulty'] = 0
+
+        non_int_bound = upper_bound.copy()
+        non_int_bound['difficulty'] = "bunny"
+
+        bounds = [upper_bound, lower_bound, non_int_bound]
+        for bound in bounds:
+            form = PromptForm(bound, owner=self.user)
+            self.failUnless(not form.is_valid())
         
 
 class ImmutablePromptTest(TestCase):

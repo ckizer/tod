@@ -16,10 +16,12 @@ SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 PROJECT_NAME = "tod"
 
-#DATABASE_ENGINE = 'postgresql'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-#DATABASE_NAME = 'private_tod'             # Or path to database file if using sqlite3.
-#DATABASE_USER = 'web'             # Not used with sqlite3.
-#DATABASE_PASSWORD = 'w3b4cc3ss'         # Not used with sqlite3.
+
+DATABASE_ENGINE = 'postgresql_psycopg2'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+DATABASE_NAME = 'private_tod'             # Or path to database file if using sqlite3.
+DATABASE_USER = 'web'             # Not used with sqlite3.
+DATABASE_PASSWORD = 'w3b4cc3ss'         # Not used with sqlite3.
+
 DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
 DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 

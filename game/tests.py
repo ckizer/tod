@@ -14,6 +14,7 @@ GAME_DATA = [
     {
         'name': 'TestGame',
         'status': 'completed',
+        'max_difficulty': 1,
         },
     {
         'name': 'TestGame',
@@ -192,6 +193,29 @@ class GameFormTest(TestCase):
             game.tags.create(tag=name)
         self.failUnlessEqual(game.max_difficulty, 7)
         self.failUnlessEqual(game.tags.count(), 3)
+
+    def test_createOutOfBounds(self):
+        """Test game creation with data out of valid bounds
+        """
+        upper_bound = {
+            'name': 'TestGame',
+            'status': 'completed',
+            'max_difficulty': 11
+        }
+        lower_bound = {
+            'name': 'TestGame',
+            'status': 'completed',
+            'max_difficulty': 0
+        }
+        non_int_bound = {
+            'name': 'TestGame',
+            'status': 'completed',
+            'max_difficulty': "bunny"
+        }
+        bounds = [upper_bound, lower_bound, non_int_bound]
+        for bound in bounds:
+            form = GameForm(user=self.user, data=bound)
+            self.failUnless(not form.is_valid())
 
 class RoundsAvailableTest(TestCase):
     fixtures = ["beginning_prompts", "user"]
@@ -427,7 +451,7 @@ class GameCreateViewTest(TestCase):
         """
         games = Game.objects.filter(name="TestGame2")
         self.failUnlessEqual(games.count(), 0)
-        response = self.client.post('/game/create/', {"name": "TestGame2"})
+        response = self.client.post('/game/create/', {"name": "TestGame2", "max_difficulty": 1})
         self.failUnlessEqual(games.count(), 1)
         
     def test_viewDetail(self):
