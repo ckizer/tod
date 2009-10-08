@@ -118,7 +118,7 @@ def select_prompts(request, game_id):
     if request.method == "POST":
         values = request.POST.copy()
         rounds = int(values['rounds']) if values['rounds'] else 0
-        if type(rounds) !== int:
+        if type(rounds)!=int:
             error = "ROUNDS_NOT_INT"
         else:
             if 0 < rounds <= maximum_rounds:
