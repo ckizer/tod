@@ -532,7 +532,8 @@ class GameCreateAnonymousViewTest(TestCase):
         self.user = User.objects.get(username="anonymous_0010")
         self.game = Game.objects.create(name="TestGame", user=self.user)
         self.game.game_over()
-        
+ 
+#TODO - run through complete game creation using Alice.
         
 class GameViewTest(TestCase):
     """Test that rendered pages display correctly
