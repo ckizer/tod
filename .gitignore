@@ -7,3 +7,5 @@ django
 admin_media
 apache
 local_settings.py
+BeautifulSoup.py
+soupselect.py

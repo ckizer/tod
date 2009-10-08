@@ -118,6 +118,7 @@ def select_prompts(request, game_id):
     if request.method == "POST":
         values = request.POST.copy()
         rounds = int(values['rounds']) if values['rounds'] else 0
+        print rounds
         if 0 < rounds <= maximum_rounds:
             game.create_game(rounds)
             return HttpResponseRedirect(game.get_absolute_url())
