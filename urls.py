@@ -7,6 +7,7 @@ admin.autodiscover()
 urlpatterns = patterns('django.views.generic.simple',
     (r'^about/$', 'direct_to_template', {'template': 'about.html'}),
     (r'^terms/$', 'direct_to_template', {'template': 'termsofuse.html'}),
+    (r'^sitemap.xml$', 'direct_to_template', {'template': 'sitemap.xml'}),
 )
 
 urlpatterns += patterns('',
