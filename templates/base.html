@@ -43,13 +43,19 @@
 	  {% endblock content %}
 	</div>
 
-	<div class="grid_2 alpha">
+	<div class="grid_2 alpha" id="emlprime">
+	  <a href="http://www.emlprime.com" target="_BLANK">
+	    <img src="/site_media/images/made_by_eml.png" alt="This web site designed and hosted by EMLPrime." />
+	  </a>
+	</div>
+
+	<div class="grid_2">
 	  {% block exit %}
 	  {% include "exit.html" %}
 	  {% endblock %}
 	</div>
 
-	<div class="grid_2 prefix_2 omega">
+	<div class="grid_2 omega">
 	  <a href="/terms/">Terms of Use</a>
 	  <div id="authentication">
 	    {% if user.is_authenticated %}
