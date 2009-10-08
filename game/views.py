@@ -118,14 +118,14 @@ def select_prompts(request, game_id):
     if request.method == "POST":
         values = request.POST.copy()
         rounds = int(values['rounds']) if values['rounds'] else 0
-        if type(rounds)!=int:
-            error = "ROUNDS_NOT_INT"
-        else:
+        if type(rounds)==int:
             if 0 < rounds <= maximum_rounds:
                 game.create_game(rounds)
                 return HttpResponseRedirect(game.get_absolute_url())
             else:
                 error = "MINIMUM_ROUNDS_EXCEEDED" if rounds < 1 else "MAXIMUM_ROUNDS_EXCEEDED"
+        else:
+            error = "ROUNDS_NOT_INT"
     return locals()
 
 @login_required
