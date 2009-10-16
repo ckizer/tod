@@ -47,5 +47,5 @@ class RoundForm(forms.Form):
         return data
 
     def save(self):
-        return self.cleaned_data['rounds']
+        return int(self.cleaned_data['rounds'])
 
