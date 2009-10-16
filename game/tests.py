@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from tod.prompt.models import Prompt, TaggedItem
 from tod.player.models import Player
 from tod.game.models import Game
-from tod.game.forms import GameForm
+from tod.game.forms import GameForm, RoundForm
 
 GAME_DATA = [
     {},
@@ -216,6 +216,36 @@ class GameFormTest(TestCase):
         for bound in bounds:
             form = GameForm(user=self.user, data=bound)
             self.failUnless(not form.is_valid())
+
+    def test_roundForm(self):
+        test_data = {
+            'rounds':1,
+        }
+        class MockGame:
+            def maximumRounds(self):
+                return 18
+        game = MockGame()
+        form=RoundForm(data=test_data, game=game)
+        result = form.is_valid()
+        self.failUnless(form.is_valid())
+
+    def test_roundOutOfBounds(self):
+        non_int_bound = {
+            'rounds': "bunny"
+        }
+        upper_bound = {
+            'rounds': 20
+        }
+        lower_bound = {
+            'rounds': 0
+        }
+        game = self.submit_form(GAME_DATA[1])
+        bounds = [upper_bound, lower_bound, non_int_bound]
+        for bound in bounds:
+            form = RoundForm(data=bound, game=game)
+            result = form.is_valid()
+            self.failUnless(not form.is_valid())
+
 
 class RoundsAvailableTest(TestCase):
     fixtures = ["beginning_prompts", "user"]

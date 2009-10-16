@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, Form
 from django import forms
 
 from tod.game.models import Game
@@ -29,3 +29,25 @@ class GameForm(ModelForm):
             game.save()
         return game
         
+class RoundForm(forms.Form):
+    """ Provides the form for selecting the number of rounds
+    """
+    rounds = forms.CharField()
+
+    def __init__(self, *args, **kwargs):
+        self.game = kwargs.pop('game') if kwargs.has_key('game') else None
+        super(RoundForm, self).__init__(*args, **kwargs)
+
+    def clean_rounds(self):
+        data = self.cleaned_data['rounds']
+        if not data.isdigit():
+            raise forms.ValidationError("Please select a number between 1 and the maximum rounds available")
+        if not (1 <= int(data) <= self.game.maximumRounds()):
+            raise forms.ValidationError("Please select a number between 1 and the maximum number of rounds available.")
+        return data
+
+    def save(self, commit=True):
+        rounds = super(RoundForm, self).save(commit=False)
+        if commit:
+            rounds.save()
+        return rounds

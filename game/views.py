@@ -105,10 +105,9 @@ def select_prompts(request, game_id):
     determine the number of rounds
     determine filtering rules by tag
     determine max_difficulty
-    TODO - (defer) put filtering functionality into the model
+    TODO - integrated view tests
     """
     game = get_object_or_404(Game, pk=game_id)
-
     template = "game/select_prompts.html"
     player_count = game.players.count()
     error = ""
@@ -116,16 +115,14 @@ def select_prompts(request, game_id):
         error = "MINIMUM_PLAYERS_EXCEEDED"
     maximum_rounds = game.maximumRounds()
     if request.method == "POST":
-        values = request.POST.copy()
-        if type(values)==int:
-            rounds = int(values['rounds']) if values['rounds'] else 0
-            if 0 < rounds <= maximum_rounds:
-                game.create_game(rounds)
-                return HttpResponseRedirect(game.get_absolute_url())
-            else:
-                error = "MINIMUM_ROUNDS_EXCEEDED" if rounds < 1 else "MAXIMUM_ROUNDS_EXCEEDED"
+        print "sending rounds data from the view to the form"
+        form=RoundForm(data=request.POST.copy(), game=game)
+        if form.is_valid():
+            rounds = form.save()
+            game.create_game(rounds)
+            return HttpResponseRedirect(game.get_absolute_url())
         else:
-            error = "ROUNDS_NOT_INT"
+            form=RoundForm
     return locals()
 
 @login_required
