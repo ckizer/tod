@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.views.generic.create_update import delete_object
 
-from tod.game.forms import GameForm
+from tod.game.forms import GameForm, RoundForm
 from tod.comment.forms import CommentForm
 from tod.game.models import Game
 from tod.prompt.models import Prompt
@@ -115,7 +115,6 @@ def select_prompts(request, game_id):
         error = "MINIMUM_PLAYERS_EXCEEDED"
     maximum_rounds = game.maximumRounds()
     if request.method == "POST":
-        print "sending rounds data from the view to the form"
         form=RoundForm(data=request.POST.copy(), game=game)
         if form.is_valid():
             rounds = form.save()

@@ -1,7 +1,7 @@
 # Django settings for tod project.
 import django 
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (

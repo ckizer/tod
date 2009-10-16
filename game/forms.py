@@ -46,8 +46,6 @@ class RoundForm(forms.Form):
             raise forms.ValidationError("Please select a number between 1 and the maximum number of rounds available.")
         return data
 
-    def save(self, commit=True):
-        rounds = super(RoundForm, self).save(commit=False)
-        if commit:
-            rounds.save()
-        return rounds
+    def save(self):
+        return self.cleaned_data['rounds']
+

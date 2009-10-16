@@ -4,7 +4,7 @@
 <div id="select_prompts">
   <form action="." method="post">
     <p class="error">
-      {% if form.errors %}{{ form.errors }}{% endif %}
+      {% if form.errors %}Please enter a number between 1 and the maximum number of rounds available.{% endif %}
     </p>
     <p class="help_text">How many rounds would you like to play?  A round includes one prompt for each player. You have {{ maximum_rounds }} available.</p>
     <p><label for="id_name">Number of Rounds: </label> <input type="text" name="rounds" value="{{ rounds }}" /></p>
