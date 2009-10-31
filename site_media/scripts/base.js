@@ -1,3 +1,11 @@
+$(function(){
+	// fix for target="_blank"
+	$("a[@rel~='external']").click(function(){
+		window.open($(this).attr("href"));
+		return false;
+	    });
+    });
+
 function toggle_comment_form(event) {
     /*    console.log("clicked toggle_comment_form"); */
     $("#comment_form").slideToggle();
@@ -22,6 +30,7 @@ function toggle_comment_form(event) {
     function button_mouse_down(event){
 	event.target.src = event.target.src.replace("_over.png","_down.png");
     }
+
 
     function button_mouse_up(event){
 	event.target.src = event.target.src.replace("_down.png","_over.png");
