@@ -12,7 +12,7 @@ class PlayerForm(ModelForm):
 
     class Meta:
         model = Player
-        fields = ('name')
+        fields = ('name',)
 
     def save(self, commit=True):
         player = super(PlayerForm, self).save(commit=False)
